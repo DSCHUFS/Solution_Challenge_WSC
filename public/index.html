@@ -8,8 +8,15 @@
     <title>Solution Challenge</title>
 </head>
 <body>
-    <img class="parallax" id="image"
-    src="pics/Main2.jpg"
+    <div class="main_top">
+        <img class="main_image" id="firstImage" src = "pics/Main1_Copy5.jpg" alt="두 사람이 나란히 가는 사진">
+        <div class="top">
+        </div>
+    </div>
+
+    <!-- 중단 배경사진 -->
+    <img class="parallax" id="secondImage"
+    src="pics/Main2_Copy1.jpg"
     alt="people"
     />
     <div class="main_middle" id="main_middle">
@@ -17,7 +24,7 @@
             <div class="overlay grid">
                 <div class="number grid_item1">5</div>
                 <div class="number grid_item1">54.3</div>
-                <div class="text_container grid_item">
+                <div class="text_container grid_item" id="circle_text_container">
                     <div class="text">
                         편견을<br>
                         부수는<br>
@@ -153,8 +160,9 @@
     
     <!-- chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="scrollUtil.js"></script>
-    <script type="text/javascript" src="scroll.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script/scrollUtil.js"></script>
+    <script type="text/javascript" src="script/scroll.js"></script>
+    <script type="text/javascript" src="script/pageAnimation.js"></script>
+    <script type="text/javascript" src="script/onload.js"></script>
 </body>
 </html>

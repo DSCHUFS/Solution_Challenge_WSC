@@ -20,6 +20,13 @@ body::-webkit-scrollbar-thumb {
     border-radius: 2px;
 }
 
+.main_image {
+    position:absolute;
+    z-index: -1;
+    height: 100vh;
+    width: 100vw;
+}
+
 .parallax {
     position: absolute;
     z-index: -1;
@@ -42,6 +49,12 @@ body::-webkit-scrollbar-thumb {
     height: 600vh;
 }
 
+.top {
+    height:100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.5);
+}
+
 .overlay {
     height:100vh;
     width: 100vw;
@@ -49,7 +62,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .overlay.grid {
-    position: fixed;
+    position: sticky;
     top: 0;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -81,11 +94,17 @@ body::-webkit-scrollbar-thumb {
 
 .grid_item2 {
     opacity: 0;
+    transition: 0.5s;
 }
 
 .grid_item2:nth-child(1) {
     opacity: 1;
     justify-self: center;
+}
+
+.number_container .numbers {
+    opacity: 0;
+    transition: 0.5s;
 }
 
 .grid_item2:nth-child(2) {
