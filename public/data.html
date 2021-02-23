@@ -1,55 +1,71 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style/data.css">
+    <title>Document</title>
+</head>
+<body>
+  <div class="nav">
+      navbar
+  </div>
+  <div class="playlist">
+      <div class="card">
+          <div class="player" id="player">
 
-    <script>
-      // 2. This code loads the IFrame Player API code asynchronously.
+          </div>
+          <div class="card-body">
+              <h1>제목</h1>
+              <p>hello~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+          </div>
+      </div>
+      <div class="card">
+          <div class="player" id="player2">
+
+          </div>
+          <div class="card-body">
+              <h1>제목</h1>
+              <p>hello~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+          </div>
+      </div>
+  </div>
+
+  <script>
       var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
       var firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. This function creates an <iframe> (and YouTube player)
-      //    after the API code downloads.
-      //플레이어가 위치할 div 태그의 id를 첫 번째 매개변수로 전달한다.
-      //해당하는 div 태그를 iframe 태그로 변경해준다. 
       var player;
+      var player2;
+
+      //player 설정
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
-          height: '360',
-          width: '640',
-          videoId: 'XN2OC9UVVuA',
-          //playerVars에 Youtube IFramePlayer API의 매개변수들을 지정할 수 있다.
-          playerVars: { 'autoplay': 1, 'modestbranding': 1, 'start': 360},
+          height: '300',
+          width: '500',
+          videoId: 'M7lc1UVf-VE',
           events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+          }
+        });
+
+        player2 = new YT.Player('player2', {
+          height: '300',
+          width: '500',
+          videoId: 'M7lc1UVf-VE',
+          events: {
+            'onReady': onPlayerReady,
           }
         });
       }
 
-      // 4. The API will call this function when the video player is ready.
+      //동영상이 재생될 준비가 되면(event-'onReady'), 실행되는 함수
       function onPlayerReady(event) {
         event.target.playVideo();
       }
-
-      // 5. The API calls this function when the player's state changes.
-      //    The function indicates that when playing a video (state=1),
-      //    the player should play for six seconds and then stop.
-      var done = false;
-      function onPlayerStateChange(event) {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-          setTimeout(stopVideo, 6000);
-          done = true;
-        }
-      }
-      
-      function stopVideo() {
-        player.stopVideo();
-      }
-    </script>
-  </body>
+  </script>
+</body>
 </html>
