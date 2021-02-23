@@ -10,9 +10,10 @@ function makeChart(ctx, config) {
 
 function scrollEvent() {
     let scrollArg = scrollArguments();
+    let chart0;
     let chart1 = makeChart(scrollArg.secondEvent.ctx, scrollArg.secondEvent.chartConfig);
     let chart2 = makeChart(scrollArg.thirdEvent.ctx, scrollArg.thirdEvent.chartConfig);
     let chart3 = makeChart(scrollArg.fourthEvent.ctx, scrollArg.fourthEvent.chartConfig);
 
-    return [chart1, chart2, chart3];
+    return [chart0, chart1, chart2, chart3];
 }
