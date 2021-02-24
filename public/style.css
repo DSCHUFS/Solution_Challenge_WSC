@@ -53,6 +53,40 @@ body::-webkit-scrollbar-thumb {
     height:100vh;
     width: 100vw;
     background: rgba(0,0,0,0.5);
+
+    display: grid;
+    grid-template-columns: 0.05fr 0.6fr 0.35fr;
+    grid-template-rows: 1fr 0.8fr 0.2fr;
+}
+
+.grid_item0:nth-child(1) {
+    grid-area: 2/2/3/3;
+    justify-self: start;
+}
+
+.grid_item0:nth-child(2) {
+    grid-area: 3/2/4/3;
+    justify-self: start;
+}
+
+.main_text {
+    display: flex;
+    align-items: center;
+}
+
+.main_text>span {
+    font-size: 130px;
+    font-weight: 900;
+    line-height: 110%;
+
+    height: 1.1em;
+}
+
+.sub_text>span {
+    font-size: 20px;
+    font-weight: 700;
+
+    padding-left: 10px;
 }
 
 .overlay {
