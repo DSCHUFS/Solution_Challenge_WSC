@@ -8,171 +8,174 @@
     <title>Solution Challenge</title>
 </head>
 <body>
-    <div class="main_top">
-        <img class="main_image" id="firstImage" src = "pics/Main1_Copy5.jpg" alt="두 사람이 나란히 가는 사진">
-        <div class="top">
-            <div class="grid_item0">
-                <div class="main_text">
-                    <span>Barrier-Free</span>
+    <main data-scrollbar="true">
+        <div class="main_top">
+            <img class="main_image" id="firstImage" src = "pics/Main1.jpg" alt="두 사람이 나란히 가는 사진">
+            <div class="top">
+                <div class="grid_item0">
+                    <div class="main_text">
+                        <span>Barrier-Free</span>
+                    </div>
+                    <div class="main_text">
+                        <span>B-Free</span>
+                    </div>
                 </div>
-                <div class="main_text">
-                    <span>B-Free</span>
-                </div>
-            </div>
-            <div class="grid_item0">
-                <div class="sub_text">
-                    <span>편견과 차별의 벽을 부수어 모두가 자유롭게 살 수 있는 세상을 꿈꿉니다.</span>
+                <div class="grid_item0">
+                    <div class="sub_text">
+                        <span>편견과 차별의 벽을 부수어 모두가 자유롭게 살 수 있는 세상을 꿈꿉니다.</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- 중단 배경사진 -->
-    <img class="parallax" id="secondImage"
-    src="pics/Main2_Copy1.jpg"
-    alt="people"
-    />
-    <div class="main_middle" id="main_middle">
-        <div class="animation">
-            <div class="overlay grid">
-                <div class="number grid_item1">5</div>
-                <div class="number grid_item1">54.3</div>
-                <div class="text_container grid_item" id="circle_text_container">
-                    <div class="text">
-                        편견을<br>
-                        부수는<br>
-                        숫자<br>
+    
+        <!-- 중단 배경사진 -->
+        <img class="parallax" id="secondImage"
+        src="pics/Main2.jpg"
+        alt="people"
+        />
+        <div class="main_middle" id="main_middle">
+            <div class="animation">
+                <div class="overlay grid">
+                    <div class="number grid_item1">5</div>
+                    <div class="number grid_item1">54.3</div>
+                    <div class="text_container grid_item" id="circle_text_container">
+                        <div class="text">
+                            편견을<br>
+                            부수는<br>
+                            숫자<br>
+                        </div>
+                    </div>
+                    <div class="number grid_item1">9</div>
+                    <div class="number grid_item1">46</div>
+                </div>
+            </div>
+            
+            <div class="animation">
+                <div class="overlay stat">
+                    <div class="number_container grid_item2">
+                        <div class="numbers">
+                            <span class="number">5</span><span class="percentage">%</span>
+                        </div>
+                    </div>
+                    <div class="headline grid_item2">
+                        <div class="text1">
+                            20명 중 1명
+                        </div>
+                        <div class="text2">
+                            우리나라의 장애인 추정수는 2,668,411명, 전체 인구의 5%
+                        </div>
+                    </div>
+                    <div class="info_container grid_item2">
+                        <div class="infographic">
+                            <canvas id="chart0"></canvas>
+                        </div>
+                    </div>
+                    <span class="source grid_item2">
+                        자료 출처 : 2017년 장애인 실태조사
+                    </span>
+                    <div class="comment grid_item2">
+                        우리 모두 함께 살아가고 있습니다. 보이지 않는다고 해서 없다고 생각하는 것은 편견이 될 수 있습니다. 
                     </div>
                 </div>
-                <div class="number grid_item1">9</div>
-                <div class="number grid_item1">46</div>
+            </div>
+        
+            <div class="animation">
+                <div class="overlay stat">
+                    <div class="number_container grid_item2">
+                        <div class="numbers">
+                            <span class="number">9</span><span class="percentage">명</span>
+                        </div>
+                    </div>
+                    <div class="headline grid_item2">
+                        <div class="text1">
+                            10명 중 9명
+                        </div>
+                        <div class="text2">
+                            장애 원인 중, 88.1%는 후천적 원인
+                        </div>
+                    </div>  
+                    <div class="info_container grid_item2">
+                        <div class="infographic">
+                            <canvas id="chart1"></canvas>
+                        </div>
+                    </div>
+                    <span class="source grid_item2">
+                        자료 출처 : 2017년 장애인 실태조사
+                    </span>
+                    <div class="comment grid_item2">
+                        장애는 후천적인 원인이 훨씬 많습니다. 장애는 누구나 언제든 얻게 될 수 있습니다. 장애를 특별한 것이라고 바라보는 자세는 차별의 시선이 될 수 있습니다.
+                    </div>
+                </div>
+            </div>
+        
+            <div class="animation">
+                <div class="overlay stat">
+                    <div class="number_container grid_item2">
+                        <div class="numbers">
+                            <span class="number">46</span><span class="percentage">%</span>
+                        </div>
+                    </div>
+                    <div class="headline grid_item2">
+                        <div class="text1">
+                            '약간 있음', 46%
+                        </div>
+                        <div class="text2">
+                            우리나라의 장애인에 대한 차별 인식
+                        </div>
+                    </div>
+                    <div class="info_container grid_item2">
+                        <div class="infographic">
+                            <canvas id="chart2"></canvas>
+                        </div>
+                    </div>
+                    <span class="source grid_item2">
+                        자료 출처 : 2017년 장애인 실태조사
+                    </span>
+                    <div class="comment grid_item2">
+                        우리나라의 장애인에 대한 차별인식은 아직 존재한다고 할 수 있습니다(2017년 기준). 사회 구성원들이 장애인에 대한 차별과 편견의 시선을 버린다면 차별 없는 사회가 더 다가올 수 있을 것입니다.
+                    </div>
+                </div>
+            </div>
+        
+            <div class="animation">
+                <div class="overlay stat">
+                    <div class="number_container grid_item2">
+                        <div class="numbers">
+                            <span class="number">54.3</span><span class="percentage">%</span>
+                        </div>
+                    </div>
+                    <div class="headline grid_item2">
+                        <div class="text1">
+                            '별로 받지 못하고 있음', 54.3%
+                        </div>
+                        <div class="text2">
+                            장애 등록 후 국가나 사회로부터의 지원에 대한 인식
+                        </div>
+                    </div>
+                    <div class="info_container grid_item2">
+                        <div class="infographic">
+                            <canvas id="chart3"></canvas>
+                        </div>
+                    </div>
+                    <span class="source grid_item2">
+                        자료 출처 : 2017년 장애인 실태조사
+                    </span>
+                    <div class="comment grid_item2">
+                        장애등록을 하더라도 지원을 받고 있다는 인식이 아직 높지 않습니다. 우리들이 더 관심을 갖고 인식하기만 해도 국가와 사회의 지원은 더 활성화 될 수 있을 것이고 지원받고 있다는 인식은 더 높아질 수 있을 것입니다.
+                    </div>
+                </div>
             </div>
         </div>
         
-        <div class="animation">
-            <div class="overlay stat">
-                <div class="number_container grid_item2">
-                    <div class="numbers">
-                        <span class="number">5</span><span class="percentage">%</span>
-                    </div>
-                </div>
-                <div class="headline grid_item2">
-                    <div class="text1">
-                        20명 중 1명
-                    </div>
-                    <div class="text2">
-                        우리나라의 장애인 추정수는 2,668,411명, 전체 인구의 5%
-                    </div>
-                </div>
-                <div class="info_container grid_item2">
-                    <div class="infographic">
-                        <canvas id="chart0"></canvas>
-                    </div>
-                </div>
-                <span class="source grid_item2">
-                    자료 출처 : 2017년 장애인 실태조사
-                </span>
-                <div class="comment grid_item2">
-                    우리 모두 함께 살아가고 있습니다. 보이지 않는다고 해서 없다고 생각하는 것은 편견이 될 수 있습니다. 
-                </div>
-            </div>
-        </div>
     
-        <div class="animation">
-            <div class="overlay stat">
-                <div class="number_container grid_item2">
-                    <div class="numbers">
-                        <span class="number">9</span><span class="percentage">명</span>
-                    </div>
-                </div>
-                <div class="headline grid_item2">
-                    <div class="text1">
-                        10명 중 9명
-                    </div>
-                    <div class="text2">
-                        장애 원인 중, 88.1%는 후천적 원인
-                    </div>
-                </div>  
-                <div class="info_container grid_item2">
-                    <div class="infographic">
-                        <canvas id="chart1"></canvas>
-                    </div>
-                </div>
-                <span class="source grid_item2">
-                    자료 출처 : 2017년 장애인 실태조사
-                </span>
-                <div class="comment grid_item2">
-                    장애는 후천적인 원인이 훨씬 많습니다. 장애는 누구나 언제든 얻게 될 수 있습니다. 장애를 특별한 것이라고 바라보는 자세는 차별의 시선이 될 수 있습니다.
-                </div>
-            </div>
-        </div>
+        <div class="main_Bottom">
     
-        <div class="animation">
-            <div class="overlay stat">
-                <div class="number_container grid_item2">
-                    <div class="numbers">
-                        <span class="number">46</span><span class="percentage">%</span>
-                    </div>
-                </div>
-                <div class="headline grid_item2">
-                    <div class="text1">
-                        '약간 있음', 46%
-                    </div>
-                    <div class="text2">
-                        우리나라의 장애인에 대한 차별 인식
-                    </div>
-                </div>
-                <div class="info_container grid_item2">
-                    <div class="infographic">
-                        <canvas id="chart2"></canvas>
-                    </div>
-                </div>
-                <span class="source grid_item2">
-                    자료 출처 : 2017년 장애인 실태조사
-                </span>
-                <div class="comment grid_item2">
-                    우리나라의 장애인에 대한 차별인식은 아직 존재한다고 할 수 있습니다(2017년 기준). 사회 구성원들이 장애인에 대한 차별과 편견의 시선을 버린다면 차별 없는 사회가 더 다가올 수 있을 것입니다.
-                </div>
-            </div>
         </div>
-    
-        <div class="animation">
-            <div class="overlay stat">
-                <div class="number_container grid_item2">
-                    <div class="numbers">
-                        <span class="number">54.3</span><span class="percentage">%</span>
-                    </div>
-                </div>
-                <div class="headline grid_item2">
-                    <div class="text1">
-                        '별로 받지 못하고 있음', 54.3%
-                    </div>
-                    <div class="text2">
-                        장애 등록 후 국가나 사회로부터의 지원에 대한 인식
-                    </div>
-                </div>
-                <div class="info_container grid_item2">
-                    <div class="infographic">
-                        <canvas id="chart3"></canvas>
-                    </div>
-                </div>
-                <span class="source grid_item2">
-                    자료 출처 : 2017년 장애인 실태조사
-                </span>
-                <div class="comment grid_item2">
-                    장애등록을 하더라도 지원을 받고 있다는 인식이 아직 높지 않습니다. 우리들이 더 관심을 갖고 인식하기만 해도 국가와 사회의 지원은 더 활성화 될 수 있을 것이고 지원받고 있다는 인식은 더 높아질 수 있을 것입니다.
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    <div class="main_Bottom">
-
-    </div>
+    </main>
     
     <!-- chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script src="dist/smooth-scrollbar.js"></script>
     <script type="text/javascript" src="script/scrollUtil.js"></script>
     <script type="text/javascript" src="script/scroll.js"></script>
     <script type="text/javascript" src="script/pageAnimation.js"></script>

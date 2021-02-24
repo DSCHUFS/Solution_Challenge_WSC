@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "express": "^4.17.1",
+    "smooth-scrollbar": "^8.6.0",
     "vm": "^0.1.0"
   }
 }
