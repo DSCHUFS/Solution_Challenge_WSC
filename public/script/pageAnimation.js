@@ -17,7 +17,7 @@ class PageAnimation {
         this.img = document.getElementById("secondImage");
 
         // charts array
-        this.charts = scrollEvent();
+        this.charts = getCharts();
 
         // 편견을 부수는 숫자 페이지의 number element
         this.numbers = [...document.getElementsByClassName("number grid_item1")];
@@ -71,6 +71,12 @@ class PageAnimation {
     imgParallaxScroll(i) {
         let ratio = Math.min(1, Math.max(0,(i-window.innerHeight)/this.documentTopMove));
         this.img.style.transform = `translate3d(0, ${this.imgTopMove*ratio}px, 0)`;
+    }
+
+    allPageAnimation() {
+        this.overlays.forEach((overlay, i) => {
+            if(i!==0) overlay.style.position = 'sticky';
+        })
     }
 
     reset() {
