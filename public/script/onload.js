@@ -2,6 +2,7 @@ window.onload = () => {
     let pa = new PageAnimation();
     window.addEventListener('scroll', e => {
         let i = window.pageYOffset;
+        pa.allPageAnimation()
         pa.imgParallaxScroll(i);
         for(let j=0; j<5; j++) {
             if(j == 0) {

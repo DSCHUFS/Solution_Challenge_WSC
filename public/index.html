@@ -61,12 +61,76 @@
                         20명 중 1명
                     </div>
                     <div class="text2">
-                        우리나라의 장애인 추정수는 2,668,411명, 전체 인구의 5%
+                        우리나라의 장애인 추정수는 2,668,411명, 전체 인구의 약 5%
                     </div>
                 </div>
-                <div class="info_container grid_item2">
-                    <div class="infographic">
-                        <canvas id="chart0"></canvas>
+                <div class="pict_container grid_item2">
+                    <div class="hover_icon" id="hover_icon1">
+                        <div class="arrow"></div>
+                        <div class="background" data-index="1">
+                            <div class="color_box_hover">
+
+                            </div>
+                            <div class="label_hover">
+                                장애를 가진 사람: 5.39%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hover_icon" id="hover_icon2">
+                        <div class="arrow"></div>
+                        <div class="background" data-index="2">
+                            <div class="color_box_hover">
+                                장애를 가지지 않은 사람: 94.61% 
+                            </div>
+                            <div class="label_hover">
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pictogram">
+                        <div class="pictogram_controls">
+                            <div class="control" data-index="1">
+                                <div class="color_box">
+
+                                </div>
+                                <div class="label">
+                                    장애를 가진 사람
+                                </div>
+                            </div>
+                            <div class="control" data-index="2">
+                                <div class="color_box">
+
+                                </div>
+                                <div class="label">
+                                    장애를 가지지 않은 사람
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img_people">
+                                <img class="img_person img_person1" src="pics/human1.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                        </div> 
+                        <div class="img_people">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                        </div>
                     </div>
                 </div>
                 <span class="source grid_item2">
@@ -173,9 +237,8 @@
     
     <!-- chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-    <script src="dist/smooth-scrollbar.js"></script>
-    <script type="text/javascript" src="script/scrollUtil.js"></script>
-    <script type="text/javascript" src="script/scroll.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script/chartUtil.js"></script>
     <script type="text/javascript" src="script/pageAnimation.js"></script>
     <script type="text/javascript" src="script/onload.js"></script>
 </body>
