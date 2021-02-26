@@ -124,12 +124,11 @@ function makeChart(ctx, config) {
 
 function getCharts() {
     let chartArgs = getChartArguments();
-    let chart0;
     let chart1 = makeChart(chartArgs[0].ctx, chartArgs[0].chartConfig);
     let chart2 = makeChart(chartArgs[1].ctx, chartArgs[1].chartConfig);
     let chart3 = makeChart(chartArgs[2].ctx, chartArgs[2].chartConfig);
 
-    return [chart0, chart1, chart2, chart3];
+    return [chart1, chart2, chart3];
 }
 
 const people = [...(document.getElementsByClassName("img_person"))];
