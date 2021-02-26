@@ -18,7 +18,7 @@ body {
 }
 
 .card {
-    margin-bottom: 30px;
+    margin-bottom: 10%;
     /* border: 2px solid black; */
     display: flex;
 }
