@@ -163,11 +163,11 @@ class PageAnimation {
         if(diff >= window.innerHeight*2) {
             overlayChildren[2].style.opacity = 1;
             overlayChildren[3].style.opacity = 1;
-            if(pageN !== 1) this.charts[pageN-1].update();
+            if(pageN > 1) this.charts[pageN-2].update();
         } else {
             overlayChildren[2].style.opacity = 0;
             overlayChildren[3].style.opacity = 0;
-            if(pageN !== 1) this.charts[pageN-1].reset();
+            if(pageN > 1) this.charts[pageN-2].reset();
         }
         // comment
         if(diff >= window.innerHeight*3) {
@@ -186,7 +186,7 @@ class PageAnimation {
                     ch.style.opacity = 0;
                 }
             })
-            if(pageN !== 1) this.charts[pageN-1].reset();
+            if(pageN > 1) this.charts[pageN-2].reset();
         }
     }
 }
