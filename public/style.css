@@ -198,6 +198,10 @@ body::-webkit-scrollbar-thumb {
     margin: 0.3em;
 }
 
+.label {
+    font-size: 15px;
+}
+
 .hover_icon {
     position: absolute;
     width: 500px;
@@ -216,6 +220,7 @@ body::-webkit-scrollbar-thumb {
     transform: translate(30%, -20%);
 }
 
+/* https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow {
     width: 0; 
     height: 0;
@@ -227,12 +232,36 @@ body::-webkit-scrollbar-thumb {
 }
 
 .background {
-    width: auto;
-    opacity: 1;
+    height: 1.5em;
     border: 1px solid black;
     border-radius: 10px;
     padding: 3px;
-    background-color: rgba(0,0,0);
+    background-color: rgba(0,0,0, 0.7);
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.color_box_hover {
+    width: 1rem;
+    height: 1rem;
+    margin: 0.3rem;
+    display: inline-block;
+    border: 1px solid white;
+}
+
+.background[data-index="1"] .color_box_hover {
+    background-color: #D1D1D1;
+}
+
+.background[data-index="2"] .color_box_hover {
+    background-color: #787878;
+}
+
+.label_hover {
+    margin: 0.3rem;
+    font-size: 15px;
 }
 
 .img_people {
