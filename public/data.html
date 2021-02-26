@@ -45,8 +45,9 @@
           <div class="card-body">
               <h1 class="title">뇌성마비 장애인과 친구가 될 수 있을까?</h1>
               <p class="main-text">
-                만약 뇌성마비 장애인을 처음 만나면, 어떤 말을 건넬건가요?<br>
-                장애인과 친구가 될 수 있을까요?<br>
+                처음 만나는 사람과 친구가 되는 것이 어려운가요?<br>
+                만약 그 사람이 장애인이라면 상황이 달라질까요?<br>
+                뇌성마비 장애인을 처음 만나면, 어떤 말을 건넬건가요?
               </p>
               <p class="footer-text">
                 장애인과 친구가 되어가는 과정을 확인해보세요!!
@@ -78,6 +79,7 @@
             },
             events: {
               //'onReady': onPlayerReady, //동영상 재생 준비가 되면, 자동 재생
+              //'onStateChange': showPlayerModal,
             }
           });
 
@@ -110,6 +112,10 @@
         function onPlayerReady(event) {
           event.target.playVideo();
         }
+
+        // function showPlayerModal(event) {
+        //   if(event.data == YT.PlayerState.)
+        // }
     </script>
 </body>
 </html>

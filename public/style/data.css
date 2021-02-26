@@ -27,8 +27,17 @@ body {
     margin: 15px;
     background-color: gold;
     border-radius: 5%;
+    box-sizing: border-box;
 }
 
 .card-body {
     margin: 15px;
+}
+
+.main-text {
+    font-size: 1.3rem;
+}
+
+.footer-text {
+    font-size: 1.2rem;
 }
