@@ -19,13 +19,14 @@ body {
 
 .card {
     margin-bottom: 30px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     display: flex;
 }
 
 .player {
     margin: 15px;
     background-color: gold;
+    border-radius: 5%;
 }
 
 .card-body {
