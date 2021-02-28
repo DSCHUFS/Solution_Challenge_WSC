@@ -18,16 +18,18 @@ body {
 }
 
 .card {
-    margin-bottom: 10%;
-    /* border: 2px solid black; */
+    margin-bottom: 8%;
+    /* box-shadow: 1px 1px 3px 1px #dadce0; */
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
     display: flex;
 }
 
 .player {
     margin: 15px;
     background-color: gold;
-    border-radius: 5%;
-    box-sizing: border-box;
 }
 
 .card-body {
@@ -36,6 +38,7 @@ body {
 
 .main-text {
     font-size: 1.3rem;
+    line-height: 2rem;
 }
 
 .footer-text {
