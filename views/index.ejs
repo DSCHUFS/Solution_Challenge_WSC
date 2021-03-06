@@ -35,158 +35,117 @@
 <!-- 인식개선 테스트 div -->
     <div id="wrapper">
         <div id="slider-wrap">
-            <ul id="slider">
-                <li class="Q1">
-                    <div>
-                        <h3>Question #1</h3>
-                        <span>정답을 골라보세요.</span>
-                        <div class="QS">장애를 가진 사람이라는 의미의<br>단어로서 옳은 표현은 무엇일까요?
+            <form name="before">
+                <ul id="slider">
+                    <li class="Q1">
+                        <div>
+                            <h3>Question #1</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                장애를 가진 사람이라는 의미의<br>단어로서 옳은 표현은 무엇일까요?
+                            </div>
+                            <label><input type="checkbox" name="answer1" value="장애자" onclick='checkOnlyOne(this)'> 장애자</label>
+                            <label><input type="checkbox" name="answer1" value="장애인" onclick='checkOnlyOne(this)'> 장애인</label>
+                            <label><input type="checkbox" name="answer1" value="장애우" onclick='checkOnlyOne(this)'> 장애우</label>
+                            <label><input type="checkbox" name="answer1" value="불구자" onclick='checkOnlyOne(this)'> 불구자</label>
                         </div>
-                        <form class="Q1f">
-                            <label><input type="checkbox" name="answer1" 
-                                value="장애자" onclick='checkOnlyOne(this)'> 장애자</label>
-                            <label><input type="checkbox" name="answer1" 
-                                value="장애인" onclick='checkOnlyOne(this)'> 장애인</label>
-                            <label><input type="checkbox" name="answer1" 
-                                value="장애우" onclick='checkOnlyOne(this)'> 장애우</label>
-                            <label><input type="checkbox" name="answer1" 
-                                value="불구자" onclick='checkOnlyOne(this)'> 불구자</label>
-                        </form>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="Q2">
-                    <div>
-                        <h3>Question #2</h3>
-                        <span>정답을 골라보세요.</span>
-                        <div class="QS">대한민국 전체인구 중 장애인의<br>비율은 몇 %일까요?
+                    <li class="Q2">
+                        <div>
+                            <h3>Question #2</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                대한민국 전체인구 중 장애인의<br>비율은 몇 %일까요?
+                            </div>
+                            <label><input type="checkbox" name="answer2" value="1.5%" onclick='checkOnlyOne(this)'> 1.5 %</label>
+                            <label><input type="checkbox" name="answer2" value="3%" onclick='checkOnlyOne(this)'> 3 %</label>
+                            <label><input type="checkbox" name="answer2" value="5%" onclick='checkOnlyOne(this)'> 5 %</label>
+                            <label><input type="checkbox" name="answer2" value="9%" onclick='checkOnlyOne(this)'> 9 %</label>
+                            <label><input type="checkbox" name="answer2"value="11%" onclick='checkOnlyOne(this)'> 11 %</label>
                         </div>
-                        <form class="Q2f">
-                            <label><input type="checkbox" name="answer2" 
-                                value="1.5%" onclick='checkOnlyOne(this)'> 1.5 %</label>
-                            <label><input type="checkbox" name="answer2" 
-                                value="3%" onclick='checkOnlyOne(this)'> 3 %</label>
-                            <label><input type="checkbox" name="answer2" 
-                                value="5%" onclick='checkOnlyOne(this)'> 5 %</label>
-                            <label><input type="checkbox" name="answer2" 
-                                value="9%" onclick='checkOnlyOne(this)'> 9 %</label>
-                            <label><input type="checkbox" name="answer2" 
-                                value="11%" onclick='checkOnlyOne(this)'> 11 %</label>
-                        </form>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="Q3">
-                    <div>
-                        <h3>Question #3</h3>
-                        <span>정답을 골라보세요.</span>
-                        <div class="QS">
-                            우리나라의 전체 장애인 중,<br>사고나 질환 등의 후천적인 원인으로<br>
-                            장애가 발생한 비율은 10명 중,<br> "?"명 꼴입니다.
+                    <li class="Q3">
+                        <div>
+                            <h3>Question #3</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                우리나라의 전체 장애인 중,<br>사고나 질환 등의 후천적인 원인으로<br>
+                                장애가 발생한 비율은 10명 중,<br> "?"명 꼴입니다.
+                            </div>
+                            <label><input type="checkbox" name="answer3" value="2" onclick='checkOnlyOne(this)'> 2 명</label>
+                            <label><input type="checkbox" name="answer3" value="4" onclick='checkOnlyOne(this)'> 4 명</label>
+                            <label><input type="checkbox" name="answer3" value="6" onclick='checkOnlyOne(this)'> 6 명</label>
+                            <label><input type="checkbox" name="answer3" value="8" onclick='checkOnlyOne(this)'> 8 명</label>
+                            <label><input type="checkbox" name="answer3" value="9" onclick='checkOnlyOne(this)'> 9 명</label>
                         </div>
-                        <form class="Q3f">
-                            <label><input type="checkbox" name="answer3" 
-                                value="2" onclick='checkOnlyOne(this)'> 2 명</label>
-                            <label><input type="checkbox" name="answer3" 
-                                value="4" onclick='checkOnlyOne(this)'> 4 명</label>
-                            <label><input type="checkbox" name="answer3" 
-                                value="6" onclick='checkOnlyOne(this)'> 6 명</label>
-                            <label><input type="checkbox" name="answer3" 
-                                value="8" onclick='checkOnlyOne(this)'> 8 명</label>
-                            <label><input type="checkbox" name="answer3" 
-                                value="9" onclick='checkOnlyOne(this)'> 9 명</label>
-                        </form>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="Q4">
-                    <div>
-                        <h3>Question #4</h3>
-                        <span>O / X 문제입니다.</span>
-                        <div class="QS">
-                            뇌병변 장애인은 지능이 낮다.
+                    <li class="Q4">
+                        <div>
+                            <h3>Question #4</h3>
+                            <span>O / X 문제입니다.</span>
+                            <div class="QS">
+                                뇌병변 장애인은 지능이 낮다.
+                            </div>
+                            <label><input type="checkbox" name="answer4" value="O" onclick='checkOnlyOne(this)'> O </label>
+                            <label><input type="checkbox" name="answer4" value="X" onclick='checkOnlyOne(this)'> X </label>
                         </div>
-                        <form class="Q4f">
-                            <label><input type="checkbox" name="answer4" 
-                                value="O" onclick='checkOnlyOne(this)'> O </label>
-                            <label><input type="checkbox" name="answer4" 
-                                value="X" onclick='checkOnlyOne(this)'> X </label>
-                        </form>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="Q5">
-                    <div>
-                        <h3>Question #5</h3>
-                        <span>정답을 골라보세요.</span>
-                        <div class="QS">
-                            우리나라에 등록된 장애 유형 중<br>가장 높은 비율을 차지하고 있는<br>
-                            유형은 무엇일까요?
+                    <li class="Q5">
+                        <div>
+                            <h3>Question #5</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                우리나라에 등록된 장애 유형 중<br>가장 높은 비율을 차지하고 있는<br>
+                                유형은 무엇일까요?
+                            </div>
+                            <label><input type="checkbox" name="answer5" value="지체장애" onclick='checkOnlyOne(this)'> 지체장애</label>
+                            <label><input type="checkbox" name="answer5" value="시각장애" onclick='checkOnlyOne(this)'> 시각장애</label>
+                            <label><input type="checkbox" name="answer5" value="심장장애" onclick='checkOnlyOne(this)'> 심장장애</label>
+                            <label><input type="checkbox" name="answer5" value="지적장애" onclick='checkOnlyOne(this)'> 지적장애</label>
                         </div>
-                        <form class="Q5f">
-                            <label><input type="checkbox" name="answer5" 
-                                value="지체장애" onclick='checkOnlyOne(this)'> 지체장애</label>
-                            <label><input type="checkbox" name="answer5" 
-                                value="시각장애" onclick='checkOnlyOne(this)'> 시각장애</label>
-                            <label><input type="checkbox" name="answer5" 
-                                value="심장장애" onclick='checkOnlyOne(this)'> 심장장애</label>
-                            <label><input type="checkbox" name="answer5" 
-                                value="지적장애" onclick='checkOnlyOne(this)'> 지적장애</label>
-                        </form>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="Q6">
-                    <div>
-                        <h3>Question #6</h3>
-                        <span>정답을 골라보세요.</span>
-                        <div class="QS">
-                            장애인 차별 금지법은<br> 
-                            언제 제정되었을까요?
+                    <li class="Q6">
+                        <div>
+                            <h3>Question #6</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                장애인 차별 금지법은<br> 
+                                언제 제정되었을까요?
+                            </div>
+                            <label><input type="checkbox" name="answer6" value="1988" onclick='checkOnlyOne(this)'> 1988년</label>
+                            <label><input type="checkbox" name="answer6" value="2002" onclick='checkOnlyOne(this)'> 2002년</label>
+                            <label><input type="checkbox" name="answer6" value="2011" onclick='checkOnlyOne(this)'> 2011년</label>
+                            <label><input type="checkbox" name="answer6" value="2017" onclick='checkOnlyOne(this)'> 2017년</label>
                         </div>
-                        <form class="Q6f">
-                            <label><input type="checkbox" name="answer6" 
-                                value="1988" onclick='checkOnlyOne(this)'> 1988년</label>
-                            <label><input type="checkbox" name="answer6" 
-                                value="2002" onclick='checkOnlyOne(this)'> 2002년</label>
-                            <label><input type="checkbox" name="answer6" 
-                                value="2011" onclick='checkOnlyOne(this)'> 2011년</label>
-                            <label><input type="checkbox" name="answer6" 
-                                value="2017" onclick='checkOnlyOne(this)'> 2017년</label>
-                        </form>
-                    </div>
-                </li>
+                    </li>
 
-                <li class="Q7">
-                    <div>
-                        <h3>Question #7</h3>
-                        <span>O / X 문제입니다.</span>
-                        <div class="QS">
-                            정신장애인은 범죄자가 될 확률이 높다.
+                    <li class="Q7">
+                        <div>
+                            <h3>Question #7</h3>
+                            <span>O / X 문제입니다.</span>
+                            <div class="QS">
+                                정신장애인은 범죄자가 될 확률이 높다.
+                            </div>
+                            <label><input type="checkbox" name="answer7" value="O" onclick='checkOnlyOne(this)'> O </label>
+                            <label><input type="checkbox" name="answer7" value="X" onclick='checkOnlyOne(this)'> X </label>
                         </div>
-                        <form class="Q7f">
-                            <label><input type="checkbox" name="answer7" 
-                                value="O" onclick='checkOnlyOne(this)'> O </label>
-                            <label><input type="checkbox" name="answer7" 
-                                value="X" onclick='checkOnlyOne(this)'> X </label>
-                        </form>
-                    </div>
-                </li>
-
-
-            </ul>
-
-            <!--controls-->
-            <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
-            <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
-            <div id="counter"></div>
-
-            <div id="pagination-wrap">
-                <ul>
+                    </li>
                 </ul>
-            </div>
-            <!--controls-->
 
+                <!--controls-->
+                <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter"></div>
+                <div id="pagination-wrap">
+                    <ul></ul>
+                </div>
+                <!--controls-->
+            </form>
         </div>
     </div>
 
@@ -549,5 +508,39 @@
         }
 
     </script>
+
+<script>
+    //before test form 제출 시, 호출되는 함수
+    function submitBefore(){
+        //serialize: form 태그내의 항목들을 자동으로 읽어와 queryString 형식으로 변환
+        var queryString = $("form[name=before]").serialize();
+        $.ajax({
+            type: 'post',
+            url: '/before',
+            data: queryString,
+            dataType: 'json',
+            error: function(xhr, status, error){
+                console.log(error);
+            }
+        });
+    }
+
+    //after test form 제출 시, 호출되는 함수
+    function submitAfter(){
+        var queryString = $("form[name=after]").serialize();
+        $.ajax({
+            type: 'post',
+            url: '/after',
+            data: queryString,
+            dataType: 'json',
+            error: function(xhr, status, error){
+                alert("페이지 상단에 위치한 '서비스 이용 전 테스트'부터 제출해주세요!");
+            },
+            success: function(json){
+                console.log(json);
+            }
+        });
+    }
+</script>
 </body>
 </html>
