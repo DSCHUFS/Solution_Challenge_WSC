@@ -4,11 +4,198 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Neucha' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://use.fontawesome.com/5b83e74e73.js"></script>
+    <script src="./script/jquery.min.js"></script>
     <title>Solution Challenge</title>
 </head>
 <body>
-    <img class="parallax" id="image"
+    <div class="main_top">
+        <img class="main_image" id="firstImage" src = "pics/Main1.jpg" alt="두 사람이 나란히 가는 사진">
+        <div class="top">
+            <div class="grid_item0">
+                <div class="main_text">
+                    <span>Barrier-Free</span>
+                </div>
+                <div class="main_text">
+                    <span>B-Free</span>
+                </div>
+            </div>
+            <div class="grid_item0">
+                <div class="sub_text">
+                    <span>편견과 차별의 벽을 부수어 모두가 자유롭게 살 수 있는 세상을 꿈꿉니다.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 인식개선 테스트 div -->
+    <div id="wrapper">
+        <div id="slider-wrap">
+            <ul id="slider">
+                <li class="Q1">
+                    <div>
+                        <h3>Question #1</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">장애를 가진 사람이라는 의미의<br>단어로서 옳은 표현은 무엇일까요?
+                        </div>
+                        <form class="Q1f">
+                            <label><input type="checkbox" name="answer1" 
+                                value="장애자" onclick='checkOnlyOne(this)'> 장애자</label>
+                            <label><input type="checkbox" name="answer1" 
+                                value="장애인" onclick='checkOnlyOne(this)'> 장애인</label>
+                            <label><input type="checkbox" name="answer1" 
+                                value="장애우" onclick='checkOnlyOne(this)'> 장애우</label>
+                            <label><input type="checkbox" name="answer1" 
+                                value="불구자" onclick='checkOnlyOne(this)'> 불구자</label>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="Q2">
+                    <div>
+                        <h3>Question #2</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">대한민국 전체인구 중 장애인의<br>비율은 몇 %일까요?
+                        </div>
+                        <form class="Q2f">
+                            <label><input type="checkbox" name="answer2" 
+                                value="1.5%" onclick='checkOnlyOne(this)'> 1.5 %</label>
+                            <label><input type="checkbox" name="answer2" 
+                                value="3%" onclick='checkOnlyOne(this)'> 3 %</label>
+                            <label><input type="checkbox" name="answer2" 
+                                value="5%" onclick='checkOnlyOne(this)'> 5 %</label>
+                            <label><input type="checkbox" name="answer2" 
+                                value="9%" onclick='checkOnlyOne(this)'> 9 %</label>
+                            <label><input type="checkbox" name="answer2" 
+                                value="11%" onclick='checkOnlyOne(this)'> 11 %</label>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="Q3">
+                    <div>
+                        <h3>Question #3</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            우리나라의 전체 장애인 중,<br>사고나 질환 등의 후천적인 원인으로<br>
+                            장애가 발생한 비율은 10명 중,<br> "?"명 꼴입니다.
+                        </div>
+                        <form class="Q3f">
+                            <label><input type="checkbox" name="answer3" 
+                                value="2" onclick='checkOnlyOne(this)'> 2 명</label>
+                            <label><input type="checkbox" name="answer3" 
+                                value="4" onclick='checkOnlyOne(this)'> 4 명</label>
+                            <label><input type="checkbox" name="answer3" 
+                                value="6" onclick='checkOnlyOne(this)'> 6 명</label>
+                            <label><input type="checkbox" name="answer3" 
+                                value="8" onclick='checkOnlyOne(this)'> 8 명</label>
+                            <label><input type="checkbox" name="answer3" 
+                                value="9" onclick='checkOnlyOne(this)'> 9 명</label>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="Q4">
+                    <div>
+                        <h3>Question #4</h3>
+                        <span>O / X 문제입니다.</span>
+                        <div class="QS">
+                            뇌병변 장애인은 지능이 낮다.
+                        </div>
+                        <form class="Q4f">
+                            <label><input type="checkbox" name="answer4" 
+                                value="O" onclick='checkOnlyOne(this)'> O </label>
+                            <label><input type="checkbox" name="answer4" 
+                                value="X" onclick='checkOnlyOne(this)'> X </label>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="Q5">
+                    <div>
+                        <h3>Question #5</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            우리나라에 등록된 장애 유형 중<br>가장 높은 비율을 차지하고 있는<br>
+                            유형은 무엇일까요?
+                        </div>
+                        <form class="Q5f">
+                            <label><input type="checkbox" name="answer5" 
+                                value="지체장애" onclick='checkOnlyOne(this)'> 지체장애</label>
+                            <label><input type="checkbox" name="answer5" 
+                                value="시각장애" onclick='checkOnlyOne(this)'> 시각장애</label>
+                            <label><input type="checkbox" name="answer5" 
+                                value="심장장애" onclick='checkOnlyOne(this)'> 심장장애</label>
+                            <label><input type="checkbox" name="answer5" 
+                                value="지적장애" onclick='checkOnlyOne(this)'> 지적장애</label>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="Q6">
+                    <div>
+                        <h3>Question #6</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            장애인 차별 금지법은<br> 
+                            언제 제정되었을까요?
+                        </div>
+                        <form class="Q6f">
+                            <label><input type="checkbox" name="answer6" 
+                                value="1988" onclick='checkOnlyOne(this)'> 1988년</label>
+                            <label><input type="checkbox" name="answer6" 
+                                value="2002" onclick='checkOnlyOne(this)'> 2002년</label>
+                            <label><input type="checkbox" name="answer6" 
+                                value="2011" onclick='checkOnlyOne(this)'> 2011년</label>
+                            <label><input type="checkbox" name="answer6" 
+                                value="2017" onclick='checkOnlyOne(this)'> 2017년</label>
+                        </form>
+                    </div>
+                </li>
+
+                <li class="Q7">
+                    <div>
+                        <h3>Question #7</h3>
+                        <span>O / X 문제입니다.</span>
+                        <div class="QS">
+                            정신장애인은 범죄자가 될 확률이 높다.
+                        </div>
+                        <form class="Q7f">
+                            <label><input type="checkbox" name="answer7" 
+                                value="O" onclick='checkOnlyOne(this)'> O </label>
+                            <label><input type="checkbox" name="answer7" 
+                                value="X" onclick='checkOnlyOne(this)'> X </label>
+                        </form>
+                    </div>
+                </li>
+
+
+            </ul>
+
+            <!--controls-->
+            <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+            <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+            <div id="counter"></div>
+
+            <div id="pagination-wrap">
+                <ul>
+                </ul>
+            </div>
+            <!--controls-->
+
+        </div>
+    </div>
+
+
+
+
+
+    <!-- 중단 배경사진 -->
+    <img class="parallax" id="secondImage"
     src="pics/Main2.jpg"
     alt="people"
     />
@@ -17,7 +204,7 @@
             <div class="overlay grid">
                 <div class="number grid_item1">5</div>
                 <div class="number grid_item1">54.3</div>
-                <div class="text_container grid_item">
+                <div class="text_container grid_item" id="circle_text_container">
                     <div class="text">
                         편견을<br>
                         부수는<br>
@@ -41,12 +228,75 @@
                         20명 중 1명
                     </div>
                     <div class="text2">
-                        우리나라의 장애인 추정수는 2,668,411명, 전체 인구의 5%
+                        우리나라의 장애인 추정수는 2,668,411명, 전체 인구의 약 5%
                     </div>
                 </div>
-                <div class="info_container grid_item2">
-                    <div class="infographic">
-                        <canvas id="chart0"></canvas>
+                <div class="pict_container grid_item2">
+                    <div class="hover_icon" id="hover_icon1">
+                        <div class="arrow"></div>
+                        <div class="background" data-index="1">
+                            <div class="color_box_hover">
+
+                            </div>
+                            <div class="label_hover">
+                                장애를 가진 사람: 5.39%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hover_icon" id="hover_icon2">
+                        <div class="arrow"></div>
+                        <div class="background" data-index="2">
+                            <div class="color_box_hover">
+                            </div>
+                            <div class="label_hover">
+                                장애를 가지지 않은 사람: 94.61% 
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pictogram">
+                        <div class="pictogram_controls">
+                            <div class="control" data-index="1">
+                                <div class="color_box">
+
+                                </div>
+                                <div class="label">
+                                    장애를 가진 사람
+                                </div>
+                            </div>
+                            <div class="control" data-index="2">
+                                <div class="color_box">
+
+                                </div>
+                                <div class="label">
+                                    장애를 가지지 않은 사람
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img_people">
+                                <img class="img_person img_person1" src="pics/human1.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                        </div> 
+                        <div class="img_people">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                        </div>
                     </div>
                 </div>
                 <span class="source grid_item2">
@@ -153,8 +403,126 @@
     
     <!-- chart.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="scrollUtil.js"></script>
-    <script type="text/javascript" src="scroll.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script/chartUtil.js"></script>
+    <script type="text/javascript" src="script/pageAnimation.js"></script>
+    <script type="text/javascript" src="script/onload.js"></script>
+
+    <script type="text/javascript"> 
+        function checkOnlyOne(element) { //체크박스 한 개만 선택되도록 하는 함수
+            var formN = element.name;
+            var checkboxes = document.getElementsByName(formN) ;
+            checkboxes.forEach((cb) => {
+                cb.checked = false;
+            })
+            element.checked = true;
+            console.log(element.value);
+        }
+
+        function answerCheck() { 
+            //정답처리 및 점수처리를 어떻게 할지?
+        }
+    </script>
+
+    <script type="text/javascript"> //슬라이드 기능 js
+        //current position
+        var pos = 0;
+        //number of slides
+        var totalSlides = $('#slider-wrap ul li').length;
+        //get the slide width
+        var sliderWidth = $('#slider-wrap').width();
+
+
+        $(document).ready(function () {
+            /*****************
+             BUILD THE SLIDER
+            *****************/
+            //set width to be 'x' times the number of slides
+            $('#slider-wrap ul#slider').width(sliderWidth * totalSlides);
+
+            //next slide  
+            $('#next').click(function () {
+                slideRight();
+            });
+
+            //previous slide
+            $('#previous').click(function () {
+                slideLeft();
+            });
+
+
+
+            /*************************
+             //*> OPTIONAL SETTINGS
+            ************************/
+            //automatic slider
+            var autoSlider = setInterval(slideRight, 60000);
+
+            //for each slide 
+            $.each($('#slider-wrap ul li'), function () {
+
+                //create a pagination
+                var li = document.createElement('li');
+                $('#pagination-wrap ul').append(li);
+            });
+
+            //counter
+            countSlides();
+
+            //pagination
+            pagination();
+
+            //hide/show controls/btns when hover
+            //pause automatic slide when hover
+            $('#slider-wrap').hover(
+                function () { $(this).addClass('active'); clearInterval(autoSlider); },
+                function () { $(this).removeClass('active'); autoSlider = setInterval(slideRight, 60000); }
+            );
+
+
+
+        });//DOCUMENT READY
+
+
+        /***********
+         SLIDE LEFT
+        ************/
+        function slideLeft() {
+            pos--;
+            if (pos == -1) { pos = totalSlides - 1; }
+            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
+
+            //*> optional
+            countSlides();
+            pagination();
+        }
+
+        /************
+         SLIDE RIGHT
+        *************/
+        function slideRight() {
+            pos++;
+            if (pos == totalSlides) { pos = 0; }
+            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
+
+            //*> optional 
+            countSlides();
+            pagination();
+        }
+
+
+        /************************
+         //*> OPTIONAL SETTINGS
+        ************************/
+        function countSlides() {
+            $('#counter').html(pos + 1 + ' / ' + totalSlides);
+        }
+
+        function pagination() {
+            $('#pagination-wrap ul li').removeClass('active');
+            $('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
+        }
+
+    </script>
 </body>
 </html>
