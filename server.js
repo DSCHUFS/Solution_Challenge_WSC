@@ -1,12 +1,13 @@
 const express = require('express');
 const { runInNewContext } = require('vm');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
 
 const app = express();
 
 //Cloud Firestore 초기화
 var admin = require("firebase-admin");
-var serviceAccount = require("../wsc-solutionchallenge-firebase-adminsdk-68gi6-f4eb7752e7.json");
+var serviceAccount = require("./wsc-solutionchallenge-firebase-adminsdk-68gi6-f4eb7752e7.json");
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
@@ -26,30 +27,12 @@ db.collection("test").doc("score").set({
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 app.use(cookieParser());
+app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 //main page
 app.get('/', (req, res) => {
-    fs.readFile('public/index.html', (error, data) =>{
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end(data);
-    });
-});
-
-//news letter page
-app.get('/newsletter', (req, res) => {
-    fs.readFile('public/newsletter.html', (error, data) => {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end(data);
-    });
-});
-
-//data page (추가적인 데이터 페이지)
-app.get('/data', (req, res) => {
-    fs.readFile('public/data.html', (error, data) => {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.end(data);
-    });
+    res.render('index');
 });
 
 app.listen(3000, () => {
