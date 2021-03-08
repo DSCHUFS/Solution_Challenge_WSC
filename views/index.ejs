@@ -11,11 +11,10 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- custom css -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style2.css">
     <script src="https://use.fontawesome.com/5b83e74e73.js"></script>
-    <script src="../public/script/jquery.min.js"></script>
+    <script src="./script/jquery.min.js"></script>
     <!-- custom script -->
-    <script src="../public/script/chartArguments.js"></script>
+    <script src="./script/chartArguments.js"></script>
     <!-- chart js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
         integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
@@ -46,7 +45,7 @@
                 </div>
                 <div class="grid_item0">
                     <div class="sub_text">
-                        <span>편견과 차별의 벽을 부수어 모두가 자유롭게 살 수 있는 세상을 꿈꿉니다.</span>
+                        <span>편견과 차별 없는 동등한 세상을 꿈꿉니다.</span>
                     </div>
                 </div>
             </div>
@@ -55,152 +54,143 @@
 
 <!-- 인식개선 테스트 div -->
     <div id="wrapper">
-        <div id="slider-wrap">
-            <form name="before">
-                <ul id="slider">
-                    <li class="Q1">
-                        <div>
-                            <h3>Question #1</h3>
-                            <span>정답을 골라보세요.</span>
-                            <div class="QS">
-                                장애를 가진 사람이라는 의미의<br>단어로서 옳은 표현은 무엇일까요?
-                            </div>
-                            <label><input type="checkbox" name="answer1" value="장애자" onclick='checkOnlyOne(this)'> 장애자</label>
-                            <label><input type="checkbox" name="answer1" value="장애인" onclick='checkOnlyOne(this)'> 장애인</label>
-                            <label><input type="checkbox" name="answer1" value="장애우" onclick='checkOnlyOne(this)'> 장애우</label>
-                            <label><input type="checkbox" name="answer1" value="불구자" onclick='checkOnlyOne(this)'> 불구자</label>
+        <div class="swiper-container" id="test-container">
+            <form name="before" class="swiper-wrapper">
+                <div class="Q1 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #1</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            장애를 가진 사람이라는 의미의<br>단어로서 옳은 표현은 무엇일까요?
                         </div>
-                    </li>
-
-                    <li class="Q2">
-                        <div>
-                            <h3>Question #2</h3>
-                            <span>정답을 골라보세요.</span>
-                            <div class="QS">
-                                대한민국 전체인구 중 장애인의<br>비율은 몇 %일까요?
-                            </div>
-                            <label><input type="checkbox" name="answer2" value="1.5%" onclick='checkOnlyOne(this)'> 1.5 %</label>
-                            <label><input type="checkbox" name="answer2" value="3%" onclick='checkOnlyOne(this)'> 3 %</label>
-                            <label><input type="checkbox" name="answer2" value="5%" onclick='checkOnlyOne(this)'> 5 %</label>
-                            <label><input type="checkbox" name="answer2" value="9%" onclick='checkOnlyOne(this)'> 9 %</label>
-                            <label><input type="checkbox" name="answer2"value="11%" onclick='checkOnlyOne(this)'> 11 %</label>
-                        </div>
-                    </li>
-
-                    <li class="Q3">
-                        <div>
-                            <h3>Question #3</h3>
-                            <span>정답을 골라보세요.</span>
-                            <div class="QS">
-                                우리나라의 전체 장애인 중,<br>사고나 질환 등의 후천적인 원인으로<br>
-                                장애가 발생한 비율은 10명 중,<br> "?"명 꼴입니다.
-                            </div>
-                            <label><input type="checkbox" name="answer3" value="2" onclick='checkOnlyOne(this)'> 2 명</label>
-                            <label><input type="checkbox" name="answer3" value="4" onclick='checkOnlyOne(this)'> 4 명</label>
-                            <label><input type="checkbox" name="answer3" value="6" onclick='checkOnlyOne(this)'> 6 명</label>
-                            <label><input type="checkbox" name="answer3" value="8" onclick='checkOnlyOne(this)'> 8 명</label>
-                            <label><input type="checkbox" name="answer3" value="9" onclick='checkOnlyOne(this)'> 9 명</label>
-                        </div>
-                    </li>
-
-                    <li class="Q4">
-                        <div>
-                            <h3>Question #4</h3>
-                            <span>O / X 문제입니다.</span>
-                            <div class="QS">
-                                뇌병변 장애인은 지능이 낮다.
-                            </div>
-                            <label><input type="checkbox" name="answer4" value="O" onclick='checkOnlyOne(this)'> O </label>
-                            <label><input type="checkbox" name="answer4" value="X" onclick='checkOnlyOne(this)'> X </label>
-                        </div>
-                    </li>
-
-                    <li class="Q5">
-                        <div>
-                            <h3>Question #5</h3>
-                            <span>정답을 골라보세요.</span>
-                            <div class="QS">
-                                우리나라에 등록된 장애 유형 중<br>가장 높은 비율을 차지하고 있는<br>
-                                유형은 무엇일까요?
-                            </div>
-                            <label><input type="checkbox" name="answer5" value="지체장애" onclick='checkOnlyOne(this)'> 지체장애</label>
-                            <label><input type="checkbox" name="answer5" value="시각장애" onclick='checkOnlyOne(this)'> 시각장애</label>
-                            <label><input type="checkbox" name="answer5" value="심장장애" onclick='checkOnlyOne(this)'> 심장장애</label>
-                            <label><input type="checkbox" name="answer5" value="지적장애" onclick='checkOnlyOne(this)'> 지적장애</label>
-                        </div>
-                    </li>
-
-                    <li class="Q6">
-                        <div>
-                            <h3>Question #6</h3>
-                            <span>정답을 골라보세요.</span>
-                            <div class="QS">
-                                장애인 차별 금지법은<br> 
-                                언제 제정되었을까요?
-                            </div>
-                            <label><input type="checkbox" name="answer6" value="1988" onclick='checkOnlyOne(this)'> 1988년</label>
-                            <label><input type="checkbox" name="answer6" value="2007" onclick='checkOnlyOne(this)'> 2007년</label>
-                            <label><input type="checkbox" name="answer6" value="2016" onclick='checkOnlyOne(this)'> 2016년</label>
-                            <label><input type="checkbox" name="answer6" value="2008" onclick='checkOnlyOne(this)'> 2008년</label>
-                        </div>
-                    </li>
-
-                    <li class="Q7">
-                        <div>
-                            <h3>Question #7</h3>
-                            <span>O / X 문제입니다.</span>
-                            <div class="QS">
-                                정신장애인은 범죄자가 될 확률이 높다.
-                            </div>
-                            <label><input type="checkbox" name="answer7" value="O" onclick='checkOnlyOne(this)'> O </label>
-                            <label><input type="checkbox" name="answer7" value="X" onclick='checkOnlyOne(this)'> X </label>
-                        </div>
-                        <button type="button" onclick="submitBefore()">제출</button>
-                    </li>
-                </ul>
-
-                <!--controls-->
-                <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
-                <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
-                <div id="counter"></div>
-                <div id="pagination-wrap">
-                    <ul></ul>
+                        <input type="checkbox" name="answer1" value="장애자" onclick='checkOnlyOne(this)' id="1-1"><label for="1-1"> 장애자</label>
+                        <input type="checkbox" name="answer1" value="장애인" onclick='checkOnlyOne(this)' id="1-2"><label for="1-2"> 장애인</label>
+                        <input type="checkbox" name="answer1" value="장애우" onclick='checkOnlyOne(this)' id="1-3"><label for="1-3"> 장애우</label>
+                        <input type="checkbox" name="answer1" value="불구자" onclick='checkOnlyOne(this)' id="1-4"><label for="1-4"> 불구자</label>
+                    </div>
                 </div>
-                <!--controls-->
-                <div>
-                    <button type="button" onclick="submitBefore()">제출</button>
+
+                <div class="Q2 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #2</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            대한민국 전체인구 중 장애인의<br>비율은 몇 %일까요?
+                        </div>
+                        <input type="checkbox" name="answer2" value="1.5%" onclick='checkOnlyOne(this)' id="2-1"><label for="2-1"> 1.5 %</label>
+                        <input type="checkbox" name="answer2" value="3%" onclick='checkOnlyOne(this)' id="2-2"><label for="2-2"> 3 %</label>
+                        <input type="checkbox" name="answer2" value="5%" onclick='checkOnlyOne(this)' id="2-3"><label for="2-3"> 5 %</label>
+                        <input type="checkbox" name="answer2" value="9%" onclick='checkOnlyOne(this)' id="2-4"><label for="2-4"> 9 %</label>
+                        <input type="checkbox" name="answer2"value="11%" onclick='checkOnlyOne(this)' id="2-5"><label for="2-5">11 %</label>
+                    </div>
                 </div>
+
+                <div class="Q3 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #3</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            우리나라의 전체 장애인 중,<br>사고나 질환 등의 후천적인 원인으로<br>
+                            장애가 발생한 비율은 10명 중,<br> "?"명 꼴입니다.
+                        </div>
+                        <label for="3-1"><input type="checkbox" name="answer3" value="2" onclick='checkOnlyOne(this)' id="3-1"> 2 명</label>
+                        <label for="3-2"><input type="checkbox" name="answer3" value="4" onclick='checkOnlyOne(this)' id="3-2"> 4 명</label>
+                        <label for="3-3"><input type="checkbox" name="answer3" value="6" onclick='checkOnlyOne(this)' id="3-3"> 6 명</label>
+                        <label for="3-4"><input type="checkbox" name="answer3" value="8" onclick='checkOnlyOne(this)' id="3-4"> 8 명</label>
+                        <label for="3-5"><input type="checkbox" name="answer3" value="9" onclick='checkOnlyOne(this)' id="3-5"> 9 명</label>
+                    </div>
+                </div>
+
+                <div class="Q4 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #4</h3>
+                        <span>O / X 문제입니다.</span>
+                        <div class="QS">
+                            뇌병변 장애인은 지능이 낮다.
+                        </div>
+                        <label for="4-1"><input type="checkbox" name="answer4" value="O" onclick='checkOnlyOne(this)' id="4-1"> O </label>
+                        <label for="4-2"><input type="checkbox" name="answer4" value="X" onclick='checkOnlyOne(this)' id="4-2"> X </label>
+                    </div>
+                </div>
+
+                <div class="Q5 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #5</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            우리나라에 등록된 장애 유형 중<br>가장 높은 비율을 차지하고 있는<br>
+                            유형은 무엇일까요?
+                        </div>
+                        <label for="5-1"><input type="checkbox" name="answer5" value="지체장애" onclick='checkOnlyOne(this)' id="5-1"> 지체장애</label>
+                        <label for="5-2"><input type="checkbox" name="answer5" value="시각장애" onclick='checkOnlyOne(this)' id="5-2"> 시각장애</label>
+                        <label for="5-3"><input type="checkbox" name="answer5" value="심장장애" onclick='checkOnlyOne(this)' id="5-3"> 심장장애</label>
+                        <label for="5-4"><input type="checkbox" name="answer5" value="지적장애" onclick='checkOnlyOne(this)' id="5-4"> 지적장애</label>
+                    </div>
+                </div>
+
+                <div class="Q6 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #6</h3>
+                        <span>정답을 골라보세요.</span>
+                        <div class="QS">
+                            장애인 차별 금지법은<br> 
+                            언제 제정되었을까요?
+
+                        </div>
+                        <label for="6-1"><input type="checkbox" name="answer6" value="1988" onclick='checkOnlyOne(this)' id="6-1"> 1988년</label>
+                        <label for="6-2"><input type="checkbox" name="answer6" value="2002" onclick='checkOnlyOne(this)' id="6-2"> 2007년</label>
+                        <label for="6-3"><input type="checkbox" name="answer6" value="2011" onclick='checkOnlyOne(this)' id="6-3"> 2016년</label>
+                        <label for="6-4"><input type="checkbox" name="answer6" value="2017" onclick='checkOnlyOne(this)' id="6-4"> 2008년</label>
+                    </div>
+                </div>
+
+                <div class="Q7 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3>Question #7</h3>
+                        <span>O / X 문제입니다.</span>
+                        <div class="QS">
+                            정신장애인은 범죄자가 될 확률이 높다.
+                        </div>
+
+                        <label for="7-1"><input type="checkbox" name="answer7" value="O" onclick='checkOnlyOne(this)' id="7-1"> O </label>
+                        <label for="7-2"><input type="checkbox" name="answer7" value="X" onclick='checkOnlyOne(this)' id="7-2"> X </label>
+                    </div>
+                </div>
+
             </form>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
         </div>
     </div>
 
     <!-- 메인 중단 -->
     <div class="main_middle">
         <div class="carousel-container">
-            <div class="swiper-container">
+            <div class="swiper-container" id="img-container">
                 <div id="carousel" class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg">
                     </div>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide img-slide">
                         <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg">
                     </div>
                 </div>
@@ -212,7 +202,7 @@
 
         <script>
             // swiper
-            const swiper = new Swiper('.swiper-container', {
+            const swiper = new Swiper('#img-container', {
                 // Optional parameters
                 direction: 'horizontal',
                 pagination: {
@@ -350,7 +340,7 @@
                 <div class="pictogram">
                     <canvas id="chart1"></canvas>
                     <script>
-                        let chart = new Chart(document.getElementById('chart1').getContext('2d'), chartArguments[0].chartConfig);
+                        let chart = new Chart(document.getElementById('chart1').getContext('2d'), getChartArguments()[0].chartConfig);
                     </script>
                 </div>
             </div>
@@ -367,8 +357,8 @@
             <div class="title">
                 <div class="number_container grid_item2" style="border-color:#68B1B2">
                     <div class="numbers">
-                        <span class="number" style="color:#68B1B2; font-size:60px">60.7</span><span class="percentage"
-                            style="color:#68B1B2; font-size:40px; top:0">%</span>
+                        <span class="number small" style="color:#68B1B2;">60.7</span><span class="percentage small"
+                            style="color:#68B1B2;">%</span>
                     </div>
                 </div>
                 <div class="headline grid_item2">
@@ -401,8 +391,8 @@
             <div class="title">
                 <div class="number_container grid_item2" style="border-color:#D5564C">
                     <div class="numbers">
-                        <span class="number" style="color:#D5564C; font-size:60px">48.9</span><span class="percentage"
-                            style="color:#D5564C; font-size:40px; top:0">%</span>
+                        <span class="number small" style="color:#D5564C;">48.9</span><span class="percentage small"
+                            style="color:#D5564C;">%</span>
                     </div>
                 </div>
                 <div class="headline grid_item2">
@@ -507,7 +497,7 @@
 
     </div>
 
-    <script src="../public/script/chartUtil.js"></script>
+    <script src="./script/chartUtil.js"></script>
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     
@@ -548,107 +538,6 @@
         function answerCheck() { 
             //정답처리 및 점수처리를 어떻게 할지?
         }
-    </script>
-
-    <script type="text/javascript"> //슬라이드 기능 js
-        //current position
-        var pos = 0;
-        //number of slides
-        var totalSlides = $('#slider-wrap ul li').length;
-        //get the slide width
-        var sliderWidth = $('#slider-wrap').width();
-
-
-        $(document).ready(function () {
-            /*****************
-             BUILD THE SLIDER
-            *****************/
-            //set width to be 'x' times the number of slides
-            $('#slider-wrap ul#slider').width(sliderWidth * totalSlides);
-
-            //next slide  
-            $('#next').click(function () {
-                slideRight();
-            });
-
-            //previous slide
-            $('#previous').click(function () {
-                slideLeft();
-            });
-
-
-
-            /*************************
-             //*> OPTIONAL SETTINGS
-            ************************/
-            //automatic slider
-            var autoSlider = setInterval(slideRight, 60000);
-
-            //for each slide 
-            $.each($('#slider-wrap ul li'), function () {
-
-                //create a pagination
-                var li = document.createElement('li');
-                $('#pagination-wrap ul').append(li);
-            });
-
-            //counter
-            countSlides();
-
-            //pagination
-            pagination();
-
-            //hide/show controls/btns when hover
-            //pause automatic slide when hover
-            $('#slider-wrap').hover(
-                function () { $(this).addClass('active'); clearInterval(autoSlider); },
-                function () { $(this).removeClass('active'); autoSlider = setInterval(slideRight, 60000); }
-            );
-
-
-
-        });//DOCUMENT READY
-
-
-        /***********
-         SLIDE LEFT
-        ************/
-        function slideLeft() {
-            pos--;
-            if (pos == -1) { pos = totalSlides - 1; }
-            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
-
-            //*> optional
-            countSlides();
-            pagination();
-        }
-
-        /************
-         SLIDE RIGHT
-        *************/
-        function slideRight() {
-            pos++;
-            if (pos == totalSlides) { pos = 0; }
-            $('#slider-wrap ul#slider').css('left', -(sliderWidth * pos));
-
-            //*> optional 
-            countSlides();
-            pagination();
-        }
-
-
-        /************************
-         //*> OPTIONAL SETTINGS
-        ************************/
-        function countSlides() {
-            $('#counter').html(pos + 1 + ' / ' + totalSlides);
-        }
-
-        function pagination() {
-            $('#pagination-wrap ul li').removeClass('active');
-            $('#pagination-wrap ul li:eq(' + pos + ')').addClass('active');
-        }
-
     </script>
 
     <script>
