@@ -109,7 +109,7 @@ function getChartArguments() {
                     ticks: {
                         display: false
                     },
-                    aspectRatio: 2.5,
+                    aspectRatio: 2,
                     legend: {
                         position: 'top',
                         onHover: () => { document.getElementById("chart3").style.cursor = 'pointer' },
