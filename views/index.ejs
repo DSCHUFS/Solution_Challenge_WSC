@@ -494,7 +494,15 @@
     
 
     <div class="main_Bottom">
-
+        <canvas id="beforeChart" width="400" height="400">
+            <p>Feedback Chart1-1</p>
+        </canvas>
+        <canvas id="afterChart" width="400" height="400">
+            <p>Feedback Chart1-2</p>
+        </canvas>
+        <canvas id="increaseChart" width="400" height="400">
+            <p>Feedback Chart2</p>
+        </canvas>
     </div>
 
     <script src="./script/chartUtil.js"></script>
@@ -575,6 +583,8 @@
     <!-- socket.io -->
     <script src="/socket.io/socket.io.js"></script>
     <script>
+        var count;
+        var score;
         var socket = io();
         //이미 before, after test 모두 제출한 경우
         socket.on('alreadyAll', function(data){
@@ -596,7 +606,92 @@
         //after 테스트를 정상적으로 제출한 경우
         socket.on('completeAfter', function(Count, Score){
             alert("정상적으로 제출되었습니다!");
+            count = Count.count;
+            score = Score;
         })
+
+        //feedback chart
+        var beforeCtx = document.getElementById('beforeChart').getContext('2d');
+        var afterCtx = document.getElementById('afterChart').getContext('2d');
+        var increaseCtx = document.getElementById('increaseChart').getContext('2d');
+        var beforeChart = new Chart(beforeCtx, {
+            type: 'line',
+            data: {
+                labels: [0, 1, 2, 3, 4, 5, 6, 7],
+                datasets: [{
+                    label: '# of score',
+                    data: [score.b0, score.b1, score.b2, score.b3, score.b4, score.b5, score.b6, score.b7],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var afterChart = new Chart(afterCtx, {
+            type: 'line',
+            data: {
+                labels: [0, 1, 2, 3, 4, 5, 6, 7],
+                datasets: [{
+                    label: '# of score',
+                    data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        var increaseChart = new Chart(increaseCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ["상승", "하락"],
+                data: [score.increase, (count-score.increase)]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
 
     </script>
 </body>
