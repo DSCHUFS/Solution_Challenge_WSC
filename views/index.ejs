@@ -139,9 +139,9 @@
                                 언제 제정되었을까요?
                             </div>
                             <label><input type="checkbox" name="answer6" value="1988" onclick='checkOnlyOne(this)'> 1988년</label>
-                            <label><input type="checkbox" name="answer6" value="2002" onclick='checkOnlyOne(this)'> 2007년</label>
-                            <label><input type="checkbox" name="answer6" value="2011" onclick='checkOnlyOne(this)'> 2016년</label>
-                            <label><input type="checkbox" name="answer6" value="2017" onclick='checkOnlyOne(this)'> 2008년</label>
+                            <label><input type="checkbox" name="answer6" value="2007" onclick='checkOnlyOne(this)'> 2007년</label>
+                            <label><input type="checkbox" name="answer6" value="2016" onclick='checkOnlyOne(this)'> 2016년</label>
+                            <label><input type="checkbox" name="answer6" value="2008" onclick='checkOnlyOne(this)'> 2008년</label>
                         </div>
                     </li>
 
@@ -155,6 +155,7 @@
                             <label><input type="checkbox" name="answer7" value="O" onclick='checkOnlyOne(this)'> O </label>
                             <label><input type="checkbox" name="answer7" value="X" onclick='checkOnlyOne(this)'> X </label>
                         </div>
+                        <button type="button" onclick="submitBefore()">제출</button>
                     </li>
                 </ul>
 
@@ -166,6 +167,130 @@
                     <ul></ul>
                 </div>
                 <!--controls-->
+                <div>
+                    <button type="button" onclick="submitBefore()">제출</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 인식개선 테스트 div -->
+    <div id="wrapper">
+        <div id="slider-wrap">
+            <form name="before">
+                <ul id="slider">
+                    <li class="Q1">
+                        <div>
+                            <h3>Question #1</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                장애를 가진 사람이라는 의미의<br>단어로서 옳은 표현은 무엇일까요?
+                            </div>
+                            <label><input type="checkbox" name="answer1" value="장애자" onclick='checkOnlyOne(this)'> 장애자</label>
+                            <label><input type="checkbox" name="answer1" value="장애인" onclick='checkOnlyOne(this)'> 장애인</label>
+                            <label><input type="checkbox" name="answer1" value="장애우" onclick='checkOnlyOne(this)'> 장애우</label>
+                            <label><input type="checkbox" name="answer1" value="불구자" onclick='checkOnlyOne(this)'> 불구자</label>
+                        </div>
+                    </li>
+
+                    <li class="Q2">
+                        <div>
+                            <h3>Question #2</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                대한민국 전체인구 중 장애인의<br>비율은 몇 %일까요?
+                            </div>
+                            <label><input type="checkbox" name="answer2" value="1.5%" onclick='checkOnlyOne(this)'> 1.5 %</label>
+                            <label><input type="checkbox" name="answer2" value="3%" onclick='checkOnlyOne(this)'> 3 %</label>
+                            <label><input type="checkbox" name="answer2" value="5%" onclick='checkOnlyOne(this)'> 5 %</label>
+                            <label><input type="checkbox" name="answer2" value="9%" onclick='checkOnlyOne(this)'> 9 %</label>
+                            <label><input type="checkbox" name="answer2"value="11%" onclick='checkOnlyOne(this)'> 11 %</label>
+                        </div>
+                    </li>
+
+                    <li class="Q3">
+                        <div>
+                            <h3>Question #3</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                우리나라의 전체 장애인 중,<br>사고나 질환 등의 후천적인 원인으로<br>
+                                장애가 발생한 비율은 10명 중,<br> "?"명 꼴입니다.
+                            </div>
+                            <label><input type="checkbox" name="answer3" value="2" onclick='checkOnlyOne(this)'> 2 명</label>
+                            <label><input type="checkbox" name="answer3" value="4" onclick='checkOnlyOne(this)'> 4 명</label>
+                            <label><input type="checkbox" name="answer3" value="6" onclick='checkOnlyOne(this)'> 6 명</label>
+                            <label><input type="checkbox" name="answer3" value="8" onclick='checkOnlyOne(this)'> 8 명</label>
+                            <label><input type="checkbox" name="answer3" value="9" onclick='checkOnlyOne(this)'> 9 명</label>
+                        </div>
+                    </li>
+
+                    <li class="Q4">
+                        <div>
+                            <h3>Question #4</h3>
+                            <span>O / X 문제입니다.</span>
+                            <div class="QS">
+                                뇌병변 장애인은 지능이 낮다.
+                            </div>
+                            <label><input type="checkbox" name="answer4" value="O" onclick='checkOnlyOne(this)'> O </label>
+                            <label><input type="checkbox" name="answer4" value="X" onclick='checkOnlyOne(this)'> X </label>
+                        </div>
+                    </li>
+
+                    <li class="Q5">
+                        <div>
+                            <h3>Question #5</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                우리나라에 등록된 장애 유형 중<br>가장 높은 비율을 차지하고 있는<br>
+                                유형은 무엇일까요?
+                            </div>
+                            <label><input type="checkbox" name="answer5" value="지체장애" onclick='checkOnlyOne(this)'> 지체장애</label>
+                            <label><input type="checkbox" name="answer5" value="시각장애" onclick='checkOnlyOne(this)'> 시각장애</label>
+                            <label><input type="checkbox" name="answer5" value="심장장애" onclick='checkOnlyOne(this)'> 심장장애</label>
+                            <label><input type="checkbox" name="answer5" value="지적장애" onclick='checkOnlyOne(this)'> 지적장애</label>
+                        </div>
+                    </li>
+
+                    <li class="Q6">
+                        <div>
+                            <h3>Question #6</h3>
+                            <span>정답을 골라보세요.</span>
+                            <div class="QS">
+                                장애인 차별 금지법은<br> 
+                                언제 제정되었을까요?
+                            </div>
+                            <label><input type="checkbox" name="answer6" value="1988" onclick='checkOnlyOne(this)'> 1988년</label>
+                            <label><input type="checkbox" name="answer6" value="2007" onclick='checkOnlyOne(this)'> 2007년</label>
+                            <label><input type="checkbox" name="answer6" value="2016" onclick='checkOnlyOne(this)'> 2016년</label>
+                            <label><input type="checkbox" name="answer6" value="2008" onclick='checkOnlyOne(this)'> 2008년</label>
+                        </div>
+                    </li>
+
+                    <li class="Q7">
+                        <div>
+                            <h3>Question #7</h3>
+                            <span>O / X 문제입니다.</span>
+                            <div class="QS">
+                                정신장애인은 범죄자가 될 확률이 높다.
+                            </div>
+                            <label><input type="checkbox" name="answer7" value="O" onclick='checkOnlyOne(this)'> O </label>
+                            <label><input type="checkbox" name="answer7" value="X" onclick='checkOnlyOne(this)'> X </label>
+                        </div>
+                        <button type="button" onclick="submitAfter()">제출</button>
+                    </li>
+                </ul>
+
+                <!--controls-->
+                <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+                <div class="btns" id="previous"><i class="fa fa-arrow-left"></i></div>
+                <div id="counter"></div>
+                <div id="pagination-wrap">
+                    <ul></ul>
+                </div>
+                <!--controls-->
+                <div>
+                    <button type="button" onclick="submitAfter()">제출</button>
+                </div>
             </form>
         </div>
     </div>
@@ -511,6 +636,7 @@
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     
+    
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.10/firebase-app.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -675,13 +801,39 @@
                 data: queryString,
                 dataType: 'json',
                 error: function(xhr, status, error){
-                    alert("페이지 상단에 위치한 '서비스 이용 전 테스트'부터 제출해주세요!");
-                },
-                success: function(json){
-                    console.log(json);
+                    console.log(error);
                 }
             });
         }
+    </script>
+    
+    <!-- socket communication -->
+    <!-- socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        //이미 before, after test 모두 제출한 경우
+        socket.on('alreadyAll', function(data){
+            alert("이미 모든 테스트를 제출하셨습니다!");
+            console.log(data);
+        });
+        //before 테스트를 정상적으로 제출한 경우
+        socket.on('completeBefore', function(){
+            alert("정상적으로 제출되었습니다!");
+        });
+        //이미 before test를 제출한 경우
+        socket.on('alreadyBefore', function(){
+            alert("이미 제출하셨습니다!");
+        });
+        //before test를 제출하지 않고, after test를 제출하려 한 경우
+        socket.on('goBefore', function(){
+            alert("서비스 초기에 보여진 테스트를 먼저 제출해주세요!");
+        })
+        //after 테스트를 정상적으로 제출한 경우
+        socket.on('completeAfter', function(Count, Score){
+            alert("정상적으로 제출되었습니다!");
+        })
+
     </script>
 </body>
 </html>
