@@ -39,8 +39,6 @@ io.on("connection", (socket) => {
 
 //main page
 app.get('/', (req, res) => {
-    //before test 여부 및 점수 체크하는 cookie 생성
-    res.cookie('before', "none");
     res.render('index');
 });
 
@@ -51,7 +49,7 @@ app.post('/before', (req, res) => {
         io.emit('alreadyAll',"hello");
 
     //before test를 제출할 수 있는 경우(처음 제출하는 경우)
-    else if(req.cookies.before === "none"){
+    else if(req.cookies.before === undefined){
         //답안지 받아옴(json으로 받아오면 될 듯!)
         var ans = [
             req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
@@ -84,7 +82,7 @@ app.post('/after', (req, res) => {
         io.sockets.emit('alreadyAll');
 
     //before test를 제출안하고 after test 제출하려고 하는 경우
-    else if(req.cookies.before === "none")
+    else if(req.cookies.before === undefined)
         io.sockets.emit('goBefore');
 
     //after test를 제출할 수 있는 경우
@@ -191,6 +189,7 @@ async function getScore(){
     return scoreDoc.data();
 }
 
+//firestore로부터 읽어들인 data 비동기로 저장 후, socket 통신
 async function getData(){
     const userCount = await getUserCount();
     const score = await getScore();
@@ -199,6 +198,6 @@ async function getData(){
     io.sockets.emit('completeAfter',{Count:userCount, Score:score});
 }
 
-app.listen(3000, () => {
+server.listen(3000, () => {
     console.log("app is running on port 3000");
 });
