@@ -14,7 +14,6 @@ body {
     width: 100vw;
 }
 
-
 .img_container {
     position:absolute;
     z-index: -1;
@@ -134,16 +133,26 @@ body {
   background-color: #3BAAD8;
 }
 
-
+.main_middle {
+    width: 100%;
+}
 
 .carousel-container{
     width: 100vw;
     height: 80vh;
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
 
     margin-bottom: 10vh;
+}
+
+.carousel-container .img_comment {
+    margin-left: 20vw;
+    font-size: 2rem;
+    font-weight: 700;
+    align-self: flex-start;
 }
 
 #img-container {
@@ -176,12 +185,9 @@ body {
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
-
-    display: flex;
-    flex-flow: column;
 }
 
-.overlay.stat {
+.stat {
     margin-bottom: 3rem;
 }
 
@@ -190,8 +196,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    padding: 0 1rem;
+    
+    /* error */
+    /* width: 100vw;  */
+    margin: 0 1rem;
 }
 
 .title .headline {
@@ -222,7 +230,7 @@ body {
 }
 
 .source {
-    margin-left: 60%;
+    margin-left: 60vw;
     margin-right: auto;
 }
 
@@ -263,7 +271,6 @@ body {
 
 .hover_icon {
     position: absolute;
-    width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -334,7 +341,7 @@ body {
 }
 
 .img_person {
-    width: 12%;
+    width: 10%;
     height: auto;
 }
 
@@ -485,7 +492,7 @@ body {
     }
 }
 
-@media (max-width: 750px) {
+@media (max-width: 750px) and (min-width: 550px) {
     .number_container {
         width: 100px;
         height: 100px;
@@ -495,6 +502,11 @@ body {
     .number {
         top: -5px;
         font-size: 35px;
+    }
+
+    .carousel-container .img_comment {
+        margin: 0;
+        align-self: center;
     }
 
     .title .headline {
@@ -522,8 +534,98 @@ body {
     .text2 {
         font-size: 15px;
     }
+
+    .source {
+        margin-left: 50vw;
+        margin-right: auto;
+        font-size: 13px;
+    }
     
     .comment {
+        margin-left: 35vw;
+        margin-right: 10vw;
         font-size: 15px;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .number_container {
+        width: 80px;
+        height: 80px;
+        border-radius: 40px; 
+    }
+    
+    .number {
+        top: -5px;
+        font-size: 30px;
+    }
+
+    .carousel-container .img_comment {
+        margin: 0;
+        align-self: center;
+    }
+
+    .title .headline {
+        padding-left: 1rem;
+    }
+
+    .number.small {
+        top: -3px;
+        font-size: 20px;
+    }
+    
+    .percentage {
+        top: 0;
+        font-size: 15px;
+    }
+
+    .percentage.small {
+        font-size: 15px;
+    }
+
+    .text1 {
+        font-size: 20px;
+    }
+    
+    .text2 {
+        font-size: 13px;
+    }
+
+    .source {
+        margin-left: 40vw;
+        margin-right: auto;
+        font-size: 13px;
+    }
+    
+    .comment {
+        margin-left: 35vw;
+        margin-right: 10vw;
+        font-size: 15px;
+    }
+
+    .carousel-container {
+        height: 70vh;
+    }
+
+    #img-container {
+        height: 50vh;
+    }
+
+    #carousel {
+        margin: 0;
+    }
+
+    .swiper-slide.img-slide {
+        height: 50vh;
+    }
+    .carousel-container .img_comment {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .pict_container {
+        margin: 0;
     }
 }
