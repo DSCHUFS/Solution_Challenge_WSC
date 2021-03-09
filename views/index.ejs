@@ -163,6 +163,31 @@
             <div class="swiper-button-next"></div>
         </div>
     </div>
+    <script>
+        // swiper
+        const swiper = new Swiper('#test-container', {
+            // Optional parameters
+            direction: 'horizontal',
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        })
+
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.swiper-container', {
+            scrollTrigger: {
+                trigger: '.swiper-container',
+                toggleActions: 'play reset play reset'
+            },
+            y: 50,
+            duration: 1
+        })
+    </script>
 
     <!-- 메인 중단 -->
     <div class="main_middle">
