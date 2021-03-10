@@ -5,20 +5,24 @@
     padding: 0;
 }
 
+html, body {
+    overflow-x:hidden 
+} 
+
 body {
-    overflow-x: hidden;
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #FAF9F6;
     color: rgba(0,0,0,0.7);
 
-    width: 100vw;
+    width: 100%;
+    
 }
 
 .img_container {
     position:absolute;
     z-index: -1;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background: transparent;
 }
 
@@ -31,7 +35,7 @@ body {
 
 .top {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: rgba(0,0,0,0.4);
 }
 
@@ -138,7 +142,7 @@ body {
 }
 
 .carousel-container{
-    width: 100vw;
+    width: 100%;
     height: 80vh;
     display: flex;
     flex-flow: column;
@@ -220,7 +224,7 @@ body {
 
 .pictogram {
     max-width: 500px;
-    min-width: 320px;
+    /* min-width: 320px; */
     margin: 0 auto;
 
     display: flex;
@@ -251,18 +255,18 @@ body {
     cursor: pointer;
 }
 
-.control[data-index="1"] .color_box {
+.control .color_box {
     width: 2.5em;
     height: 1em;
-    background-color: #E9C460;
     margin: 0.3em;
 }
 
+.control[data-index="1"] .color_box {
+    background-color: #E9C460;
+}
+
 .control[data-index="2"] .color_box {
-    width: 2.5em;
-    height: 1em;
     background-color: #787878;
-    margin: 0.3em;
 }
 
 .label {
@@ -535,6 +539,15 @@ body {
         font-size: 15px;
     }
 
+    .control .color_box {
+        width: 2em;
+        height: 0.8em;
+    }
+
+    .label {
+        font-size: 12px;
+    }
+
     .source {
         margin-left: 50vw;
         margin-right: auto;
@@ -550,9 +563,14 @@ body {
 
 @media (max-width: 550px) {
 
+    .question-container .QS {
+        margin: 20px 0;
+        font-size: 25px;
+    }
+
     .number_container {
-        width: 80px;
-        height: 80px;
+        max-width: 80px;
+        max-height: 80px;
         border-radius: 40px; 
     }
     
@@ -592,10 +610,19 @@ body {
         font-size: 13px;
     }
 
+    .control .color_box {
+        width: 2em;
+        height: 0.8em;
+    }
+
+    .label {
+        font-size: 10px;
+    }
+
     .source {
         margin-left: 40vw;
         margin-right: auto;
-        font-size: 13px;
+        font-size: 11px;
     }
     
     .comment {
@@ -606,6 +633,7 @@ body {
 
     .carousel-container {
         height: 70vh;
+        margin-bottom: 20px;
     }
 
     #img-container {
@@ -624,8 +652,3 @@ body {
     }
 }
 
-@media (max-width: 400px) {
-    .pict_container {
-        margin: 0;
-    }
-}

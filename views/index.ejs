@@ -518,18 +518,18 @@
         </div>
     </div>
     <script>
-        // gsap.registerPlugin(ScrollTrigger);
-        // let overlay = gsap.utils.toArray('.overlay');
-        // overlay.forEach((ol, i) => {
-        //     gsap.from(ol, {
-        //         scrollTrigger: {
-        //             trigger: ol,
-        //             toggleActions: 'play reset play reset'
-        //         },
-        //         x: 50 * Math.pow(-1,i),
-        //         duration: 0.7
-        //     })
-        // })
+        gsap.registerPlugin(ScrollTrigger);
+        let overlay = gsap.utils.toArray('.overlay');
+        overlay.forEach((ol, i) => {
+            gsap.from(ol, {
+                scrollTrigger: {
+                    trigger: ol,
+                    toggleActions: 'play reset play reset'
+                },
+                x: 50 * Math.pow(-1,i),
+                duration: 0.7
+            })
+        })
     </script>
 
 

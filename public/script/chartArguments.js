@@ -63,7 +63,7 @@ function getChartArguments() {
                             }
                         }]
                     },
-                    aspectRatio: 2.5,
+                    aspectRatio: 1.5,
                     legend: {
                         onHover: () => { document.getElementById("chart2").style.cursor = 'pointer' },
                         onLeave: () => { document.getElementById("chart2").style.cursor = 'default' }
@@ -160,7 +160,7 @@ function getChartArguments() {
                             }
                         }]
                     },
-                    aspectRatio: 2.5,
+                    aspectRatio: 2,
                     legend: {
                         position: 'top',
                         onHover: () => { document.getElementById("chart3").style.cursor = 'pointer' },
