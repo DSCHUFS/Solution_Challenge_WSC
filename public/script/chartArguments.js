@@ -7,7 +7,7 @@ function getChartArguments() {
                     datasets: [{
                         data: [88.1, 11.9],
                         backgroundColor: [
-                            "#D87E40", "#8E8E8E"
+                            "#FECE3E", "#8E8E8E"
                         ],
                         borderColor: "#FFFFFF00"
                     }],
@@ -36,7 +36,7 @@ function getChartArguments() {
                     datasets: [{
                         data: [13.9, 25.3, 60.7],
                         backgroundColor: [
-                            "#C1C1C1", "#C1C1C1", "#68B1B2"
+                            "#C1C1C1", "#C1C1C1", "#3BAAD8"
                         ],
                         label: "장애인차별금지법에 대한 인지여부(전체)"
                     }],
@@ -82,7 +82,7 @@ function getChartArguments() {
                             4.0, 3.2, 0.2, 0.5, 0.4, 0.1, 0.6, 0.4
                         ],
                         backgroundColor: [
-                            "#D5564C", "#C1C1C1", "#C1C1C1", "#C1C1C1"
+                            "#E07707", "#C1C1C1", "#C1C1C1", "#C1C1C1"
                         ]
                     }],
                     labels: [
@@ -129,7 +129,7 @@ function getChartArguments() {
                             1.2, 0.08
                         ],
                         backgroundColor: [
-                            "#E9C460", "#C1C1C1"
+                            "#1B2B44", "#C1C1C1"
                         ],
                         label: '장애 유무에 따른 범죄율'
                     }],
