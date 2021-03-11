@@ -137,6 +137,12 @@ body {
   background-color: #3BAAD8;
 }
 
+.btn-submit {
+    float: right;
+    margin-top: 3rem;
+    background-color: red;
+}
+
 .main_middle {
     width: 100%;
 }
