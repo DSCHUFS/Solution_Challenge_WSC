@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!--BootSTrapCDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- custom css -->
     <link rel="stylesheet" href="style.css">
     <script src="https://use.fontawesome.com/5b83e74e73.js"></script>
@@ -182,6 +186,8 @@
                                 id="7-1"> O </label>
                         <label for="7-2"><input type="checkbox" name="answer7" value="X" onclick='checkOnlyOne(this)'
                                 id="7-2"> X </label>
+                        <button type="button" class="btn btn-submit btn-lg">제출하기</button>
+
                     </div>
                 </div>
 
@@ -302,7 +308,7 @@
                             <div class="arrow"></div>
                             <div class="background" data-index="1">
                                 <div class="color_box_hover">
-    
+
                                 </div>
                                 <div class="label_hover">
                                     장애를 가진 사람: 5.39%
@@ -322,7 +328,7 @@
                         <div class="pictogram_controls">
                             <div class="control" data-index="1">
                                 <div class="color_box">
-    
+
                                 </div>
                                 <div class="label">
                                     장애를 가진 사람
@@ -330,7 +336,7 @@
                             </div>
                             <div class="control" data-index="2">
                                 <div class="color_box">
-    
+
                                 </div>
                                 <div class="label">
                                     장애를 가지지 않은 사람
@@ -369,7 +375,7 @@
                 <div class="comment grid_item2">
                     우리 모두 함께 살아가고 있습니다. 보이지 않는다고 해서 없다고 생각하는 것은 편견이 될 수 있습니다.
                 </div>
-            </div>            
+            </div>
         </div>
 
         <!-- Second Statistic : the cause of the disability -->
@@ -480,7 +486,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- The fifth statistic -->
         <div class="overlay">
             <div class="stat">
@@ -511,7 +517,8 @@
                     자료 출처 : 2017년 대검찰청 범죄분석 보고서
                 </span>
                 <div class="comment grid_item2">
-                    장애가 범죄의 원인이 될 순 없습니다. 장애인이 범죄를 일으켰다고 해서 장애인은 범죄자라는 인식을 가져선 안됩니다. 통계적으로도 비장애인의 범죄율이 정신장애인의 범죄율보다 15배 높다고
+                    장애가 범죄의 원인이 될 순 없습니다. 장애인이 범죄를 일으켰다고 해서 장애인은 범죄자라는 인식을 가져선 안됩니다. 통계적으로도 비장애인의 범죄율이 정신장애인의 범죄율보다 15배
+                    높다고
                     조사되었습니다.
                 </div>
             </div>
@@ -526,7 +533,7 @@
                     trigger: ol,
                     toggleActions: 'play reset play reset'
                 },
-                x: 50 * Math.pow(-1,i),
+                x: 50 * Math.pow(-1, i),
                 duration: 0.7
             })
         })
