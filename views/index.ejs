@@ -530,24 +530,24 @@
             </div>
             <button type="button" class="btn btn-submit btn-lg" id="toAfterTest">테스트 보러가기</button>
         </div>
-    </div>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-        let overlay = gsap.utils.toArray('.overlay');
-        overlay.forEach((ol, i) => {
-            ol.dataset.colorIndex = i;
-
-            gsap.from(ol, {
-                scrollTrigger: {
-                    trigger: ol,
-                    toggleActions: 'play reset play reset'
-                },
-                x: 50 * Math.pow(-1, i),
-                duration: 0.7
+        <script>
+            let overlay = gsap.utils.toArray('.overlay');
+            console.log(overlay);
+            overlay.forEach((ol, i) => {
+                ol.dataset.colorIndex = i;
+    
+                gsap.from(ol, {
+                    scrollTrigger: {
+                        trigger: ol,
+                        toggleActions: 'play reset play reset',
+                        scroller: '.main_middle'
+                    },
+                    x: 50 * Math.pow(-1, i),
+                    duration: 0.7
+                })
             })
-        })
-    </script>
+        </script>
+    </div>
 
 
     <!-- 인식개선 테스트 div -->
