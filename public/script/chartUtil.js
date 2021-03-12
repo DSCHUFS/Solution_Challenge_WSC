@@ -92,14 +92,16 @@ class ChartUpdater {
 
     restoreConfig(version) {
         let config = this.prevChartConfigs[version];
-        if(config.legendPosition){
-            this.chartConfig.legend.options.position = config.legendPosition;
-        }
-        if(config.aspectRatio) {
-            this.chartConfig.aspectRatio = config.aspectRatio;
-        }
-        if(config.defaultFontSize){
-            this.chartConfig.options.defaultFontSize = config.defaultFontSize;
+        if(config){
+            if(config.legendPosition){
+                this.chartConfig.legend.options.position = config.legendPosition;
+            }
+            if(config.aspectRatio) {
+                this.chartConfig.aspectRatio = config.aspectRatio;
+            }
+            if(config.defaultFontSize){
+                this.chartConfig.options.defaultFontSize = config.defaultFontSize;
+            }
         }
     }
 
