@@ -163,8 +163,8 @@ function getChartArguments() {
                     aspectRatio: 2,
                     legend: {
                         position: 'top',
-                        onHover: () => { document.getElementById("chart3").style.cursor = 'pointer' },
-                        onLeave: () => { document.getElementById("chart3").style.cursor = 'default' }
+                        onHover: () => { document.getElementById("chart4").style.cursor = 'pointer' },
+                        onLeave: () => { document.getElementById("chart4").style.cursor = 'default' }
                     }
                 }
             }

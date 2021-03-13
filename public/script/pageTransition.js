@@ -1,48 +1,51 @@
 gsap.registerPlugin(ScrollToPlugin);
 
-const btnToBeforeTest = document.querySelector("#toBeforeTest");
 let tl = gsap.timeline();
-btnToBeforeTest.addEventListener("click", e => {
-    tl.set('#page-transition', {zIndex:999})
-    .to('#page-transition', {opacity: 1, duration:0.5})
-    .to(window, {duration:0, scrollTo: {y: ".before_test", offsetY: 150}})
-    .to('#page-transition', {opacity: 0, duration:0.5})
-    .set('#page-transition', {zIndex:-1});
-})
 
-const btnToAfterTest = document.querySelector("#toAfterTest");
-btnToAfterTest.addEventListener("click", e => {
-    tl.set('#page-transition', {zIndex:999})
-    .to('#page-transition', {opacity: 1, duration:0.5})
-    .to(window, {duration:0, scrollTo: {y: ".after_test", offsetY: 150}})
-    .to('#page-transition', {opacity: 0, duration:0.5})
-    .set('#page-transition', {zIndex:-1});
-})
+const btnOptions = [
+    {
+        btnSelector: "#toBeforeTest",
+        pageSelector: ".before_test",
+        offsetY: 150
+    },
+    {
+        btnSelector: "#toAfterTest",
+        pageSelector: ".after_test",
+        offsetY: 150
+    },
+    {
+        btnSelector: "#backToTop",
+        pageSelector: "body",
+        offsetY: 0
+    },
+    {
+        btnSelector: "#submitBeforeTest",
+        pageSelector: "#main_middle",
+        offsetY: 0
+    },
+    {
+        btnSelector: "#submitAfterTest",
+        pageSelector: "#main_bottom",
+        offsetY: 0
+    }
+]
 
-const btnBackToTop = document.querySelector("#backToTop");
-btnBackToTop.addEventListener("click", e => {
-    tl.set('#page-transition', {zIndex:999})
-    .to('#page-transition', {opacity: 1, duration:0.5})
-    .to(window, {scrollTo: 0,duration:0})
-    .to('#page-transition', {opacity: 0, duration:0.5})
-    .set('#page-transition', {zIndex:-1});
-})
+function addPageTransition(btnSelector, pageSelector, offsetY) {
+    const btn = document.querySelector(btnSelector);
+    btn.addEventListener("click", e => {
+        pageTransition(pageSelector, offsetY);
+    })
+}
 
-const btnSubmitBeforeTest = document.querySelector("#submitBeforeTest");
-btnSubmitBeforeTest.addEventListener("click", e => {
-    tl.set('#page-transition', {zIndex:999})
-    .to('#page-transition', {opacity: 1, duration:0.5})
-    .to(window, {duration: 0, scrollTo: {y: "#main_middle"}})
-    .to('#page-transition', {opacity: 0, duration:0.5})
-    .set('#page-transition', {zIndex:-1});
-})
+function pageTransition(pageSelector, offsetY) {
+    tl.set('#page-transition', { zIndex: 999 })
+        .to('#page-transition', { opacity: 1, duration: 0.5 })
+        .to(window, { duration: 0, scrollTo: { y: pageSelector, offsetY: offsetY } })
+        .to('#page-transition', { opacity: 0, duration: 0.5 })
+        .set('#page-transition', { zIndex: -1 });
+}
 
 
-const btnSubmitAfterTest = document.querySelector("#submitAfterTest");
-btnSubmitAfterTest.addEventListener("click", e => {
-    tl.set('#page-transition', {zIndex:999})
-    .to('#page-transition', {opacity: 1, duration:0.5})
-    .to(window, {duration: 0, scrollTo: {y: "#main_bottom"}})
-    .to('#page-transition', {opacity: 0, duration:0.5})
-    .set('#page-transition', {zIndex:-1});
+btnOptions.forEach(({ btnSelector, pageSelector, offsetY }) => {
+    addPageTransition(btnSelector, pageSelector, offsetY);
 })

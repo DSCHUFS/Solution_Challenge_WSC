@@ -26,7 +26,28 @@ body {
     background: rgba(0,0,0, 0.8);
     opacity: 0;
     z-index: -1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.logo {
+    position: fixed;
+    z-index: 500;
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.logo img {
+    width: 5rem;
+    height: 5rem;
+}
+
 
 .custom-button {
     position: relative;
@@ -62,6 +83,38 @@ body {
     margin-left: 3vw;
     padding: calc(85vh - (min(15vh, 13vw)*2 + min(3vh, 2vw))) 0 0 1vw;
 }
+
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-right: 5vw;
+    margin-bottom: 3vh;
+}
+
+.btn-container button {
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    transition: 0.5s;
+}
+
+.btn-container button:hover {
+    background-color: white;
+    color: rgba(0,0,0, 0.7);
+}
+
+#btn-after-test button {
+    border: 1px solid #E0553F;
+    background: transparent;
+    color: #E0553F;
+}
+
+#btn-after-test button:hover {
+    background-color: #E0553F;
+    color: white;
+}
+
 
 .main_text>span {
     font-size: min(15vh, 13vw);
@@ -128,6 +181,14 @@ body {
     margin-right: 20px;
 }
 
+.question-container label:hover{
+    cursor: pointer;
+}
+
+.question-container input:hover{
+    cursor: pointer;
+}
+
 
 .Q1 {
     background-color: #E0553F;
@@ -183,7 +244,7 @@ body {
 
 .carousel-container .img_comment {
     margin-left: 20vw;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     align-self: flex-start;
 }
