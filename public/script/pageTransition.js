@@ -6,12 +6,12 @@ const btnOptions = [
     {
         btnSelector: "#toBeforeTest",
         pageSelector: ".before_test",
-        offsetY: 150
+        offsetY: 0
     },
     {
         btnSelector: "#toAfterTest",
         pageSelector: ".after_test",
-        offsetY: 150
+        offsetY: 0
     },
     {
         btnSelector: "#backToTop",
