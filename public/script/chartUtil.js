@@ -26,12 +26,12 @@ click();
 
 function hide(className) {
     gsap.timeline()
-        .to(className, {opacity:0 , stagger: 0.01, duration: 0.5});
+        .to(className, {opacity:0 , stagger: 0.01, duration: 1});
 }
 
 function visible(className) {
     gsap.timeline()
-        .to(className, {opacity:1, stagger: 0.01, duration: 0.5});
+        .to(className, {opacity:1, stagger: 0.01, duration: 1});
 }
 
 function hover() {
