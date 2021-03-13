@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="pics/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="pics/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="pics/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="pics/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="pics/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="pics/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="pics/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="pics/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="pics/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="pics/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="pics/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="pics/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="pics/favicon/favicon-16x16.png">
+    <link rel="manifest" href="pics/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="pics/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
     <!-- carousel -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -14,9 +32,18 @@
     <!-- jQuery -->
     <script src="./script/jquery.min.js"></script>
     <!--BootSTrapCDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+        integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <!-- custom css -->
     <link rel="stylesheet" href="style.css">
     <!-- custom script -->
@@ -40,7 +67,9 @@
 
 <body>
     <div id="page-transition"></div>
-    <button type="button" class="btn btn-submit btn-lg custom-button" id="backToTop">Back To Top</button>
+    <div class="logo" id="backToTop">
+        <img src="pics/Logo.svg" alt="B-Free" />
+    </div>
     <div class="main main_top">
         <div class="img_container">
             <img class="main_image" id="firstImage" src="pics/Main1.jpg" alt="두 사람이 나란히 가는 사진">
@@ -60,10 +89,20 @@
                         <span>편견과 차별 없는 동등한 세상을 꿈꿉니다.</span>
                     </div>
                 </div>
-                <button type="button" class="btn btn-submit btn-lg custom-button" id="toBeforeTest">테스트 하러가기</button>
+            </div>
+            <div class="btn-container">
+                <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">테스트
+                    하러가기</button>
             </div>
         </div>
     </div>
+    <script>
+        gsap.timeline()
+            .from('body', { duration: 0.5 }) // for loading
+            .from('.large-text', { y: -100, opacity: 0, duration: 1 })
+            .from('.small-text', { y: -100, opacity: 0, duration: 1 })
+    </script>
+
 
     <!-- 인식개선 테스트 div -->
     <div class="main before_test test">
@@ -220,7 +259,8 @@
             keyboard: {
                 enabled: true,
                 onlyInViewport: true,
-            }
+            },
+            threshold: 10
         })
     </script>
 
@@ -261,7 +301,7 @@
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
-    
+
             <script>
                 // swiper
                 const swiper = new Swiper('#img-container', {
@@ -278,8 +318,9 @@
                     autoplay: {
                         delay: 5000,
                     },
+                    threshold: 10
                 })
-    
+
                 gsap.registerPlugin(ScrollTrigger);
                 gsap.from('.carousel-container', {
                     scrollTrigger: {
@@ -290,8 +331,8 @@
                     duration: 1
                 })
             </script>
-    
-    
+
+
             <!-- The first statistics : the number of the people with disability -->
             <div class="overlay">
                 <div class="stat">
@@ -316,7 +357,7 @@
                                 <div class="arrow"></div>
                                 <div class="background" data-index="1">
                                     <div class="color_box_hover">
-    
+
                                     </div>
                                     <div class="label_hover">
                                         장애를 가진 사람: 5.39%
@@ -336,7 +377,7 @@
                             <div class="pictogram_controls">
                                 <div class="control" data-index="1">
                                     <div class="color_box">
-    
+
                                     </div>
                                     <div class="label">
                                         장애를 가진 사람
@@ -344,7 +385,7 @@
                                 </div>
                                 <div class="control" data-index="2">
                                     <div class="color_box">
-    
+
                                     </div>
                                     <div class="label">
                                         장애를 가지지 않은 사람
@@ -385,7 +426,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- Second Statistic : the cause of the disability -->
             <div class="overlay">
                 <div class="stat">
@@ -420,7 +461,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- The third statistics -->
             <div class="overlay">
                 <div class="stat">
@@ -456,7 +497,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- The Fourth statistic -->
             <div class="overlay">
                 <div class="stat">
@@ -491,7 +532,7 @@
                     </div>
                 </div>
             </div>
-    
+
             <!-- The fifth statistic -->
             <div class="overlay">
                 <div class="stat">
@@ -522,20 +563,23 @@
                         자료 출처 : 2017년 대검찰청 범죄분석 보고서
                     </span>
                     <div class="comment">
-                        장애가 범죄의 원인이 될 순 없습니다. 장애인이 범죄를 일으켰다고 해서 장애인은 범죄자라는 인식을 가져선 안됩니다. 통계적으로도 비장애인의 범죄율이 정신장애인의 범죄율보다 15배
+                        장애가 범죄의 원인이 될 순 없습니다. 장애인이 범죄를 일으켰다고 해서 장애인은 범죄자라는 인식을 가져선 안됩니다. 통계적으로도 비장애인의 범죄율이 정신장애인의 범죄율보다
+                        15배
                         높다고
                         조사되었습니다.
                     </div>
                 </div>
             </div>
-            <button type="button" class="btn btn-submit btn-lg" id="toAfterTest">테스트 보러가기</button>
+
+            <div class="btn-container" id="btn-after-test">
+                <button type="button" class="btn btn-lg" id="toAfterTest">테스트 보러가기</button>
+            </div>
         </div>
         <script>
             let overlay = gsap.utils.toArray('.overlay');
-            console.log(overlay);
             overlay.forEach((ol, i) => {
                 ol.dataset.colorIndex = i;
-    
+
                 gsap.from(ol, {
                     scrollTrigger: {
                         trigger: ol,
@@ -705,7 +749,8 @@
             keyboard: {
                 enabled: true,
                 onlyInViewport: true,
-            }
+            },
+            threshold: 10
         })
     </script>
 
@@ -724,7 +769,7 @@
     </div>
 
 
-    
+
     <script src="./script/chartUtil.js"></script>
     <script src="./script/pageTransition.js"></script>
     <!-- jquery -->
