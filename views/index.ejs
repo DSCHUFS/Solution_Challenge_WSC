@@ -796,15 +796,24 @@
 
     <div class="main main_bottom" id="main_bottom">
         <h1 style="display:inline-block">Main_Bottom</h1>
-        <canvas id="beforeChart" width="400" height="400">
-            <p>Feedback Chart1-1</p>
-        </canvas>
-        <canvas id="afterChart" width="400" height="400">
-            <p>Feedback Chart1-2</p>
-        </canvas>
-        <canvas id="increaseChart" width="400" height="400">
-            <p>Feedback Chart2</p>
-        </canvas>
+        <div class="score_chart">
+            <div class="beforeChart">
+                <canvas id="beforeChart">
+                    <p>Feedback Chart1-1</p>
+                </canvas>
+            </div>
+            <div class="afterChart">
+                <canvas id="afterChart">
+                    <p>Feedback Chart1-2</p>
+                </canvas>
+            </div>
+        </div>
+        <div class="increase_chart">
+            <canvas id="increaseChart">
+                <p>Feedback Chart2</p>
+            </canvas>
+        </div>
+        
         <!-- 회전초밥 div -->
         <div class="owl-carousel owl-theme owl-loaded">
             <div class="item">
@@ -973,8 +982,12 @@
             alert("서비스 초기에 보여진 테스트를 먼저 제출해주세요!");
         });
         //after 테스트를 정상적으로 제출한 경우
-        socket.on('completeAfter', function (Count, Score) {
+        socket.on('completeAfter', function (result) {
             alert("정상적으로 제출되었습니다!");
+            console.log(result);
+            count = result.Count.count;
+            score = result.Score;
+            console.log(parseInt(count) - parseInt(score.increase));
 
             //feedback chart
             var beforeCtx = document.getElementById('beforeChart').getContext('2d');
@@ -985,8 +998,8 @@
                 data: {
                     labels: [0, 1, 2, 3, 4, 5, 6, 7],
                     datasets: [{
-                        label: '# of score',
-                        data: [Score.b0, Score.b1, Score.b2, Score.b3, Score.b4, Score.b5, Score.b6, Score.b7],
+                        label: '점수 분포 - 서비스 이용 전',
+                        data: [score.b0, score.b1, score.b2, score.b3, score.b4, score.b5, score.b6, score.b7],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
@@ -1016,8 +1029,8 @@
                 data: {
                     labels: [0, 1, 2, 3, 4, 5, 6, 7],
                     datasets: [{
-                        label: '# of score',
-                        data: [Score.a0, Score.a1, Score.a2, Score.a3, Score.a4, Score.a5, Score.a6, Score.a7],
+                        label: '점수 분포 - 서비스 이용 후',
+                        data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7],
                         borderColor: [
                             'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
@@ -1043,10 +1056,16 @@
             });
 
             var increaseChart = new Chart(increaseCtx, {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                     labels: ["상승", "하락"],
-                    data: [Score.increase, (Count - Score.increase)]
+                    datasets: [{
+                        label:'서비스 이용 후, 점수 상승률',
+                        data: [score.increase, (count - score.increase)],
+                        backgroundColor: [
+                            "#48C9B0", "#E5E7E9"
+                        ]
+                    }]
                 },
                 options: {
                     scales: {
