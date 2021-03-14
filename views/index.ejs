@@ -249,22 +249,25 @@
                     </div>
                 </div>
 
-                <div class="Result swiper-slide question-slide" id="Result">
-                    <div class="question-container">
-                        <h3>Result</h3>
-                        <span>테스트 결과입니다.</span>
-                        <div class="QS">
-                            맞은 문제 : <br>
-                            틀린 문제 :
-                        </div>
-                    </div>
-                </div>
-
             </form>
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
+
+        <div class="beforeResult swiper-slide question-slide" id="beforeResult">
+            <div class="question-container">
+                <h3>Result</h3>
+                <span>테스트 결과입니다.</span>
+                <div class="QS">
+                    맞은 문제 : <br>
+                    틀린 문제 :
+                </div>
+                <button type="button" class="btn btn-submit btn-lg" id="transTomainMiddle"
+                onclick="transButton">이동하기</button>
+            </div>
+        </div>
+
     </div>
     <script>
         // test-swiper
@@ -756,6 +759,18 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
         </div>
+        <div class="afterResult swiper-slide question-slide" id="afterResult">
+            <div class="question-container">
+                <h3>Result</h3>
+                <span>테스트 결과입니다.</span>
+                <div class="QS">
+                    맞은 문제 : <br>
+                    틀린 문제 :
+                </div>
+                <button type="button" class="btn btn-submit btn-lg" id="transTomainBottom"
+                onclick="transButton">이동하기</button>
+            </div>
+        </div>
     </div>
     <script>
         // test-swiper
@@ -891,11 +906,8 @@
     <script>
         //before test form 제출 시, 호출되는 함수
         function submitBefore() {
-            $('.Q7').hide();
-                        $('.question-container').width('80%');
-            $('.question-container').height('90%');
-            $('.Result').show();
-
+            $('.before-test-container').hide();
+            $('.beforeResult').show();
 
             //serialize: form 태그내의 항목들을 자동으로 읽어와 queryString 형식으로 변환
             var queryString = $("form[name=before]").serialize();
@@ -912,6 +924,10 @@
 
         //after test form 제출 시, 호출되는 함수
         function submitAfter() {
+
+            $('.after-test-container').hide();
+            $('.afterResult').show();
+
             var queryString = $("form[name=after]").serialize();
             $.ajax({
                 type: 'post',
@@ -922,6 +938,13 @@
                     console.log(error);
                 }
             });
+        }
+
+        function transButton(){ //없어도 될듯. . ? 
+            $('.beforeResult').hide();
+            $('.before-test-container').show();
+            $('.afterResult').hide();
+            $('.after-test-container').show();
         }
     </script>
 

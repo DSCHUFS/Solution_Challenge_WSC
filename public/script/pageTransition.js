@@ -19,12 +19,12 @@ const btnOptions = [
         offsetY: 0
     },
     {
-        btnSelector: "#submitBeforeTest",
+        btnSelector: "#transTomainMiddle",
         pageSelector: "#main_middle",
         offsetY: 0
     },
     {
-        btnSelector: "#submitAfterTest",
+        btnSelector: "#transTomainBottom",
         pageSelector: "#main_bottom",
         offsetY: 0
     }
