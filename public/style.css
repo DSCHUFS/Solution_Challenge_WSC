@@ -6,22 +6,19 @@
 }
 
 html, body {
-    /* overflow-x:hidden  */
     overflow: hidden;
+    width: 100%;
 } 
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #FAF9F6;
     color: rgba(0,0,0,0.7);
-
-    width: 100%;
-    
 }
 
 #page-transition {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: fixed;
     background: rgba(0,0,0, 0.8);
     opacity: 0;
@@ -76,6 +73,41 @@ body {
     cursor: pointer;
 }
 
+#menu svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+#menu .svg_comp {
+    -webkit-transition: all 0.5s; /* Safari */
+    transition: all 0.5s;
+}
+
+#menu:hover .svg_comp {
+    fill: #008B9F;
+}
+
+#path-menu {
+    display: none;
+    position: absolute;
+}
+
+#path-menu .path {
+    list-style: none;
+    margin: 7px 0;
+}
+
+#toTop:hover {
+    color: #008B9F;
+}
+
+#toMiddle:hover {
+    color: #008B9F;
+}
+
+#toBottom:hover {
+    color: #008B9F;
+}
 
 .custom-button {
     position: relative;
@@ -97,15 +129,20 @@ body {
     object-fit: cover;
 }
 
-.top {
+.main_top {
     height: 100vh;
+    width: 100%;
+}
+
+.top {
+    height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.4);
 }
 
 .text_container {
     margin-left: 3vw;
-    padding: calc(85vh - (min(15vh, 13vw)*2 + min(3vh, 2vw))) 0 0 1vw;
+    padding: calc(85vh - (min(15vh, 13vw)*2 + min(3vh, 2vw)) - 3vh) 0 0 1vw;
 }
 
 .btn-container {
@@ -161,7 +198,7 @@ body {
 
 /* before test */
 .test {
-    max-width:600px;
+    width: 100%;
     height: 100vh;
     margin: 0 auto;
     color: white;
@@ -245,30 +282,17 @@ body {
   background-color: #3BAAD8;
 }
 
-.Result{
+
+.result {
     background-color: #2E2E29;
 }
 
-#Result{
+.result-container{
+    width: 600px;
+    height: 400px;
     display: none;
-    height: 30%;
 }
 
-.beforeResult{
-    background-color: #2E2E29;
-}
-.afterResult{
-    background-color: #2E2E29;
-}
-
-#beforeResult{
-    display: none;
-    height: 30%;
-}
-#afterResult{
-    display: none;
-    height: 30%;
-}
 .btn-submit {
     float: right;
     margin-top: 3rem;
@@ -325,8 +349,6 @@ body {
     object-fit: contain;
 }
 
-
-
 .overlay {
     max-width: 1200px;
     margin-left: auto;
@@ -376,8 +398,10 @@ body {
 }
 
 .source {
-    margin-left: 55vw;
-    margin-right: auto;
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .comment {
@@ -726,7 +750,6 @@ body {
     }
 
     .source {
-        margin-left: 50vw;
         margin-right: auto;
         font-size: 13px;
     }
@@ -801,7 +824,6 @@ body {
     }
 
     .source {
-        margin-left: 40vw;
         margin-right: auto;
         font-size: 11px;
     }
@@ -830,6 +852,12 @@ body {
     }
     .carousel-container .img_comment {
         font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .result-container {
+        width: 100%;
     }
 }
 
