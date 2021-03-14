@@ -8,12 +8,17 @@
 html, body {
     overflow: hidden;
     width: 100%;
+    height: -webkit-fill-available;
 } 
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #FAF9F6;
     color: rgba(0,0,0,0.7);
+
+    min-height: 100vh;
+    /* mobile viewport bug fix */
+    min-height: -webkit-fill-available;
 }
 
 #page-transition {
