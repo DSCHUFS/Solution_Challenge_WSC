@@ -836,7 +836,16 @@ body {
 
 .main_bottom {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 }
+
+/* feedback chart css */
+.score_chart {
+    display: flex;
+}
+
 /* 회전초밥 css */
 .owl-dots{display:none;}
 .owl-item img{

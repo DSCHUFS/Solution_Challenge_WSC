@@ -110,12 +110,6 @@ app.post('/after', (req, res) => {
         res.cookie('before', "done");
         res.json(result);
 
-        //update db test user count(1씩 증가)
-        const userRef = db.collection("test").doc("user");
-        userRef.update({
-            count: admin.firestore.FieldValue.increment(1)
-        });
-
         //점수분포 및 상승 여부 update
         updateScore(beforeScore, afterScore);
 
@@ -126,9 +120,14 @@ app.post('/after', (req, res) => {
 
 //점수분포 및 상승 여부 update
 function updateScore(beforeScore, afterScore){
+    //update db test user count(1씩 증가)
+    const userRef = db.collection("test").doc("user");
+    userRef.update({
+        count: admin.firestore.FieldValue.increment(1)
+    });
+
     //점수 분포 update
     const scoreIncrease = db.collection("test").doc("score");
-    
     if(beforeScore == 0)
         scoreIncrease.update({ b0: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 1)
