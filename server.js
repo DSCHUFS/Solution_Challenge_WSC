@@ -5,7 +5,7 @@ const io = require('socket.io')(server);
 const { runInNewContext } = require('vm');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
-
+let port = 8080;
 
 //Cloud Firestore 초기화
 var admin = require("firebase-admin");
@@ -55,7 +55,7 @@ app.post('/before', (req, res) => {
             req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
             req.body.answer5, req.body.answer6, req.body.answer7
         ];
-        var solution = ["장애우", "5%", "9", "X", "지체장애", "2008", "X"];
+        var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"];
         //채점
         var result = 0;
         for(var i=0; i<7; i++){
@@ -92,7 +92,7 @@ app.post('/after', (req, res) => {
             req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
             req.body.answer5, req.body.answer6, req.body.answer7
         ];
-        var solution = ["장애우", "5%", "9", "X", "지체장애", "2008", "X"];
+        var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"];
 
         //채점
         var result = 0;
@@ -198,6 +198,6 @@ async function getData(){
     io.sockets.emit('completeAfter',{Count:userCount, Score:score});
 }
 
-server.listen(3000, () => {
-    console.log("app is running on port 3000");
+server.listen(port, () => {
+    console.log("app is running on port "+ port);
 });
