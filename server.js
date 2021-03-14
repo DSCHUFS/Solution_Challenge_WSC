@@ -110,65 +110,65 @@ app.post('/after', (req, res) => {
         res.cookie('before', "done");
         res.json(result);
 
-        //점수분포 및 상승 여부 update
-        updateScore(beforeScore, afterScore);
-
-        //chart에 반영할 data 읽어오기
-        getData();
+        //db update후, chart에 반영할 data 읽어오기
+        getData(beforeScore, afterScore);
     }
 });
 
-//점수분포 및 상승 여부 update
-function updateScore(beforeScore, afterScore){
+//user count update
+async function updateCount(){
     //update db test user count(1씩 증가)
     const userRef = db.collection("test").doc("user");
-    userRef.update({
+    await userRef.update({
         count: admin.firestore.FieldValue.increment(1)
     });
+}
 
+//점수분포 및 상승 여부 update
+async function updateScore(beforeScore, afterScore){
     //점수 분포 update
     const scoreIncrease = db.collection("test").doc("score");
     if(beforeScore == 0)
-        scoreIncrease.update({ b0: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b0: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 1)
-        scoreIncrease.update({ b1: admin.firestore.FieldValue.increment(1) }); 
+        await scoreIncrease.update({ b1: admin.firestore.FieldValue.increment(1) }); 
     else if(beforeScore == 2)
-        scoreIncrease.update({ b2: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b2: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 3)
-        scoreIncrease.update({ b3: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b3: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 4)
-        scoreIncrease.update({ b4: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b4: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 5)
-        scoreIncrease.update({ b5: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b5: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 6)
-        scoreIncrease.update({ b6: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b6: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 7)
-        scoreIncrease.update({ b7: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b7: admin.firestore.FieldValue.increment(1) });
     else if(beforeScore == 8)
-        scoreIncrease.update({ b8: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ b8: admin.firestore.FieldValue.increment(1) });
 
     if(afterScore == 0)
-        scoreIncrease.update({ a0: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a0: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 1)
-        scoreIncrease.update({ a1: admin.firestore.FieldValue.increment(1) }); 
+        await scoreIncrease.update({ a1: admin.firestore.FieldValue.increment(1) }); 
     else if(afterScore == 2)
-        scoreIncrease.update({ a2: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a2: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 3)
-        scoreIncrease.update({ a3: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a3: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 4)
-        scoreIncrease.update({ a4: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a4: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 5)
-        scoreIncrease.update({ a5: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a5: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 6)
-        scoreIncrease.update({ a6: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a6: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 7)
-        scoreIncrease.update({ a7: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a7: admin.firestore.FieldValue.increment(1) });
     else if(afterScore == 8)
-        scoreIncrease.update({ a8: admin.firestore.FieldValue.increment(1) });
+        await scoreIncrease.update({ a8: admin.firestore.FieldValue.increment(1) });
 
     //점수의 상승이 있었을 때만 1씩 증가
     if(afterScore - beforeScore > 0){
-        scoreIncrease.update({
+        await scoreIncrease.update({
             increase: admin.firestore.FieldValue.increment(1)
         });
     }
@@ -176,22 +176,26 @@ function updateScore(beforeScore, afterScore){
 
 //user count data 읽어오기
 async function getUserCount(){
+    //test에 참여한 user count update를 await
+    await updateCount();
     const userRef = db.collection("test").doc("user");
     const userDoc = await userRef.get();
     return userDoc.data();
 }
 
 //score count data 읽어오기
-async function getScore(){
+async function getScore(beforeScore, afterScore){
+    //score update를 await
+    await updateScore(beforeScore, afterScore);
     const scoreRef = db.collection("test").doc("score");
     const scoreDoc = await scoreRef.get();
     return scoreDoc.data();
 }
 
 //firestore로부터 읽어들인 data 비동기로 저장 후, socket 통신
-async function getData(){
+async function getData(beforeScore, afterScore){
     const userCount = await getUserCount();
-    const score = await getScore();
+    const score = await getScore(beforeScore, afterScore);
     console.log(userCount);
     console.log(score);
     io.sockets.emit('completeAfter',{Count:userCount, Score:score});
