@@ -26,6 +26,8 @@
     <!-- carousel -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="./owlcarousel/owl.theme.default.min.css">
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://use.fontawesome.com/5b83e74e73.js"></script>
@@ -229,7 +231,7 @@
                     </div>
                 </div>
 
-                <div class="Q7 swiper-slide question-slide">
+                <div class="Q7 swiper-slide question-slide" id="Q7">
                     <div class="question-container">
                         <h3>Question #7</h3>
                         <span>O / X 문제입니다.</span>
@@ -241,8 +243,20 @@
                                 onclick='checkOnlyOne(this)' id="before-7-1"> O </label>
                         <label for="before-7-2"><input type="checkbox" name="answer7" value="X"
                                 onclick='checkOnlyOne(this)' id="before-7-2"> X </label>
-                        <button type="button" class="btn btn-submit btn-lg" id="submitBeforeTest" onclick="submitBefore()">제출하기</button>
+                        <button type="button" class="btn btn-submit btn-lg" id="submitBeforeTest"
+                            onclick="submitBefore()">제출하기</button>
 
+                    </div>
+                </div>
+
+                <div class="Result swiper-slide question-slide" id="Result">
+                    <div class="question-container">
+                        <h3>Result</h3>
+                        <span>테스트 결과입니다.</span>
+                        <div class="QS">
+                            맞은 문제 : <br>
+                            틀린 문제 :
+                        </div>
                     </div>
                 </div>
 
@@ -731,7 +745,8 @@
                                 onclick='checkOnlyOne(this)' id="after-7-1"> O </label>
                         <label for="after-7-2"><input type="checkbox" name="answer7" value="X"
                                 onclick='checkOnlyOne(this)' id="after-7-2"> X </label>
-                        <button type="button" class="btn btn-submit btn-lg" id="submitAfterTest" onclick="submitAfter()">제출하기</button>
+                        <button type="button" class="btn btn-submit btn-lg" id="submitAfterTest"
+                            onclick="submitAfter()">제출하기</button>
 
                     </div>
                 </div>
@@ -775,8 +790,57 @@
         <canvas id="increaseChart" width="400" height="400">
             <p>Feedback Chart2</p>
         </canvas>
+        <!-- 회전초밥 div -->
+        <div class="owl-carousel owl-theme owl-loaded">
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=CdFqM5fekqI">
+                    <img src="https://img.youtube.com/vi/CdFqM5fekqI/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=XN2OC9UVVuA">
+                    <img src="https://img.youtube.com/vi/XN2OC9UVVuA/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=LS4WS7V0Y_A">
+                    <img src="https://img.youtube.com/vi/LS4WS7V0Y_A/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=MCZqR2VCP28">
+                    <img src="https://img.youtube.com/vi/MCZqR2VCP28/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=REpjJyKifms">
+                    <img src="https://img.youtube.com/vi/REpjJyKifms/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=5gc4y9ExmHw">
+                    <img src="https://img.youtube.com/vi/5gc4y9ExmHw/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=kJrRzI0Tm80">
+                    <img src="https://img.youtube.com/vi/kJrRzI0Tm80/maxresdefault.jpg"></a>
+            </div>
+        </div>
     </div>
+    <script src="./owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            video: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+        });
+        console.log(owl);
 
+        $('.owl-carousel').owlCarousel();
+        // $(document).ready(function () {
+        //     $('.owl-carousel').owlCarousel();
+        // });
+    </script>
 
 
     <script src="./script/chartUtil.js"></script>
@@ -816,7 +880,7 @@
                 cb.checked = false;
             })
             element.checked = true;
-            console.log(element.value);
+            // console.log(element.value);
         }
 
         function answerCheck() {
@@ -827,6 +891,12 @@
     <script>
         //before test form 제출 시, 호출되는 함수
         function submitBefore() {
+            $('.Q7').hide();
+                        $('.question-container').width('80%');
+            $('.question-container').height('90%');
+            $('.Result').show();
+
+
             //serialize: form 태그내의 항목들을 자동으로 읽어와 queryString 형식으로 변환
             var queryString = $("form[name=before]").serialize();
             $.ajax({
