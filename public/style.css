@@ -251,6 +251,23 @@ body {
 
 #Result{
     display: none;
+    height: 30%;
+}
+
+.beforeResult{
+    background-color: #2E2E29;
+}
+.afterResult{
+    background-color: #2E2E29;
+}
+
+#beforeResult{
+    display: none;
+    height: 30%;
+}
+#afterResult{
+    display: none;
+    height: 30%;
 }
 .btn-submit {
     float: right;
