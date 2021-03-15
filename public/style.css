@@ -642,6 +642,99 @@ body {
     font-size: 20px;
 }
 
+/* main_bottom */
+.main_bottom {
+    height: 100vh;
+    overflow: auto;
+}
+
+.chart-comment-container{
+    max-width: 1200px;
+    margin: 6rem auto;
+}
+
+#score-comment-container {
+    display: flex;
+    flex-flow:column;
+
+    align-items: center;
+    justify-content: center;
+}
+
+#first-score-comment {
+    font-size: 50px;
+    font-weight: 700;
+}
+
+.chart-comment {
+    margin-bottom: 2rem;
+}
+
+.own-score {
+    display: flex;
+}
+
+.test-first-score-comment {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.test-second-score-comment {
+    margin-left: 2rem;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.total-count {
+    font-weight: 900;
+    color: #E0553F;
+}
+
+.correct-count {
+    font-weight: 900;
+    
+}
+
+#last-score-comment {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+#propose-comment {
+    font-size: 50px;
+    font-weight: 700;
+
+    margin-bottom: 3rem;
+}
+
+/* feedback chart css */
+.score-chart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.chart-title {
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 3rem;
+}
+
+.score-chart {
+    max-width: 600px;
+    margin-bottom: 3rem; 
+}
+
+#first-chart {
+    margin-right: auto;
+}
+
+#second-chart {
+    margin-left: auto;
+}
+
+
+
 @media (max-width: 1000px) and (min-width:910px) {
     .number_container {
         width: 160px;
@@ -887,28 +980,6 @@ body {
     .result-container {
         height: 100%;
     }
-}
-
-
-.main_bottom {
-    height: 100vh;
-    overflow: auto;
-}
-
-.own-score-container{
-    max-width: 1200px;
-    margin: 6rem auto;
-}
-
-/* feedback chart css */
-.score-chart-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.score-chart {
-    max-width: 500px;
-    margin: 0 auto;
 }
 
 /* 회전초밥 css */
