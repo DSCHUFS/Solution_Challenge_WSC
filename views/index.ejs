@@ -141,7 +141,7 @@
     </script>
 
 
-    <!-- 인식개선 테스트 div -->
+    <!-- Before 인식개선 테스트 div -->
     <div class="main before_test test">
         <div>
             <div class="swiper-container test-container" id="before-test-container">
@@ -656,13 +656,78 @@
                 })
             })
         </script>
+    
+
+        <!-- 회전초밥 div -->
+        <div class="owl-carousel owl-theme owl-loaded">
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=CdFqM5fekqI">
+                    <img src="https://img.youtube.com/vi/CdFqM5fekqI/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=XN2OC9UVVuA">
+                    <img src="https://img.youtube.com/vi/XN2OC9UVVuA/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=LS4WS7V0Y_A">
+                    <img src="https://img.youtube.com/vi/LS4WS7V0Y_A/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=MCZqR2VCP28">
+                    <img src="https://img.youtube.com/vi/MCZqR2VCP28/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=REpjJyKifms">
+                    <img src="https://img.youtube.com/vi/REpjJyKifms/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=5gc4y9ExmHw">
+                    <img src="https://img.youtube.com/vi/5gc4y9ExmHw/maxresdefault.jpg"></a>
+            </div>
+            <div class="item">
+                <a href="https://www.youtube.com/watch?v=kJrRzI0Tm80">
+                    <img src="https://img.youtube.com/vi/kJrRzI0Tm80/maxresdefault.jpg"></a>
+            </div>
+        </div>
     </div>
+    <script src="./owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 4,
+            loop: true,
+            margin: 10,
+            video: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+        });
+        console.log(owl);
+
+        $('.owl-carousel').owlCarousel();
+        // $(document).ready(function () {
+        //     $('.owl-carousel').owlCarousel();
+        // });
+    </script>
 
 
-    <!-- 인식개선 테스트 div -->
+
+    <!-- After 인식개선 테스트 div -->
     <div class="main after_test test">
         <div class="swiper-container test-container" id="after-test-container">
             <form name="after" class="swiper-wrapper">
+                <div class="Q0 swiper-slide question-slide">
+                    <div class="question-container">
+                        <h3 style="color: red;">잠깐!</h3>
+                        <span>처음에 했던 테스트와 동일한 테스트 입니다.</span>
+                        <div class="QS">
+                            앞 페이지에서 본 통계자료 및 <br> 동영상 자료를 확인 후 <br>
+                            동일한 테스트를 한 번 더 진행해 <br> 새롭게 알게 된 내용을 다시 한 번 <br>
+                            확인해보세요!😊
+                        </div>
+                    </div>
+                </div>
+
                 <div class="Q1 swiper-slide question-slide">
                     <div class="question-container">
                         <h3>Question #1</h3>
@@ -855,59 +920,7 @@
                 <p>Feedback Chart2</p>
             </canvas>
         </div>
-        
-        <!-- 회전초밥 div -->
-        <div class="owl-carousel owl-theme owl-loaded">
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=CdFqM5fekqI">
-                    <img src="https://img.youtube.com/vi/CdFqM5fekqI/maxresdefault.jpg"></a>
-            </div>
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=XN2OC9UVVuA">
-                    <img src="https://img.youtube.com/vi/XN2OC9UVVuA/maxresdefault.jpg"></a>
-            </div>
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=LS4WS7V0Y_A">
-                    <img src="https://img.youtube.com/vi/LS4WS7V0Y_A/maxresdefault.jpg"></a>
-            </div>
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=MCZqR2VCP28">
-                    <img src="https://img.youtube.com/vi/MCZqR2VCP28/maxresdefault.jpg"></a>
-            </div>
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=REpjJyKifms">
-                    <img src="https://img.youtube.com/vi/REpjJyKifms/maxresdefault.jpg"></a>
-            </div>
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=5gc4y9ExmHw">
-                    <img src="https://img.youtube.com/vi/5gc4y9ExmHw/maxresdefault.jpg"></a>
-            </div>
-            <div class="item">
-                <a href="https://www.youtube.com/watch?v=kJrRzI0Tm80">
-                    <img src="https://img.youtube.com/vi/kJrRzI0Tm80/maxresdefault.jpg"></a>
-            </div>
-        </div>
     </div>
-    <script src="./owlcarousel/owl.carousel.min.js"></script>
-    <script type="text/javascript">
-        var owl = $('.owl-carousel');
-        owl.owlCarousel({
-            items: 4,
-            loop: true,
-            margin: 10,
-            video: true,
-            autoplay: true,
-            autoplayTimeout: 3000,
-            autoplayHoverPause: true
-        });
-        console.log(owl);
-
-        $('.owl-carousel').owlCarousel();
-        // $(document).ready(function () {
-        //     $('.owl-carousel').owlCarousel();
-        // });
-    </script>
-
 
     <script src="./script/chartUtil.js"></script>
     <script src="./script/pageTransition.js"></script>
