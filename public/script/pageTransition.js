@@ -82,14 +82,14 @@ function currPageState() {
     let curYOffset = $(document).scrollTop();
     let height = window.innerHeight;
     let index = parseInt(curYOffset/height);
-    console.log(index);
+    // console.log(index);
     return pageSelector[index];
 }
 //if reload
 curPage = currPageState();
 
 window.addEventListener("resize", e => {
-    console.log(curPage);
+    // console.log(curPage);
     gsap.to(window, { duration: 0, scrollTo: { y: curPage} })
 })
 
