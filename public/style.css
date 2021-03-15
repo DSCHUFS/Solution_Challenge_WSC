@@ -215,7 +215,7 @@ body {
 
 .test-container {
     max-width:600px;
-    height:400px;
+    height:500px;
 }
 
 .swiper-slide.question-slide {
@@ -247,6 +247,8 @@ body {
 }
 
 .question-container label{
+    font-size: 20px;
+    margin-left: 10px;
     margin-right: 20px;
 }
 
@@ -294,13 +296,13 @@ body {
 
 .result-container{
     width: 600px;
-    height: 400px;
+    height: 500px;
     display: none;
 }
 
 .btn-submit {
     float: right;
-    margin-top: 3rem;
+    margin-top: 40%;
     background-color: red;
 }
 
@@ -779,7 +781,13 @@ body {
 
     .question-container .QS {
         margin: 20px 0;
-        font-size: 25px;
+        font-size: 22px;
+    }
+
+    .question-container label{
+        font-size: 13px;
+        margin-left: 6px;
+        margin-right: 30px;
     }
 
     .number_container {
@@ -858,11 +866,23 @@ body {
     .carousel-container .img_comment {
         font-size: 1.7rem;
     }
+
+    
 }
 
 @media (max-width: 600px) {
     .result-container {
         width: 100%;
+    }
+}
+
+@media (max-height: 500px) {
+    .test-container {
+        height: 100%;
+    }
+
+    .result-container {
+        height: 100%;
     }
 }
 
