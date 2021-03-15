@@ -116,7 +116,7 @@
         <div id="main_middle_container">
             <div class="carousel-container">
                 <div class="swiper-container" id="img-container">
-                    <div class="img_comment">누구에게나 평범한 일상입니다.</div>
+                    <div class="img_comment"><span id="hide-comment" style="display: none">누구에게나 </span>평범한 일상입니다.</div>
                     <div id="carousel" class="swiper-wrapper">
                         <div class="swiper-slide img-slide">
                             <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg">
@@ -150,6 +150,11 @@
             </div>
 
             <script>
+
+                const imgContainers = gsap.utils.toArray('.swiper-slide.img-slide');
+                imgContainers.forEach((img, i) => {
+                    img.dataset.index = i + 1;
+                })
                 // swiper
                 const swiper = new Swiper('#img-container', {
                     // Optional parameters
@@ -165,7 +170,18 @@
                     autoplay: {
                         delay: 5000,
                     },
-                    threshold: 10
+                    threshold: 10,
+                    on: {
+                        slideChangeTransitionEnd: () => {
+                            let active = document.querySelector('.swiper-slide.img-slide.swiper-slide-active').dataset.index <= 4
+                            console.log(active);
+                            if (active) {
+                                gsap.set('#hide-comment', { duration: 0, display: 'none' });
+                            } else {
+                                gsap.set('#hide-comment', { duration: 0, display: 'inline' });
+                            }
+                        }
+                    }
                 })
 
                 gsap.registerPlugin(ScrollTrigger);
@@ -177,6 +193,8 @@
                     y: 50,
                     duration: 1
                 })
+
+
             </script>
 
 
@@ -546,15 +564,17 @@
         <div class="chart-comment-container" id="score-comment-container">
             <div class="chart-comment" id="first-score-comment">🙌사용자님은</div>
             <div class="own-score chart-comment" id="before-own-score">
-                <div class ="test-first-score-comment" id="before-first-score-comment">첫 번째 테스트에서</div>
+                <div class="test-first-score-comment" id="before-first-score-comment">첫 번째 테스트에서</div>
                 <div class="test-second-score-comment" id="before-second-score-comment">
-                    <span class="total-count">7</span>개 중 <span class="correct-count" style="color: rgba(255, 206, 86, 1)">3</span>개를
+                    <span class="total-count">7</span>개 중 <span class="correct-count"
+                        style="color: rgba(255, 206, 86, 1)">3</span>개를
                 </div>
             </div>
             <div class="own-score chart-comment" id="after-own-score">
                 <div class="test-first-score-comment" id="after-first-score-comment">두 번째 테스트에서</div>
                 <div class="test-second-score-comment" id="after-second-score-comment">
-                    <span class="total-count">7</span>개 중 <span class="correct-count" style="color: rgba(54, 162, 235, 1)">6</span>개를
+                    <span class="total-count">7</span>개 중 <span class="correct-count"
+                        style="color: rgba(54, 162, 235, 1)">6</span>개를
                 </div>
             </div>
             <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
