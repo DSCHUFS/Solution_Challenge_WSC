@@ -15,16 +15,6 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
-//Create our initial store
-//테스트 참여자 수
-db.collection("test").doc("user").set({ count: 0 });
-//before, after test의 점수 분포
-db.collection("test").doc("score").set({
-    b0: 0, b1: 0, b2: 0, b3: 0, b4: 0, b5: 0, b6: 0, b7: 0, b8: 0,
-    a0: 0, a1: 0, a2: 0, a3: 0, a4: 0, a5: 0, a6: 0, a7: 0, a8: 0,
-    increase: 0
-});
-
 //middleware
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
@@ -38,8 +28,16 @@ io.on("connection", (socket) => {
 });
 
 //main page
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async function(req, res){
+    const userRef = db.collection("test").doc("user");
+    const userDoc = await userRef.get();
+    const scoreRef = db.collection("test").doc("score");
+    const scoreDoc = await scoreRef.get();
+    var count = userDoc.data();
+    var score = scoreDoc.data();
+    console.log(count);
+    console.log(score);
+    res.render('index', {Count:count, Score:score});
 });
 
 //before test 제출 (POST)
