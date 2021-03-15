@@ -542,22 +542,35 @@
 
 
     <div class="main main_bottom" id="main_bottom">
-        <div class="score_chart">
-            <div class="beforeChart">
-                <canvas id="beforeChart">
-                    <p>Feedback Chart1-1</p>
-                </canvas>
-            </div>
-            <div class="afterChart">
-                <canvas id="afterChart">
-                    <p>Feedback Chart1-2</p>
-                </canvas>
+        <div class ="own-score-container"> 
+            <div>사용자님의 테스트 결과는</div>
+            <div id ="own-score">
+                <span id="total-count">7</span> 개 중 <span id="correct-count">6</span>
             </div>
         </div>
-        <div class="increase_chart">
-            <canvas id="increaseChart">
-                <p>Feedback Chart2</p>
-            </canvas>
+
+        <div class="score-chart-container">
+            <div class="score-chart">
+                <div class="compareChart" id="beforeCompareChart">
+                    <canvas id="beforeChart">
+                        <p>Feedback Chart1-1</p>
+                    </canvas>
+                </div>
+            </div>
+            <div class="score-chart">
+                <div class="compareChart" id="afterCompareChart">
+                    <canvas id="afterChart">
+                        <p>Feedback Chart1-2</p>
+                    </canvas>
+                </div>
+            </div>
+            <div class="score-chart">
+                <div class="compareChart" id="increaseCompareChart">
+                    <canvas id="increaseChart">
+                        <p>Feedback Chart2</p>
+                    </canvas>
+                </div>
+            </div>
         </div>
     </div>
 

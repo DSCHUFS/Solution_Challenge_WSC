@@ -892,14 +892,23 @@ body {
 
 .main_bottom {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     overflow: auto;
 }
 
+.own-score-container{
+    max-width: 1200px;
+    margin: 6rem auto;
+}
+
 /* feedback chart css */
-.score_chart {
-    display: flex;
+.score-chart-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.score-chart {
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 /* 회전초밥 css */
