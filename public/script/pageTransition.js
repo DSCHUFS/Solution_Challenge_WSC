@@ -89,7 +89,7 @@ function currPageState() {
 curPage = currPageState();
 
 window.addEventListener("resize", e => {
-    // console.log(curPage);
+    console.log(curPage);
     gsap.to(window, { duration: 0, scrollTo: { y: curPage} })
 })
 
