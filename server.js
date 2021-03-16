@@ -45,13 +45,23 @@ app.get('/', async function(req, res){
     console.log(wrongBefore);
     console.log(wrongAfter);
 
-    res.render('index', {Count:count, Score:score, WrongBefore:wrongBefore, WrongAfter:wrongAfter});
+    //before, after test 점수 저장된 쿠키 확인
+    var beforeScore = req.cookies.before;
+    var afterScore = req.cookies.after;
+    console.log(beforeScore);
+    console.log(afterScore);
+
+    res.render('index', {
+        Count:count, Score:score, 
+        WrongBefore:wrongBefore, WrongAfter:wrongAfter,
+        BeforeScore:beforeScore, AfterScore:afterScore
+    });
 });
 
 //before test 제출 (POST)
 app.post('/before', (req, res) => {
     //이미 before, after test 모두 제출한 경우
-    if(req.cookies.before === "done")
+    if(req.cookies.test === "done")
         io.emit('alreadyAll',"hello");
 
     //before test를 제출할 수 있는 경우(처음 제출하는 경우)
@@ -88,7 +98,7 @@ app.post('/before', (req, res) => {
 //after test 제출 (POST)
 app.post('/after', (req, res) => {
     //이미 before, after test 모두 제출한 경우
-    if(req.cookies.before === "done")
+    if(req.cookies.test === "done")
         io.sockets.emit('alreadyAll');
 
     //before test를 제출안하고 after test 제출하려고 하는 경우
@@ -117,7 +127,8 @@ app.post('/after', (req, res) => {
         var afterScore = result;
 
         wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
-        res.cookie('before', "done");       //before, after test 모두 제출했으므로, bofore cookie "done"으로 갱신
+        res.cookie('test', "done");         //before, after test 모두 제출했으므로, test cookie "done"으로 갱신
+        res.cookie('after', afterScore);    //'after' cookie 채첨된 값으로 생성
         res.cookie('wrongAfter', wrong);    //'wrongAfter' cookie 틀린 번호 저장한 배열로 생성
         res.json(result);
 
