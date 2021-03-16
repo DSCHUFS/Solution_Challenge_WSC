@@ -82,14 +82,10 @@
                         <span>테스트 결과입니다. 몰랐던 것을 더 알아가보는 시간을 가져보아요.</span>
                         <div class="QS">
                             틀린 문제 : <br>
-                            <script>
-                                var wrongBefore = [0, 0, 0, 0, 0, 0, 0];
-                                var len = 0; 
-                            </script>
                             <%if(WrongBefore){%>
-                                <% for(var i=0; i<WrongBefore.length; i++){ %>
-                                    <% if(WrongBefore[i] == 1){ %>
-                                        <%=WrongBefore[i]%>번<br>
+                                <% for(var i=0; i<JSON.parse(WrongBefore).length; i++){ %>
+                                    <% if(JSON.parse(WrongBefore)[i] == 1){ %>
+                                        <%=i+1%>번<br>
                                         <p>해당 문제의 해답은 ~~에서 찾아볼 수 있습니다.</p>
                                     <% } %>
                                 <% } %>

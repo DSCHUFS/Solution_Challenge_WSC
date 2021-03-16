@@ -70,7 +70,7 @@ app.post('/before', (req, res) => {
                 wrong[i] = 1;
         }
         console.log(result);
-
+        wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
         res.cookie('before', result);       //'before' cookie 채첨된 값으로 생성
         res.cookie('wrongBefore', wrong);   //'wrongBefore' cookie 틀린 번호 저장한 배열로 생성
         console.log(wrong);
