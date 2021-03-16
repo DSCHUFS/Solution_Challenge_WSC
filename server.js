@@ -41,9 +41,11 @@ app.get('/', async function(req, res){
 
     //before, after test에서 틀린 번호 저장된 쿠키 확인
     var wrongBefore = req.cookies.wrongBefore;
+    var wrongAfter = req.cookies.wrongAfter;
     console.log(wrongBefore);
+    console.log(wrongAfter);
 
-    res.render('index', {Count:count, Score:score, WrongBefore:wrongBefore});
+    res.render('index', {Count:count, Score:score, WrongBefore:wrongBefore, WrongAfter:wrongAfter});
 });
 
 //before test 제출 (POST)
@@ -54,13 +56,13 @@ app.post('/before', (req, res) => {
 
     //before test를 제출할 수 있는 경우(처음 제출하는 경우)
     else if(req.cookies.before === undefined){
-        //답안지 받아옴(json으로 받아오면 될 듯!)
+        //답안지 받아옴
         var ans = [
             req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
             req.body.answer5, req.body.answer6, req.body.answer7
         ];
         var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
-        var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장
+        var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
         //채점
         var result = 0;
         for(var i=0; i<7; i++){
@@ -69,7 +71,7 @@ app.post('/before', (req, res) => {
             else
                 wrong[i] = 1;
         }
-        console.log(result);
+        
         wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
         res.cookie('before', result);       //'before' cookie 채첨된 값으로 생성
         res.cookie('wrongBefore', wrong);   //'wrongBefore' cookie 틀린 번호 저장한 배열로 생성
@@ -101,25 +103,27 @@ app.post('/after', (req, res) => {
             req.body.answer5, req.body.answer6, req.body.answer7
         ];
         var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"];
-
+        var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
         //채점
         var result = 0;
         for(var i=0; i<7; i++){
             if(ans[i] === solution[i])
                 result++;
+            else
+                wrong[i] = 1;
         }
         //before, after test 점수 저장
         var beforeScore = req.cookies.before;
         var afterScore = result;
-        console.log(beforeScore);
-        console.log(afterScore);
 
-        //before, after test 모두 제출했으므로, bofore cookie "done"으로 갱신
-        res.cookie('before', "done");
+        wrong = JSON.stringify(wrong);  //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
+        res.cookie('before', "done");   //before, after test 모두 제출했으므로, bofore cookie "done"으로 갱신
+        res.cookie('wrongAfter', wrong);   //'wrongAfter' cookie 틀린 번호 저장한 배열로 생성
         res.json(result);
 
         //db update후, chart에 반영할 data 읽어오기
         getData(beforeScore, afterScore);
+        res.redirect('/');
     }
 });
 
