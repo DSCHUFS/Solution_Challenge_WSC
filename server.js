@@ -75,9 +75,9 @@ app.post('/before', (req, res) => {
         wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
         res.cookie('before', result);       //'before' cookie 채첨된 값으로 생성
         res.cookie('wrongBefore', wrong);   //'wrongBefore' cookie 틀린 번호 저장한 배열로 생성
+        res.json(result);
         console.log(wrong);
         io.sockets.emit('completeBefore');
-        res.redirect('/');
     }
     
     //이미 before test를 제출한 경우
@@ -116,14 +116,12 @@ app.post('/after', (req, res) => {
         var beforeScore = req.cookies.before;
         var afterScore = result;
 
-        wrong = JSON.stringify(wrong);  //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
-        res.cookie('before', "done");   //before, after test 모두 제출했으므로, bofore cookie "done"으로 갱신
-        res.cookie('wrongAfter', wrong);   //'wrongAfter' cookie 틀린 번호 저장한 배열로 생성
+        wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
+        res.cookie('before', "done");       //before, after test 모두 제출했으므로, bofore cookie "done"으로 갱신
+        res.cookie('wrongAfter', wrong);    //'wrongAfter' cookie 틀린 번호 저장한 배열로 생성
         res.json(result);
 
-        //db update후, chart에 반영할 data 읽어오기
-        getData(beforeScore, afterScore);
-        res.redirect('/');
+        getData(beforeScore, afterScore);   //db update후, chart에 반영할 data 읽어오기
     }
 });
 

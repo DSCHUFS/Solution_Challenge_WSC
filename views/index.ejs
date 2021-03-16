@@ -696,6 +696,7 @@
         //before 테스트를 정상적으로 제출한 경우
         socket.on('completeBefore', function () {
             alert("정상적으로 제출되었습니다!");
+            location.reload();
         });
         //이미 before test를 제출한 경우
         socket.on('alreadyBefore', function () {
@@ -708,6 +709,7 @@
         //after 테스트를 정상적으로 제출한 경우
         socket.on('completeAfter', function (result) {
             alert("정상적으로 제출되었습니다!");
+            location.reload();
             console.log(result);
             count = result.Count.count;
             score = result.Score;
