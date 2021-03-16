@@ -82,7 +82,7 @@ function currPageState() {
     let curYOffset = $(document).scrollTop();
     let height = window.innerHeight;
     let index = parseInt(curYOffset/height);
-    console.log(index);
+    // console.log(index);
     return pageSelector[index];
 }
 //if reload
