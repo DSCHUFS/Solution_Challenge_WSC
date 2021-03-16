@@ -81,8 +81,15 @@
                         <h3>Result</h3>
                         <span>테스트 결과입니다. 몰랐던 것을 더 알아가보는 시간을 가져보아요.</span>
                         <div class="QS">
-                            맞은 문제 : <br>
-                            틀린 문제 :
+                            틀린 문제 : <br>
+                            <%if(WrongBefore){%>
+                                <% for(var i=0; i<JSON.parse(WrongBefore).length; i++){ %>
+                                    <% if(JSON.parse(WrongBefore)[i] == 1){ %>
+                                        <%=i+1%>번<br>
+                                        <p>해당 문제의 해답은 ~~에서 찾아볼 수 있습니다.</p>
+                                    <% } %>
+                                <% } %>
+                            <%}%>
                         </div>
                         <button type="button" class="btn btn-submit btn-lg" id="transTomainMiddle">더 알아보기</button>
                     </div>

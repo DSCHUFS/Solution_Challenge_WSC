@@ -29,6 +29,7 @@ io.on("connection", (socket) => {
 
 //main page
 app.get('/', async function(req, res){
+    //feedback chart에 필요한 data db에서 읽어옴
     const userRef = db.collection("test").doc("user");
     const userDoc = await userRef.get();
     const scoreRef = db.collection("test").doc("score");
@@ -37,7 +38,12 @@ app.get('/', async function(req, res){
     var score = scoreDoc.data();
     console.log(count);
     console.log(score);
-    res.render('index', {Count:count, Score:score});
+
+    //before, after test에서 틀린 번호 저장된 쿠키 확인
+    var wrongBefore = req.cookies.wrongBefore;
+    console.log(wrongBefore);
+
+    res.render('index', {Count:count, Score:score, WrongBefore:wrongBefore});
 });
 
 //before test 제출 (POST)
@@ -53,19 +59,23 @@ app.post('/before', (req, res) => {
             req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
             req.body.answer5, req.body.answer6, req.body.answer7
         ];
-        var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"];
+        var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
+        var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장
         //채점
         var result = 0;
         for(var i=0; i<7; i++){
             if(ans[i] === solution[i])
                 result++;
+            else
+                wrong[i] = 1;
         }
         console.log(result);
-
-        //'before' cookie 채첨된 값으로 생성
-        res.cookie('before', result);
+        wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
+        res.cookie('before', result);       //'before' cookie 채첨된 값으로 생성
+        res.cookie('wrongBefore', wrong);   //'wrongBefore' cookie 틀린 번호 저장한 배열로 생성
+        console.log(wrong);
         io.sockets.emit('completeBefore');
-        res.json(result);
+        res.redirect('/');
     }
     
     //이미 before test를 제출한 경우

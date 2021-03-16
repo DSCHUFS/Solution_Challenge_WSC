@@ -228,6 +228,7 @@ body {
 }
 
 .question-container{
+    overflow:auto;
     width: 80%;
     height: 90%;
 }
