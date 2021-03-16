@@ -5,7 +5,7 @@ function checkSubmitTest() {
         $('#beforeResult').show();
     }
 
-    if (cookies.before === "done") {
+    if (cookies.test === "done") {
         $('#after-test-container').hide();
         $('#afterResult').show();
     }
