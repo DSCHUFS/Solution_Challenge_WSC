@@ -234,6 +234,15 @@ body {
     padding: 10%;
 }
 
+.question-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.question-container::-webkit-scrollbar-thumb {
+    background-color: #008B9F;
+    border-radius: 4px;
+}
+
 .question-container h3 {
     font-size:36px;
     text-transform:uppercase; 
