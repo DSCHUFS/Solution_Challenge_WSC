@@ -737,16 +737,54 @@ body {
 }
 
 .score-chart {
-    max-width: 600px;
     margin-bottom: 3rem; 
-}
 
-#first-chart {
-    margin-right: auto;
+    display:flex;
 }
 
 #second-chart {
-    margin-left: auto;
+    flex-flow: row-reverse;
+}
+
+.inside-container {
+    width: 50%;
+}
+
+
+.ref-container {
+    max-width: 1200px;
+    margin: 200px auto 0 auto;
+}
+
+.ref-container ul li {
+    list-style-type: none;
+}
+
+#use-image {
+    font-weight: 900;
+}
+
+.chart-desc {
+    width: 45%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-desc-comment {
+    font-size: 20px;
+    font-weight: 700;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chart-desc-div {
+    margin: 5% 0;
 }
 
 
@@ -986,6 +1024,63 @@ body {
     .result-container {
         width: 100%;
     }
+
+    #first-score-comment {
+        font-size: 30px;
+    }
+    
+    .test-first-score-comment {
+        font-size: 25px;
+    }
+    
+    .test-second-score-comment {
+        font-size: 25px;
+    }
+
+    #last-score-comment {
+        font-size: 25px;
+    }
+
+    #propose-comment {
+        font-size: 25px;
+        font-weight: 800;
+    }
+
+    .chart-title {
+        font-size: 20px;
+    }
+
+    .score-chart {
+        flex-flow: column;
+    }
+
+    #second-chart {
+        flex-flow: column;
+    }
+
+    .chart-comment-container{
+        display: flex;
+        justify-content: center;
+    }
+
+    .inside-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .chart-desc {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .chart-desc-comment {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .chart-desc-div {
+        margin-top: 10%;
+    }
 }
 
 @media (max-height: 500px) {
@@ -997,6 +1092,8 @@ body {
         height: 100%;
     }
 }
+
+
 
 /* 회전초밥 css */
 .owl-dots{display:none;}
