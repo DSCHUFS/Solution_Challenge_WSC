@@ -122,13 +122,10 @@ window.addEventListener('resize', e => {
         cu1.updateChart();
         cu2.updateConfig('top', 1.5, 12);
         cu2.updateChart();
-        cu3.updateConfig('top', 1.2, 12);
+        cu3.updateConfig('top', 1, 12);
         cu3.updateChart();
         cu4.updateConfig('top', 1.5, 12);
         cu4.updateChart();
-    } else if (window.innerWidth <= 430) {
-        cu3.updateConfig('top', 0.8, 12);
-        cu3.updateChart();
     } else {
         cu1.restoreConfig(0);
         cu1.updateChart();
@@ -147,7 +144,7 @@ window.onload = () => {
         cu1.updateChart();
         cu2.updateConfig('top', 1.5, 12);
         cu2.updateChart();
-        cu3.updateConfig('top', 1.2, 12);
+        cu3.updateConfig('top', 1, 12);
         cu3.updateChart();
         cu4.updateConfig('top', 1.5, 12);
         cu4.updateChart();
