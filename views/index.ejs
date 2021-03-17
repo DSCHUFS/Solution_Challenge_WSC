@@ -685,6 +685,10 @@
                 url: '/before',
                 data: queryString,
                 dataType: 'json',
+                success: function(){
+                    alert("정상적으로 제출되었습니다!");
+                    location.reload();
+                },
                 error: function (xhr, status, error) {
                     console.log(error);
                 }
@@ -702,6 +706,10 @@
                 url: '/after',
                 data: queryString,
                 dataType: 'json',
+                success: function(){
+                    alert("정상적으로 제출되었습니다!");
+                    location.reload();
+                },
                 error: function (xhr, status, error) {
                     console.log(error);
                 }
@@ -716,32 +724,14 @@
         var count;
         var score;
         var socket = io();
-        //이미 before, after test 모두 제출한 경우
-        socket.on('alreadyAll', function (data) {
-            alert("이미 모든 테스트를 제출하셨습니다!");
-            console.log(data);
-        });
-        //before 테스트를 정상적으로 제출한 경우
-        socket.on('completeBefore', function () {
-            alert("정상적으로 제출되었습니다!");
-            location.reload();
-        });
-        //이미 before test를 제출한 경우
-        socket.on('alreadyBefore', function () {
-            alert("이미 제출하셨습니다!");
-        });
-        //before test를 제출하지 않고, after test를 제출하려 한 경우
-        socket.on('goBefore', function () {
-            alert("서비스 초기에 보여진 테스트를 먼저 제출해주세요!");
-        });
+       
         //after 테스트를 정상적으로 제출한 경우
         socket.on('completeAfter', function (result) {
-            alert("정상적으로 제출되었습니다!");
-            location.reload();
             console.log(result);
             count = result.Count.count;
             score = result.Score;
-            //feedback chart
+
+            //update된 db data 받아, feedback chart에 반영
             var beforeCtx = document.getElementById('beforeChart').getContext('2d');
             var increaseCtx = document.getElementById('increaseChart').getContext('2d');
             var beforeChart = new Chart(beforeCtx, getChart(score, count)[0]);
@@ -830,7 +820,7 @@
             var increaseCtx = document.getElementById('increaseChart').getContext('2d');
             var beforeChart = new Chart(beforeCtx, getChart(Score, Count.count)[0]);
             var increaseChart = new Chart(increaseCtx, getChart(Score, Count.count)[1]);
-        })
+        });
     </script>
 </body>
 
