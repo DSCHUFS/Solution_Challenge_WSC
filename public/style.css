@@ -6,19 +6,23 @@
 }
 
 html, body {
-    overflow: hidden;
     width: 100%;
-    /* height: -webkit-fill-available; */
+    height: 100%;
+    /* position: fixed; */
+    overflow: hidden;
 } 
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
     background-color: #FAF9F6;
     color: rgba(0,0,0,0.7);
+}
 
-    min-height: 100vh;
-    /* mobile viewport bug fix */
-    min-height: -webkit-fill-available;
+#root {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow: hidden;
 }
 
 #page-transition {
@@ -92,9 +96,14 @@ body {
     fill: #008B9F;
 }
 
+
 #path-menu {
     display: none;
     position: absolute;
+
+    background-color: rgba(0,0,0, 0.7);
+    padding: 3px 7px;
+    border-radius: 10px;
 }
 
 #path-menu .path {
@@ -102,15 +111,23 @@ body {
     margin: 7px 0;
 }
 
-#toTop:hover {
+#pathToTop:hover {
     color: #008B9F;
 }
 
-#toMiddle:hover {
+#pathToBeforeTest:hover {
     color: #008B9F;
 }
 
-#toBottom:hover {
+#pathToMiddle:hover {
+    color: #008B9F;
+}
+
+#pathToAfterTest:hover {
+    color: #008B9F;
+}
+
+#pathToBottom:hover {
     color: #008B9F;
 }
 
@@ -120,7 +137,7 @@ body {
 }
 
 .img_container {
-    position:absolute;
+    position: absolute;
     z-index: -1;
     height: 100%;
     width: 100%;
@@ -135,12 +152,12 @@ body {
 }
 
 .main_top {
-    height: 100vh;
+    height: 100%;
     width: 100%;
 }
 
 .top {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.4);
 }
@@ -204,7 +221,7 @@ body {
 /* before test */
 .test {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
     color: white;
 
@@ -327,7 +344,7 @@ body {
 
 .main_middle {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
 }
@@ -340,15 +357,17 @@ body {
     justify-content: center;
     align-items: center;
 
-    margin: 6rem 0;
+    margin: 2rem 0;
 }
 
-.carousel-container .img_comment {
+.img_comment {
     z-index: 10;
 
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 5rem;
+    font-weight: 800;
     align-self: flex-start;
+
+    margin: 8rem 0 0 5%;
 }
 
 #img-container {
@@ -373,6 +392,13 @@ body {
     height: 100%;
     width: 100%;
     object-fit: contain;
+}
+
+#propose-passover {
+    max-width: 1000px;
+    margin: 0 0 5rem 70%;
+    font-size: 3rem;
+    font-weight: 800;
 }
 
 .overlay {
@@ -658,15 +684,23 @@ body {
     font-size: 20px;
 }
 
+.video-comment {
+    max-width: 1200px;
+    font-size: 30px;
+    font-weight: 800;
+
+    margin: 0 auto;
+}
+
 /* main_bottom */
 .main_bottom {
-    height: 100vh;
+    height: 100%;
     overflow: auto;
 }
 
 .chart-comment-container{
     max-width: 1200px;
-    margin: 6rem auto;
+    margin: 10rem auto;
 }
 
 #score-comment-container {
@@ -731,7 +765,7 @@ body {
 
 .chart-title {
     font-size: 30px;
-    font-weight: 700;
+    font-weight: 800;
 
     margin-bottom: 3rem;
 }
@@ -815,6 +849,10 @@ body {
     .comment {
         font-size: 15px;
     }
+
+    #propose-passover {
+        margin-left: 60%;
+    }
 }
 
 @media (max-width: 910px) and (min-width:750px)  {
@@ -856,6 +894,10 @@ body {
     
     .comment {
         font-size: 15px;
+    }
+
+    #propose-passover {
+        margin-left: 55%;
     }
 }
 
@@ -916,9 +958,81 @@ body {
         margin-right: 10vw;
         font-size: 15px;
     }
+
+    #propose-passover {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+    .result-container {
+        width: 100%;
+    }
+
+    #first-score-comment {
+        font-size: 40px;
+    }
+
+    #last-score-comment {
+        font-size: 30px;
+    }
+
+    #propose-comment {
+        font-size: 25px;
+        font-weight: 900;
+    }
+
+    .chart-title {
+        font-size: 20px;
+    }
+
+    .score-chart {
+        flex-flow: column;
+    }
+
+    #second-chart {
+        flex-flow: column;
+    }
+
+    .chart-comment-container{
+        display: flex;
+        justify-content: center;
+
+        margin: 6rem 3rem;
+    }
+
+    .inside-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .chart-desc {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .chart-desc-comment {
+        font-size: 15px;
+        font-weight: 700;
+    }
+
+    .chart-desc-div {
+        margin-top: 10%;
+    }
+
+    .own-score {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (max-width: 550px) {
+
+    .btn-group-lg>.btn, .btn-lg {
+        padding: 7px 8px;
+        font-size: 12px;
+    }
 
     .logo img {
         width: 4rem;
@@ -998,8 +1112,8 @@ body {
     }
 
     .carousel-container {
-        height: 60vh;
-        margin: 4rem 0;
+        height: 50vh;
+        margin: 1rem 0;
     }
 
     #img-container {
@@ -1013,74 +1127,43 @@ body {
     .swiper-slide.img-slide {
         height: 50vh;
     }
-    .carousel-container .img_comment {
-        font-size: 1.7rem;
+    
+    .img_comment {
+        font-size: 23px;
     }
 
-    
-}
-
-@media (max-width: 600px) {
-    .result-container {
-        width: 100%;
+    .score-chart-container {
+        margin: 0 2rem;
     }
 
     #first-score-comment {
-        font-size: 30px;
-    }
-    
-    .test-first-score-comment {
-        font-size: 25px;
-    }
-    
-    .test-second-score-comment {
-        font-size: 25px;
+        font-size: 35px;
     }
 
     #last-score-comment {
         font-size: 25px;
     }
 
-    #propose-comment {
+    .test-first-score-comment {
+        margin: 1rem 0 ;
         font-size: 25px;
-        font-weight: 800;
+    }
+    
+    .test-second-score-comment {
+        margin: 1rem 0 ;
+        font-size: 25px;
     }
 
-    .chart-title {
+    #propose-passover {
+        width: 250px;
+        margin: 0 7% 5rem auto; 
         font-size: 20px;
     }
-
-    .score-chart {
-        flex-flow: column;
+    
+    #chart3 {
+        margin: 0 0.5rem;
     }
-
-    #second-chart {
-        flex-flow: column;
-    }
-
-    .chart-comment-container{
-        display: flex;
-        justify-content: center;
-    }
-
-    .inside-container {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .chart-desc {
-        width: 80%;
-        margin: 0 auto;
-    }
-
-    .chart-desc-comment {
-        font-size: 15px;
-        font-weight: 700;
-    }
-
-    .chart-desc-div {
-        margin-top: 10%;
-    }
+    
 }
 
 @media (max-height: 500px) {
@@ -1115,18 +1198,15 @@ body {
 
 .owl-carousel {
     position: static;
-    margin: 50px;
+    margin: 20px;
 }
 
-.owl-stage-outer {
-    padding: 150px;
-}
 
 .owl-carousel .item {
     /* height: 10rem; */
     background: #4DC7A0;
     /* padding: 1rem; */
-    margin: 20px;
+    margin: 2px;
 
     -webkit-transform:scale(1);
     -moz-transform:scale(1);

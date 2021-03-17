@@ -1,12 +1,14 @@
-let curLang = "kr";
+Cookies.set('lang', 'kr');
 let krChange = document.querySelector('#kr');
 let enChange = document.querySelector('#en');
+let cookie = Cookies.get();
 
 function chooseLang() {
-    if(curLang === "kr") {
+
+    if(cookie.lang === "kr") {
         krChange.style.color = "#008B9F";
         enChange.style.color = "#B3B5B9";
-    } else if(curLang === "en") {
+    } else if(cookie.lang === "en") {
         enChange.style.color = "#008B9F";
         krChange.style.color = "#B3B5B9";
     }
@@ -15,7 +17,7 @@ function chooseLang() {
 chooseLang();
 
 krChange.addEventListener("click", (e) => {
-    curLang = "kr";
+    Cookies.set('lang', 'kr');
     chooseLang();
 })
 
@@ -24,11 +26,11 @@ krChange.addEventListener("mouseover", (e) => {
 })
 
 krChange.addEventListener("mouseleave", (e) => {
-    if(curLang !== "kr") krChange.style.color = "#B3B5B9";
+    if(cookie.lang !== "kr") krChange.style.color = "#B3B5B9";
 })
 
 enChange.addEventListener("click", (e) => {
-    curLang = "en";
+    Cookies.set('lang', 'en');
     chooseLang();
 })
 
@@ -37,5 +39,5 @@ enChange.addEventListener("mouseover", (e) => {
 })
 
 enChange.addEventListener("mouseleave", (e) => {
-    if(curLang !== "en") enChange.style.color = "#B3B5B9";
+    if(cookie.lang !== "en") enChange.style.color = "#B3B5B9";
 })

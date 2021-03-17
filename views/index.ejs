@@ -8,653 +8,660 @@
 </head>
 
 <body>
-    <!-- test check for submitting the test -->
-    <script src="script/useCookies.js"></script>
-    <div id="page-transition"></div>
-    <div class="fixed-elem">
-        <div class="logo" id="backToTop">
-            <img src="pics/Logo.svg" alt="B-Free" />
-        </div>
-        <div class="translation">
-            <ul class="translation-options">
-                <li class="translation-option" id="menu">
-                    <svg width="57" height="40" viewBox="0 0 57 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle class="svg_comp" cx="5" cy="5" r="5" fill="#C4C4C4" />
-                        <circle class="svg_comp" cx="5" cy="20" r="5" fill="#C4C4C4" />
-                        <circle class="svg_comp" cx="5" cy="35" r="5" fill="#C4C4C4" />
-                        <rect class="svg_comp" x="17" width="40" height="10" rx="5" fill="#C4C4C4" />
-                        <rect class="svg_comp" x="17" y="15" width="40" height="10" rx="5" fill="#C4C4C4" />
-                        <rect class="svg_comp" x="17" y="30" width="40" height="10" rx="5" fill="#C4C4C4" />
-                    </svg>
-                    <ul id="path-menu">
-                        <li class="path" id="toTop">메인</li>
-                        <li class="path" id="toMiddle">더 알아보기</li>
-                        <li class="path" id="toBottom">결과</li>
-                    </ul>
-                </li>
-                <li class="translation-option" id="kr">한국어</li>
-                <li class="translation-option" id="en">En</li>
-            </ul>
-        </div>
-    </div>
-    <script src="./script/translation.js"></script>
-    <div class="main main_top" id="main_top">
-        <div class="top">
-            <div class="img_container">
-                <img class="main_image" id="firstImage" src="pics/Main1.jpg" alt="두 사람이 나란히 가는 사진">
+    
+    <main id="root">
+        <!-- <button id="cur-page" style="position:fixed; top:100px">Current Page</button> -->
+        <!-- test check for submitting the test -->
+        <script src="script/useCookies.js"></script>
+        <div id="page-transition"></div>
+        <div class="fixed-elem">
+            <div class="logo" id="backToTop">
+                <img src="pics/Logo.svg" alt="B-Free" />
             </div>
-            <div class="text_container">
-                <div class="large-text">
-                    <div class="main_text">
-                        <span>Barrier-Free</span>
-                    </div>
-                    <div class="main_text">
-                        <span>B-Free</span>
-                    </div>
-                </div>
-                <div class="small-text">
-                    <div class="sub_text">
-                        <span>편견과 차별 없는 동등한 세상을 꿈꿉니다.</span>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-container">
-                <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">테스트
-                    하러가기</button>
+            <div class="translation">
+                <ul class="translation-options">
+                    <li class="translation-option" id="menu">
+                        <svg width="57" height="40" viewBox="0 0 57 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="svg_comp" cx="5" cy="5" r="5" fill="#C4C4C4" />
+                            <circle class="svg_comp" cx="5" cy="20" r="5" fill="#C4C4C4" />
+                            <circle class="svg_comp" cx="5" cy="35" r="5" fill="#C4C4C4" />
+                            <rect class="svg_comp" x="17" width="40" height="10" rx="5" fill="#C4C4C4" />
+                            <rect class="svg_comp" x="17" y="15" width="40" height="10" rx="5" fill="#C4C4C4" />
+                            <rect class="svg_comp" x="17" y="30" width="40" height="10" rx="5" fill="#C4C4C4" />
+                        </svg>
+                        <ul id="path-menu">
+                            <li class="path" id="pathToTop">메인</li>
+                            <li class="path" id="pathToBeforeTest">첫 번째 테스트</li>
+                            <li class="path" id="pathToMiddle">더 알아보기</li>
+                            <li class="path" id="pathToAfterTest">두 번째 테스트</li>
+                            <li class="path" id="pathToBottom">결과</li>
+                        </ul>
+                    </li>
+                    <li class="translation-option" id="kr">한국어</li>
+                    <li class="translation-option" id="en">En</li>
+                </ul>
             </div>
         </div>
-    </div>
-    <script>
-        gsap.timeline()
-            .from('body', { duration: 0.5 }) // for loading
-            .from('.large-text', { y: -100, opacity: 0, duration: 1 })
-            .from('.small-text', { y: -100, opacity: 0, duration: 1 })
-    </script>
 
-
-    <!-- Before 인식개선 테스트 div -->
-    <div class="main before_test test">
-        <%-include('beforeTest')%>
-        <%-include('btResult')%>
-
-    </div>
-    <script>
-        checkSubmitTest();
-        // test-swiper
-        const beforeTest = new Swiper('#before-test-container', {
-            // Optional parameters
-            direction: 'horizontal',
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            keyboard: {
-                enabled: true,
-                onlyInViewport: true,
-            },
-            threshold: 10
-        })
-    </script>
-
-    <!-- 메인 중단 -->
-    <div class="main main_middle" id="main_middle">
-        <div id="main_middle_container">
-            <div class="carousel-container">
-                <div class="swiper-container" id="img-container">
-                    <div class="img_comment"><span id="hide-comment" style="display: none">누구에게나 </span>평범한 일상입니다.</div>
-                    <div id="carousel" class="swiper-wrapper">
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg">
+        <script src="./script/translation.js"></script>
+        <div class="main main_top" id="main_top">
+            <div class="top">
+                <div class="img_container">
+                    <img class="main_image" id="firstImage" src="pics/Main1.jpg" alt="두 사람이 나란히 가는 사진">
+                </div>
+                <div class="text_container">
+                    <div class="large-text">
+                        <div class="main_text">
+                            <span>Barrier-Free</span>
                         </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg">
-                        </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg">
-                        </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg">
-                        </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg">
-                        </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg">
-                        </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg">
-                        </div>
-                        <div class="swiper-slide img-slide">
-                            <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg">
+                        <div class="main_text">
+                            <span>B-Free</span>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="small-text">
+                        <div class="sub_text">
+                            <span>편견과 차별 없는 동등한 세상을 꿈꿉니다.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-container">
+                    <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">테스트
+                        하러가기</button>
                 </div>
             </div>
+        </div>
+        <script>
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (!isMobile) {
+                gsap.timeline()
+                    .from('body', { duration: 0.5 }) // for loading
+                    .from('.large-text', { y: -100, opacity: 0, duration: 1 })
+                    .from('.small-text', { y: -100, opacity: 0, duration: 1 });
 
-            <script>
-
-                const imgContainers = gsap.utils.toArray('.swiper-slide.img-slide');
-                imgContainers.forEach((img, i) => {
-                    img.dataset.index = i + 1;
-                })
-                // swiper
-                const swiper = new Swiper('#img-container', {
-                    // Optional parameters
-                    direction: 'horizontal',
-                    pagination: {
-                        el: '.swiper-pagination',
-                        clickable: true
-                    },
-                    navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                    },
-                    autoplay: {
-                        delay: 5000,
-                    },
-                    threshold: 10,
-                    on: {
-                        slideChangeTransitionEnd: () => {
-                            let active = document.querySelector('.swiper-slide.img-slide.swiper-slide-active').dataset.index <= 4
-                            console.log(active);
-                            if (active) {
-                                gsap.set('#hide-comment', { duration: 0, display: 'none' });
-                            } else {
-                                gsap.set('#hide-comment', { duration: 0, display: 'inline' });
-                            }
-                        }
+            } else {
+                const menuBtn = document.querySelector('svg');
+                let menuBtnClick = false
+                menuBtn.addEventListener('click', e => {
+                    if (menuBtnClick) {
+                        $('.svg_comp').css('fill', '#C4C4C4');
+                        $('#path-menu').hide();
+                    } else {
+                        $('.svg_comp').css('fill', '#008B9F');
                     }
+                    menuBtnClick = !menuBtnClick;
                 })
-
-                gsap.registerPlugin(ScrollTrigger);
-                gsap.from('.carousel-container', {
-                    scrollTrigger: {
-                        trigger: '.carousel-container',
-                        toggleActions: 'play none none none'
-                    },
-                    y: 50,
-                    duration: 1
-                })
+            }
+        </script>
 
 
-            </script>
-
-
-            <!-- The first statistics : the number of the people with disability -->
-            <div class="overlay">
-                <div class="stat">
-                    <div class="title">
-                        <div class="number_container">
-                            <div class="numbers">
-                                <span class="number">5</span><span class="percentage">%</span>
-                            </div>
-                        </div>
-                        <div class="headline">
-                            <div class="text1">
-                                20명 중 1명
-                            </div>
-                            <div class="text2">
-                                2019년 말 기준 등록장애인 261만 8000명, 전체 인구 대비 5.1%
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pict_container">
-                        <div class="pictogram">
-                            <div class="hover_icon" id="hover_icon1">
-                                <div class="arrow"></div>
-                                <div class="background" data-index="1">
-                                    <div class="color_box_hover">
-
-                                    </div>
-                                    <div class="label_hover">
-                                        장애를 가진 사람: 5.39%
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hover_icon" id="hover_icon2">
-                                <div class="arrow"></div>
-                                <div class="background" data-index="2">
-                                    <div class="color_box_hover">
-                                    </div>
-                                    <div class="label_hover">
-                                        장애를 가지지 않은 사람: 94.61%
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pictogram_controls">
-                                <div class="control" data-index="1">
-                                    <div class="color_box">
-
-                                    </div>
-                                    <div class="label">
-                                        장애를 가진 사람
-                                    </div>
-                                </div>
-                                <div class="control" data-index="2">
-                                    <div class="color_box">
-
-                                    </div>
-                                    <div class="label">
-                                        장애를 가지지 않은 사람
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="img_people">
-                                <img class="img_person img_person1" src="pics/human1.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                            </div>
-                            <div class="img_people">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                                <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="source">
-                        <span>
-                            자료 출처 : 2017년 장애인 실태조사
-                        </span>
-                    </div>
-                    <div class="comment">
-                        우리 모두 함께 살아가고 있습니다. 보이지 않는다고 해서 없다고 생각하는 것은 편견이 될 수 있습니다.
-                    </div>
-                </div>
-            </div>
-
-            <!-- Second Statistic : the cause of the disability -->
-            <div class="overlay">
-                <div class="stat">
-                    <div class="title">
-                        <div class="number_container">
-                            <div class="numbers">
-                                <span class="number">9</span><span class="percentage">명</span>
-                            </div>
-                        </div>
-                        <div class="headline">
-                            <div class="text1">
-                                10명 중 9명
-                            </div>
-                            <div class="text2">
-                                장애 원인 중, 88.1%는 후천적 원인
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pict_container">
-                        <div class="pictogram">
-                            <canvas id="chart1"></canvas>
-                            <script>
-                                let chart = new Chart(document.getElementById('chart1').getContext('2d'), getChartArguments()[0].chartConfig);
-                            </script>
-                        </div>
-                    </div>
-                    <div class="source">
-                        <span>
-                            자료 출처 : 2017년 장애인 실태조사
-                        </span>
-                    </div>
-                    <div class="comment">
-                        사고나 질환으로 인한 후천적 장애가 훨씬 많습니다. 누구나 언제든 장애를 갖게 될 수 있습니다.
-                    </div>
-                </div>
-            </div>
-
-            <!-- The third statistics -->
-            <div class="overlay">
-                <div class="stat">
-                    <div class="title">
-                        <div class="number_container">
-                            <div class="numbers">
-                                <span class="number small">60.7</span><span class="percentage small">%</span>
-                            </div>
-                        </div>
-                        <div class="headline">
-                            <div class="text1">
-                                '모른다'라고 답한 비율, 60.7%
-                            </div>
-                            <div class="text2">
-                                <!-- '모른다'라고 답한 비율, 60.7% -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pict_container">
-                        <div class="pictogram">
-                            <canvas id="chart2"></canvas>
-                            <script>
-                                let chart2 = new Chart(document.getElementById('chart2').getContext('2d'), chartArguments[1].chartConfig);
-                            </script>
-                        </div>
-                    </div>
-                    <div class="source">
-                        <span>
-                            자료 출처 : 2017년 장애인 실태조사
-                        </span>
-                    </div>
-                    <div class="comment">
-                        장애인차별금지법은 2007년 4월 10일에 제정되었고, 2008년 4월 11일부터 시행되었습니다. 그러나 아직도 이 법을 잘 모르는 사람들 많습니다.
-                    </div>
-                </div>
-            </div>
-
-            <!-- The Fourth statistic -->
-            <div class="overlay">
-                <div class="stat">
-                    <div class="title">
-                        <div class="number_container">
-                            <div class="numbers">
-                                <span class="number small">48.9</span><span class="percentage small">%</span>
-                            </div>
-                        </div>
-                        <div class="headline">
-                            <div class="text1">
-                                15개 장애유형 중 지체장애의 비율 46.7%
-                            </div>
-                            <div class="text2">
-                                <!-- 장애 유형별 중 지체 장애의 구성비, 48.9% -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pict_container">
-                        <div class="pictogram">
-                            <canvas id="chart3"></canvas>
-                            <script>
-                                let chart3 = new Chart(document.getElementById('chart3').getContext('2d'), chartArguments[2].chartConfig);
-                            </script>
-                        </div>
-                    </div>
-                    <div class="source">
-                        <span>
-                            자료 출처 : 2019년 등록장애인 현황
-                        </span>
-                    </div>
-                    <div class="comment">
-                        장애인복지법에 의해 장애 유형은 15가지로 분류(지체장애, 뇌병변장애, 시각장애, 청각장애, 언어장애, 안면장애, 신장장애, 심장장애, 호흡기장애, 간장애, 장루/요루장애,
-                        뇌전증장애; 지적장애, 자폐성장애, 정신장애)됩니다. 가장 많은 비율을 차지하는 장애 유형은 ‘지체장애’입니다.
-                    </div>
-                </div>
-            </div>
-
-            <!-- The fifth statistic -->
-            <div class="overlay">
-                <div class="stat">
-                    <div class="title">
-                        <div class="number_container">
-                            <div class="numbers">
-                                <span class="number">15</span><span class="percentage">배</span>
-                            </div>
-                        </div>
-                        <div class="headline">
-                            <div class="text1">
-                                정신 장애인의 범죄율, 0.08%
-                            </div>
-                            <div class="text2">
-                                <!-- 정신 장애인의 범죄율, 0.08% -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pict_container">
-                        <div class="pictogram">
-                            <canvas id="chart4"></canvas>
-                            <script>
-                                let chart4 = new Chart(document.getElementById('chart4').getContext('2d'), chartArguments[3].chartConfig);
-                            </script>
-                        </div>
-                    </div>
-                    <div class="source">
-                        <span>
-                            자료 출처 : 2017년 대검찰청 범죄분석 보고서
-                        </span>
-                    </div>
-                    <div class="comment">
-                        통계적으로 비장애인의 범죄율이 정신장애인의 범죄율보다 15배 높다고 조사되었습니다. 장애가 범죄의 원인이 될 수 없습니다.
-                    </div>
-                </div>
-            </div>
-
-            <div class="btn-container" id="btn-after-test">
-                <button type="button" class="btn btn-lg" id="toAfterTest">테스트 보러가기</button>
-            </div>
-
-
-            <!-- 회전초밥 div -->
-            <div class="owl-carousel owl-theme owl-loaded">
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=CdFqM5fekqI" target="_blank">
-                        <img src="https://img.youtube.com/vi/CdFqM5fekqI/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">제1회 한국수어의 날</span>
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=XN2OC9UVVuA" target="_blank">
-                        <img src="https://img.youtube.com/vi/XN2OC9UVVuA/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">장애 대학생이 동기&교수님 한테 진심으로 서운할 때</span>
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=LS4WS7V0Y_A" target="_blank">
-                        <img src="https://img.youtube.com/vi/LS4WS7V0Y_A/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">들리지 않아도 랩, 댄스, 노래<br> 다 할 수 있어요. <br>청각장애 핸디래퍼 김지연</span>
-
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=MCZqR2VCP28" target="_blank">
-                        <img src="https://img.youtube.com/vi/MCZqR2VCP28/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">침묵 속에 춤을 추는 <br> 청각 장애 발레리나 고아라</span>
-
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=REpjJyKifms" target="_blank">
-                        <img src="https://img.youtube.com/vi/REpjJyKifms/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">천만 조회수 기록한 <br> '조용한 택시'...비머도 타봤습니다</span>
-
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=5gc4y9ExmHw" target="_blank">
-                        <img src="https://img.youtube.com/vi/5gc4y9ExmHw/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">제40회 장애인의 날 기념 동영상</span>
-
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=kJrRzI0Tm80" target="_blank">
-                        <img src="https://img.youtube.com/vi/kJrRzI0Tm80/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">시청각장애인식개선 <br> 캠페인 홍보영상</span>
-
-                </div>
-                <div class="item">
-                    <a href="https://www.youtube.com/watch?v=6KER4bgyozg" target="_blank">
-                        <img src="https://img.youtube.com/vi/6KER4bgyozg/maxresdefault.jpg"></a>
-                    <span class="tooltiptext">😧 뇌성마비 장애인과 <br> 친구가 될 수 있을까?</span>
-
-                </div>
-            </div>
-
-            <script src="./owlcarousel/owl.carousel.min.js"></script>
-            <script type="text/javascript">
-                var owl = $('.owl-carousel');
-                owl.owlCarousel({
-                    items: 4,
-                    loop: true,
-                    margin: 10,
-                    video: true,
-                    autoplay: true,
-                    autoplayTimeout: 3000,
-                    autoplayHoverPause: true
-                });
-                $('.owl-carousel').owlCarousel();
-            </script>
+        <!-- Before 인식개선 테스트 div -->
+        <div class="main before_test test">
+            <%-include('beforeTest')%>
+                <%-include('btResult')%>
 
         </div>
         <script>
-            let overlay = gsap.utils.toArray('.overlay');
-            overlay.forEach((ol, i) => {
-                ol.dataset.colorIndex = i;
-
-                gsap.from(ol, {
-                    scrollTrigger: {
-                        trigger: ol,
-                        toggleActions: 'play reset play reset',
-                        scroller: '.main_middle'
-                    },
-                    x: 50 * Math.pow(-1, i),
-                    duration: 0.7
-                })
+            checkSubmitTest();
+            // test-swiper
+            const beforeTest = new Swiper('#before-test-container', {
+                // Optional parameters
+                direction: 'horizontal',
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+                threshold: 10
             })
         </script>
-    </div>
 
-
-    <!-- After 인식개선 테스트 div -->
-    <div class="main after_test test">
-        <%-include('afterTest')%>
-        <%-include('atResult')%>
-
-    </div>
-
-    <script>
-        checkSubmitTest();
-        // test-swiper
-        const afterTest = new Swiper('#after-test-container', {
-            // Optional parameters
-            direction: 'horizontal',
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            keyboard: {
-                enabled: true,
-                onlyInViewport: true,
-            },
-            threshold: 10
-        })
-    </script>
-
-
-    <div class="main main_bottom" id="main_bottom">
-        <div class="chart-comment-container" id="score-comment-container">
-            <div class="chart-comment" id="first-score-comment">🙌사용자님은</div>
-            <div class="own-score chart-comment" id="before-own-score">
-                <div class="test-first-score-comment" id="before-first-score-comment">첫 번째 테스트에서</div>
-                <div class="test-second-score-comment" id="before-second-score-comment">
-                    <span class="total-count">7</span>개 중
-                    <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
-                        <% if(BeforeScore) {%>
-                            <%=BeforeScore%>
-                                <% } %>
-                    </span>개를
+        <!-- 메인 중단 -->
+        <div class="main main_middle" id="main_middle">
+            <div id="main_middle_container">
+                <div class="img_comment"><span id="hide-comment" style="display: none; color: #008B9F">누구에게나
+                </span>평범한 일상입니다.</div>
+                <div class="carousel-container">
+                    <div class="swiper-container" id="img-container">
+                        <div id="carousel" class="swiper-wrapper">
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg">
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="own-score chart-comment" id="after-own-score">
-                <div class="test-first-score-comment" id="after-first-score-comment">두 번째 테스트에서</div>
-                <div class="test-second-score-comment" id="after-second-score-comment">
-                    <span class="total-count">7</span>개 중
-                    <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
-                        <% if(AfterScore) {%>
-                            <%=AfterScore%>
-                                <% } %>
-                    </span>개를
+                <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
+
+                <script>
+
+                    const imgContainers = gsap.utils.toArray('.swiper-slide.img-slide');
+                    imgContainers.forEach((img, i) => {
+                        img.dataset.index = i + 1;
+                    })
+                    // swiper
+                    const swiper = new Swiper('#img-container', {
+                        // Optional parameters
+                        direction: 'horizontal',
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true
+                        },
+                        navigation: {
+                            nextEl: '.swiper-button-next',
+                            prevEl: '.swiper-button-prev',
+                        },
+                        autoplay: {
+                            delay: 5000,
+                        },
+                        threshold: 10,
+                        on: {
+                            slideChangeTransitionEnd: () => {
+                                let active = document.querySelector('.swiper-slide.img-slide.swiper-slide-active').dataset.index <= 4
+                                if (active) {
+                                    gsap.set('#hide-comment', { duration: 0, display: 'none' });
+                                } else {
+                                    gsap.set('#hide-comment', { duration: 0, display: 'inline' });
+                                }
+                            }
+                        }
+                    })
+                </script>
+
+
+                <!-- The first statistics : the number of the people with disability -->
+                <div class="overlay">
+                    <div class="stat">
+                        <div class="title">
+                            <div class="number_container">
+                                <div class="numbers">
+                                    <span class="number">5</span><span class="percentage">%</span>
+                                </div>
+                            </div>
+                            <div class="headline">
+                                <div class="text1">
+                                    20명 중 1명
+                                </div>
+                                <div class="text2">
+                                    2019년 말 기준 등록장애인 261만 8000명, 전체 인구 대비 5.1%
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pict_container">
+                            <div class="pictogram">
+                                <div class="hover_icon" id="hover_icon1">
+                                    <div class="arrow"></div>
+                                    <div class="background" data-index="1">
+                                        <div class="color_box_hover">
+
+                                        </div>
+                                        <div class="label_hover">
+                                            장애를 가진 사람: 5.39%
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hover_icon" id="hover_icon2">
+                                    <div class="arrow"></div>
+                                    <div class="background" data-index="2">
+                                        <div class="color_box_hover">
+                                        </div>
+                                        <div class="label_hover">
+                                            장애를 가지지 않은 사람: 94.61%
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pictogram_controls">
+                                    <div class="control" data-index="1">
+                                        <div class="color_box">
+
+                                        </div>
+                                        <div class="label">
+                                            장애를 가진 사람
+                                        </div>
+                                    </div>
+                                    <div class="control" data-index="2">
+                                        <div class="color_box">
+
+                                        </div>
+                                        <div class="label">
+                                            장애를 가지지 않은 사람
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="img_people">
+                                    <img class="img_person img_person1" src="pics/human1.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                </div>
+                                <div class="img_people">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                    <img class="img_person img_person2" src="pics/human2.svg" alt="사람">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="source">
+                            <span>
+                                자료 출처 : 2017년 장애인 실태조사
+                            </span>
+                        </div>
+                        <div class="comment">
+                            우리 모두 함께 살아가고 있습니다. 보이지 않는다고 해서 없다고 생각하는 것은 편견이 될 수 있습니다.
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Second Statistic : the cause of the disability -->
+                <div class="overlay">
+                    <div class="stat">
+                        <div class="title">
+                            <div class="number_container">
+                                <div class="numbers">
+                                    <span class="number">9</span><span class="percentage">명</span>
+                                </div>
+                            </div>
+                            <div class="headline">
+                                <div class="text1">
+                                    10명 중 9명
+                                </div>
+                                <div class="text2">
+                                    장애 원인 중, 88.1%는 후천적 원인
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pict_container">
+                            <div class="pictogram">
+                                <canvas id="chart1"></canvas>
+                                <script>
+                                    let chart = new Chart(document.getElementById('chart1').getContext('2d'), getChartArguments()[0].chartConfig);
+                                </script>
+                            </div>
+                        </div>
+                        <div class="source">
+                            <span>
+                                자료 출처 : 2017년 장애인 실태조사
+                            </span>
+                        </div>
+                        <div class="comment">
+                            사고나 질환으로 인한 후천적 장애가 훨씬 많습니다. 누구나 언제든 장애를 갖게 될 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The third statistics -->
+                <div class="overlay">
+                    <div class="stat">
+                        <div class="title">
+                            <div class="number_container">
+                                <div class="numbers">
+                                    <span class="number small">60.7</span><span class="percentage small">%</span>
+                                </div>
+                            </div>
+                            <div class="headline">
+                                <div class="text1">
+                                    '모른다'라고 답한 비율, 60.7%
+                                </div>
+                                <div class="text2">
+                                    <!-- '모른다'라고 답한 비율, 60.7% -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pict_container">
+                            <div class="pictogram">
+                                <canvas id="chart2"></canvas>
+                                <script>
+                                    let chart2 = new Chart(document.getElementById('chart2').getContext('2d'), chartArguments[1].chartConfig);
+                                </script>
+                            </div>
+                        </div>
+                        <div class="source">
+                            <span>
+                                자료 출처 : 2017년 장애인 실태조사
+                            </span>
+                        </div>
+                        <div class="comment">
+                            장애인차별금지법은 2007년 4월 10일에 제정되었고, 2008년 4월 11일부터 시행되었습니다. 그러나 아직도 이 법을 잘 모르는 사람들 많습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Fourth statistic -->
+                <div class="overlay">
+                    <div class="stat">
+                        <div class="title">
+                            <div class="number_container">
+                                <div class="numbers">
+                                    <span class="number small">48.9</span><span class="percentage small">%</span>
+                                </div>
+                            </div>
+                            <div class="headline">
+                                <div class="text1">
+                                    15개 장애유형 중 지체장애의 비율 46.7%
+                                </div>
+                                <div class="text2">
+                                    <!-- 장애 유형별 중 지체 장애의 구성비, 48.9% -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pict_container">
+                            <div class="pictogram">
+                                <canvas id="chart3"></canvas>
+                                <script>
+                                    let chart3 = new Chart(document.getElementById('chart3').getContext('2d'), chartArguments[2].chartConfig);
+                                </script>
+                            </div>
+                        </div>
+                        <div class="source">
+                            <span>
+                                자료 출처 : 2019년 등록장애인 현황
+                            </span>
+                        </div>
+                        <div class="comment">
+                            장애인복지법에 의해 장애 유형은 15가지로 분류(지체장애, 뇌병변장애, 시각장애, 청각장애, 언어장애, 안면장애, 신장장애, 심장장애, 호흡기장애, 간장애,
+                            장루/요루장애,
+                            뇌전증장애, 지적장애, 자폐성장애, 정신장애)됩니다. 가장 많은 비율을 차지하는 장애 유형은 ‘지체장애’입니다.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The fifth statistic -->
+                <div class="overlay">
+                    <div class="stat">
+                        <div class="title">
+                            <div class="number_container">
+                                <div class="numbers">
+                                    <span class="number">15</span><span class="percentage">배</span>
+                                </div>
+                            </div>
+                            <div class="headline">
+                                <div class="text1">
+                                    정신 장애인의 범죄율, 0.08%
+                                </div>
+                                <div class="text2">
+                                    <!-- 정신 장애인의 범죄율, 0.08% -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pict_container">
+                            <div class="pictogram">
+                                <canvas id="chart4"></canvas>
+                                <script>
+                                    let chart4 = new Chart(document.getElementById('chart4').getContext('2d'), chartArguments[3].chartConfig);
+                                </script>
+                            </div>
+                        </div>
+                        <div class="source">
+                            <span>
+                                자료 출처 : 2017년 대검찰청 범죄분석 보고서
+                            </span>
+                        </div>
+                        <div class="comment">
+                            통계적으로 비장애인의 범죄율이 정신장애인의 범죄율보다 15배 높다고 조사되었습니다. 장애가 범죄의 원인이 될 수 없습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-container" id="btn-after-test">
+                    <button type="button" class="btn btn-lg" id="toAfterTest">테스트 보러가기</button>
+                </div>
+
+                <div class="video-comment">
+                    영상으로 더 알아보기
+                </div>
+
+                <!-- 회전초밥 div -->
+                <div class="owl-carousel owl-theme owl-loaded">
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=CdFqM5fekqI" target="_blank">
+                            <img src="https://img.youtube.com/vi/CdFqM5fekqI/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">제1회 한국수어의 날</span>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=XN2OC9UVVuA" target="_blank">
+                            <img src="https://img.youtube.com/vi/XN2OC9UVVuA/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">장애 대학생이 동기&교수님 한테 진심으로 서운할 때</span>
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=LS4WS7V0Y_A" target="_blank">
+                            <img src="https://img.youtube.com/vi/LS4WS7V0Y_A/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">들리지 않아도 랩, 댄스, 노래<br> 다 할 수 있어요. <br>청각장애 핸디래퍼 김지연</span>
+
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=MCZqR2VCP28" target="_blank">
+                            <img src="https://img.youtube.com/vi/MCZqR2VCP28/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">침묵 속에 춤을 추는 <br> 청각 장애 발레리나 고아라</span>
+
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=REpjJyKifms" target="_blank">
+                            <img src="https://img.youtube.com/vi/REpjJyKifms/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">천만 조회수 기록한 <br> '조용한 택시'...비머도 타봤습니다</span>
+
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=5gc4y9ExmHw" target="_blank">
+                            <img src="https://img.youtube.com/vi/5gc4y9ExmHw/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">제40회 장애인의 날 기념 동영상</span>
+
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=kJrRzI0Tm80" target="_blank">
+                            <img src="https://img.youtube.com/vi/kJrRzI0Tm80/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">시청각장애인식개선 <br> 캠페인 홍보영상</span>
+
+                    </div>
+                    <div class="item">
+                        <a href="https://www.youtube.com/watch?v=6KER4bgyozg" target="_blank">
+                            <img src="https://img.youtube.com/vi/6KER4bgyozg/maxresdefault.jpg"></a>
+                        <span class="tooltiptext">😧 뇌성마비 장애인과 <br> 친구가 될 수 있을까?</span>
+
+                    </div>
+                </div>
+
+                <script src="./owlcarousel/owl.carousel.min.js"></script>
+                <script type="text/javascript">
+                    var owl = $('.owl-carousel');
+                    owl.owlCarousel({
+                        items: 4,
+                        loop: true,
+                        margin: 10,
+                        video: true,
+                        autoplay: true,
+                        autoplayTimeout: 3000,
+                        autoplayHoverPause: true
+                    });
+                    $('.owl-carousel').owlCarousel();
+                </script>
+                <style>
+                    .owl-carousel .owl-stage-outer {
+                        overflow: visible;
+                    }
+
+                    .item .tooltiptext {
+                        background-color: rgba(0, 0, 0, 0.7);
+                    }
+                </style>
+
             </div>
-            <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
+            <script>
+                gsap.registerPlugin(ScrollTrigger);
+                    let overlay = gsap.utils.toArray('.overlay');
+                    overlay.forEach((ol, i) => {
+                        ol.dataset.colorIndex = i;
+                        if (!isMobile) {
+                            gsap.from(ol, {
+                                scrollTrigger: {
+                                    trigger: ol,
+                                    toggleActions: 'play reset play reset',
+                                    scroller: '.main_middle'
+                                },
+                                x: 50 * Math.pow(-1, i),
+                                duration: 0.7
+                            })
+                        }
+                    })
+            </script>
         </div>
 
-        <div class="chart-comment-container" id="propose-comment">
-            다른 사용자분들의 결과도 확인해보세요!
+
+        <!-- After 인식개선 테스트 div -->
+        <div class="main after_test test">
+            <%-include('afterTest')%>
+                <%-include('atResult')%>
+
         </div>
-        <div class="score-chart-container">
-            <div class="score-chart" id="first-chart">
-                <div class="inside-container">
-                    <div class="chart-title">
-                        인식개선 테스트 점수 분포
-                    </div>
-                    <div class="compareChart" id="beforeCompareChart">
-                        <canvas id="beforeChart">
-                            <p>Feedback Chart1-1</p>
-                        </canvas>
+
+        <script>
+            checkSubmitTest();
+            // test-swiper
+            const afterTest = new Swiper('#after-test-container', {
+                // Optional parameters
+                direction: 'horizontal',
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                keyboard: {
+                    enabled: true,
+                    onlyInViewport: true,
+                },
+                threshold: 10
+            })
+        </script>
+
+
+        <div class="main main_bottom" id="main_bottom">
+            <div class="chart-comment-container" id="score-comment-container">
+                <div class="chart-comment" id="first-score-comment">🙌사용자님은</div>
+                <div class="own-score chart-comment" id="before-own-score">
+                    <div class="test-first-score-comment" id="before-first-score-comment">첫 번째 테스트에서</div>
+                    <div class="test-second-score-comment" id="before-second-score-comment">
+                        <span class="total-count">7</span>개 중
+                        <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
+                            <% if(BeforeScore) {%>
+                                <%=BeforeScore%>
+                                    <% } %>
+                        </span>개를
                     </div>
                 </div>
-                <div class="chart-desc" id="first-chart-desc">
-                    <div class="chart-desc-comment">
-                        <div class ="chart-desc-div first-chart-desc">
-                            파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 <br>
-                            두번째 테스트에서 더 좋은 결과가 많이 나온 것을 의미해요!
+                <div class="own-score chart-comment" id="after-own-score">
+                    <div class="test-first-score-comment" id="after-first-score-comment">두 번째 테스트에서</div>
+                    <div class="test-second-score-comment" id="after-second-score-comment">
+                        <span class="total-count">7</span>개 중
+                        <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
+                            <% if(AfterScore) {%>
+                                <%=AfterScore%>
+                                    <% } %>
+                        </span>개를
+                    </div>
+                </div>
+                <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
+            </div>
+
+            <div class="chart-comment-container" id="propose-comment">
+                다른 사용자분들의 결과도 확인해보세요!
+            </div>
+            <div class="score-chart-container">
+                <div class="score-chart" id="first-chart">
+                    <div class="inside-container">
+                        <div class="chart-title">
+                            인식개선 테스트 점수 분포
                         </div>
-                        <div class ="chart-desc-div first-chart-desc">
-                            점수 분포 그래프를 통해 다른 사용자 분들의 <br>
-                            인식 개선 서비스 이용 전 후, 테스트 결과를 비교해보세요!
+                        <div class="compareChart" id="beforeCompareChart">
+                            <canvas id="beforeChart">
+                                <p>Feedback Chart1-1</p>
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="chart-desc" id="first-chart-desc">
+                        <div class="chart-desc-comment">
+                            <div class="chart-desc-div first-chart-desc">
+                                파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 <br>
+                                두번째 테스트에서 더 좋은 결과가 많이 나온 것을 의미해요!
+                            </div>
+                            <div class="chart-desc-div first-chart-desc">
+                                점수 분포 그래프를 통해 다른 사용자 분들의 <br>
+                                인식 개선 서비스 이용 전 후, 테스트 결과를 비교해보세요!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="score-chart" id="second-chart">
+                    <div class="inside-container">
+                        <div class="chart-title">
+                            인식 개선 서비스를 이용한 뒤의 점수 변화 비율
+                        </div>
+                        <div class="compareChart" id="increaseCompareChart">
+                            <canvas id="increaseChart">
+                                <p>Feedback Chart2</p>
+                            </canvas>
+                        </div>
+                    </div>
+                    <div class="chart-desc" id="second-chart-desc">
+                        <div class="chart-desc-comment">
+                            <div class="chart-desc-div second-chart-desc">
+                                초록색 부분이 더 클수록 두번째 테스트에서 <br>
+                                점수가 상승한 사람이 많다는 것을 의미해요!
+                            </div>
+                            <div class="chart-desc-div second-chart-desc">
+                                점수 변화 비율 그래프를 통해 점수가 상승한 <br>
+                                사용자분들을 확인해 보세요!
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="score-chart" id="second-chart">
-                <div class="inside-container">
-                    <div class="chart-title">
-                        인식 개선 서비스를 이용한 뒤의 점수 변화 비율
-                    </div>
-                    <div class="compareChart" id="increaseCompareChart">
-                        <canvas id="increaseChart">
-                            <p>Feedback Chart2</p>
-                        </canvas>
-                    </div>
-                </div>
-                <div class="chart-desc" id="second-chart-desc">
-                    <div class="chart-desc-comment">
-                        <div class="chart-desc-div second-chart-desc">
-                            초록색 부분이 더 클수록 두번째 테스트에서 <br>
-                            점수가 상승한 사람이 많다는 것을 의미해요!
-                        </div>
-                        <div class="chart-desc-div second-chart-desc">
-                            점수 변화 비율 그래프를 통해 점수가 상승한 <br>
-                            사용자분들을 확인해 보세요!
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+    </main>
 
-
-        <footer class="ref-container">
-            <div id="use-image">사용한 사진</div>
-            <ul>
-                <li>carousel-1: <a target="_blank" href="https://www.freepik.com/photos/business">Business photo created
-                        by freepik -
-                        www.freepik.com</a></li>
-                <li>carousel-2: <a target="_blank" href="https://www.freepik.com/photos/health">Health photo created by
-                        freepik -
-                        www.freepik.com</a></li>
-                <li>carousel-3: Photo by <a
-                        href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elevate</a>
-                    on <a
-                        href="/s/photos/disability?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash
-                    </a></li>
-                <li>carousel-4: <a target="_blank" href="https://www.freepik.com/photos/love">Love photo created by
-                        freepic.diller -
-                        www.freepik.com</a></li>
-            </ul>
-        </footer>
-    </div>
 
     <script src="./script/chartUtil.js"></script>
     <script src="./script/pageTransition.js"></script>
@@ -663,6 +670,8 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
+        afterSubmitPageTransition();   
+
         function checkOnlyOne(element) { //체크박스 한 개만 선택되도록 하는 함수
             var formN = element.name;
             var checkboxes = document.getElementsByName(formN);

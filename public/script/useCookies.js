@@ -11,3 +11,16 @@ function checkSubmitTest() {
     }
 }
 
+
+
+function afterSubmitPageTransition() {
+    let cookies = Cookies.get();
+    if(cookies.curPage) {
+        gsap.to('#root', { duration: 0, scrollTo: { y: cookies.curPage, offsetY: 0 } } );
+    } else {
+        gsap.to('#root', { duration: 0, scrollTo: { y: '#main_top', offsetY: 0 } } );
+    }
+}
+
+
+

@@ -117,12 +117,12 @@ let cu3 = new ChartUpdater(chart3);
 let cu4 = new ChartUpdater(chart4);
 
 window.addEventListener('resize', e => {
-    if(window.innerWidth <= 550 && window.innerWidth > 430) {
+    if(window.innerWidth <= 550) {
         cu1.updateConfig('top', 1.5, 12);
         cu1.updateChart();
         cu2.updateConfig('top', 1.5, 12);
         cu2.updateChart();
-        cu3.updateConfig('top', 1, 12);
+        cu3.updateConfig('top', 0.8, 12);
         cu3.updateChart();
         cu4.updateConfig('top', 1.5, 12);
         cu4.updateChart();
