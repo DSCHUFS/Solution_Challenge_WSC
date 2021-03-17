@@ -88,3 +88,11 @@ btnOptions.forEach(({ btnSelector, pageSelector, offsetY }) => {
     addPageTransition(btnSelector, pageSelector, offsetY);
 })
 
+
+window.onload = () => {
+    const page = ["#main_top", "#main_middle", "#main_bottom", ".before_test", ".after_test"];
+
+    page.forEach(p => {
+        document.querySelector(p).style.height = window.innerHeight + 'px';
+    })
+}
