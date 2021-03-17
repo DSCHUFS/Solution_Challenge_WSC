@@ -89,20 +89,22 @@ btnOptions.forEach(({ btnSelector, pageSelector, offsetY }) => {
 })
 
 
+let userAgent = window.navigator.userAgent;
+let isKakao = userAgent.indexOf('KAKAOTALK');
+if (isKakao > -1) {
+    alert('kakao');
+    window.addEventListener('resize', e => {
+        let curpage = Cookies.get('curPage');
+        gsap.to("#root", { duration: 0, scrollTo: { y: curpage, offsetY: 0 } });
+    });
+}
+
+
 window.onload = () => {
     const page = ["#main_top", "#main_middle", "#main_bottom", ".before_test", ".after_test"];
 
     page.forEach(p => {
         document.querySelector(p).style.height = window.innerHeight + 'px';
     })
-
-    let userAgent = window.navigator.userAgent;
-    let isKakao = userAgent.indexOf('KAKAOTALK');
-    if(isKakao > -1) {
-        window.addEventListener('resize', e => {
-            let curpage = Cookies.get('curPage');
-            gsap.to("#root",{duration:0,  scrollTo: {y:curpage, offsetY: 0}});
-        });
-    }
 }
 
