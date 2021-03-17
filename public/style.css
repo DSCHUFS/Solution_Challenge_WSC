@@ -157,14 +157,14 @@ body {
 }
 
 .top {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background: rgba(0,0,0,0.4);
 }
 
 .text_container {
     margin-left: 3vw;
-    padding: calc(85vh - (min(15vh, 13vw)*2 + min(3vh, 2vw)) - 3vh) 0 0 1vw;
+    padding: calc(85vh - (min(15vh, 13vw)*2 + min(3vh, 2vw)) - 8vh) 0 0 1vw;
 }
 
 .btn-container {
