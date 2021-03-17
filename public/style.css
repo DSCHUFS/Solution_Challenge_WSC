@@ -364,7 +364,7 @@ body {
     z-index: 10;
 
     font-size: 5rem;
-    font-weight: 700;
+    font-weight: 800;
     align-self: flex-start;
 
     margin: 8rem 0 0 5%;
@@ -849,6 +849,10 @@ body {
     .comment {
         font-size: 15px;
     }
+
+    #propose-passover {
+        margin-left: 60%;
+    }
 }
 
 @media (max-width: 910px) and (min-width:750px)  {
@@ -890,6 +894,10 @@ body {
     
     .comment {
         font-size: 15px;
+    }
+
+    #propose-passover {
+        margin-left: 55%;
     }
 }
 
@@ -949,6 +957,10 @@ body {
         margin-left: 35vw;
         margin-right: 10vw;
         font-size: 15px;
+    }
+
+    #propose-passover {
+        font-size: 25px;
     }
 }
 
@@ -1100,8 +1112,8 @@ body {
     }
 
     .carousel-container {
-        height: 60vh;
-        margin: 4rem 0;
+        height: 50vh;
+        margin: 1rem 0;
     }
 
     #img-container {
@@ -1117,7 +1129,7 @@ body {
     }
     
     .img_comment {
-        font-size: 2rem;
+        font-size: 23px;
     }
 
     .score-chart-container {
@@ -1140,6 +1152,16 @@ body {
     .test-second-score-comment {
         margin: 1rem 0 ;
         font-size: 25px;
+    }
+
+    #propose-passover {
+        width: 250px;
+        margin: 0 7% 5rem auto; 
+        font-size: 20px;
+    }
+    
+    #chart3 {
+        margin: 0 0.5rem;
     }
     
 }

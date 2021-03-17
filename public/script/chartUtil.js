@@ -122,7 +122,7 @@ window.addEventListener('resize', e => {
         cu1.updateChart();
         cu2.updateConfig('top', 1.5, 12);
         cu2.updateChart();
-        cu3.updateConfig('top', 1, 12);
+        cu3.updateConfig('top', 0.8, 12);
         cu3.updateChart();
         cu4.updateConfig('top', 1.5, 12);
         cu4.updateChart();
