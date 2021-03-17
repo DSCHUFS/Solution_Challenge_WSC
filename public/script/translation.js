@@ -1,10 +1,9 @@
 Cookies.set('lang', 'kr');
 let krChange = document.querySelector('#kr');
 let enChange = document.querySelector('#en');
-let cookie = Cookies.get();
 
 function chooseLang() {
-
+    let cookie = Cookies.get();
     if(cookie.lang === "kr") {
         krChange.style.color = "#008B9F";
         enChange.style.color = "#B3B5B9";
@@ -26,6 +25,7 @@ krChange.addEventListener("mouseover", (e) => {
 })
 
 krChange.addEventListener("mouseleave", (e) => {
+    let cookie = Cookies.get();
     if(cookie.lang !== "kr") krChange.style.color = "#B3B5B9";
 })
 
@@ -39,5 +39,6 @@ enChange.addEventListener("mouseover", (e) => {
 })
 
 enChange.addEventListener("mouseleave", (e) => {
+    let cookie = Cookies.get();
     if(cookie.lang !== "en") enChange.style.color = "#B3B5B9";
 })
