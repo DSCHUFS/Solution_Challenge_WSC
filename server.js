@@ -23,7 +23,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 
 //set socket communication
-io.on("connection", (socket) => {
+io.on("connection", function(socket) {
     console.log("connected!!!");
 });
 
