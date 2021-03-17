@@ -95,4 +95,14 @@ window.onload = () => {
     page.forEach(p => {
         document.querySelector(p).style.height = window.innerHeight + 'px';
     })
+
+    let userAgent = window.navigator.userAgent;
+    let isKakao = userAgent.indexOf('KAKAOTALK');
+    if(isKakao > -1) {
+        window.addEventListener('resize', e => {
+            let curpage = Cookies.get('curPage');
+            pageTransition(curpage, 0);   
+        });
+    }
 }
+
