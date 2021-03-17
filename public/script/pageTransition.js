@@ -85,8 +85,27 @@ function addPageTransition(btnSelector, pageSelector, offsetY) {
 }
 
 btnOptions.forEach(({ btnSelector, pageSelector, offsetY }) => {
-    addPageTransition(btnSelector, pageSelector, offsetY);
+    if(btnSelector === "#transTomainMiddle" & Cookies.get('before') !== undefined) {
+        addPageTransition(btnSelector, pageSelector, offsetY);
+    }  
+
+    if(btnSelector === "#transTomainBottom" && Cookies.get('test') !== undefined) {
+        addPageTransition(btnSelector, pageSelector, offsetY);
+    } 
+
+    if(btnSelector !== "#transTomainMiddle" && btnSelector !== "#transTomainBottom") {
+        addPageTransition(btnSelector, pageSelector, offsetY);
+    }
 })
+
+let userAgent = window.navigator.userAgent;
+let isKakao = userAgent.indexOf('KAKAOTALK');
+if (isKakao > -1) {
+    window.addEventListener('resize', e => {
+        let curpage = Cookies.get('curPage');
+        gsap.to("#root", { duration: 0, scrollTo: { y: curpage, offsetY: 0 } });
+    });
+}
 
 
 window.onload = () => {
