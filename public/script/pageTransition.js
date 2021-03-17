@@ -101,7 +101,7 @@ window.onload = () => {
     if(isKakao > -1) {
         window.addEventListener('resize', e => {
             let curpage = Cookies.get('curPage');
-            pageTransition(curpage, 0);   
+            gsap.to("#root",{duration:0,  scrollTo: {y:curpage, offsetY: 0}});
         });
     }
 }
