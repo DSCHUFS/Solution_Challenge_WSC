@@ -127,7 +127,7 @@
         <div class="main main_middle" id="main_middle">
             <div id="main_middle_container">
                 <div class="img_comment"><span id="hide-comment" style="display: none; color: #008B9F">누구에게나
-                </span>평범한 일상입니다.</div>
+                    </span>평범한 일상입니다.</div>
                 <div class="carousel-container">
                     <div class="swiper-container" id="img-container">
                         <div id="carousel" class="swiper-wrapper">
@@ -530,21 +530,21 @@
             </div>
             <script>
                 gsap.registerPlugin(ScrollTrigger);
-                    let overlay = gsap.utils.toArray('.overlay');
-                    overlay.forEach((ol, i) => {
-                        ol.dataset.colorIndex = i;
-                        if (!isMobile) {
-                            gsap.from(ol, {
-                                scrollTrigger: {
-                                    trigger: ol,
-                                    toggleActions: 'play reset play reset',
-                                    scroller: '.main_middle'
-                                },
-                                x: 50 * Math.pow(-1, i),
-                                duration: 0.7
-                            })
-                        }
-                    })
+                let overlay = gsap.utils.toArray('.overlay');
+                overlay.forEach((ol, i) => {
+                    ol.dataset.colorIndex = i;
+                    if (!isMobile) {
+                        gsap.from(ol, {
+                            scrollTrigger: {
+                                trigger: ol,
+                                toggleActions: 'play reset play reset',
+                                scroller: '.main_middle'
+                            },
+                            x: 50 * Math.pow(-1, i),
+                            duration: 0.7
+                        })
+                    }
+                })
             </script>
         </div>
 
@@ -660,7 +660,29 @@
                     </div>
                 </div>
             </div>
+            <!-- footer -->
+            <footer class="ref-container">
+                <div id="use-image">사용한 사진</div>
+                <ul>
+                    <li>carousel-1: <a target="_blank" href="https://www.freepik.com/photos/business">Business photo created
+                            by freepik -
+                            www.freepik.com</a></li>
+                    <li>carousel-2: <a target="_blank" href="https://www.freepik.com/photos/health">Health photo created by
+                            freepik -
+                            www.freepik.com</a></li>
+                    <li>carousel-3: Photo by <a
+                            href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Elevate</a>
+                        on <a
+                            href="/s/photos/disability?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash
+                        </a></li>
+                    <li>carousel-4: <a target="_blank" href="https://www.freepik.com/photos/love">Love photo created by
+                            freepic.diller -
+                            www.freepik.com</a></li>
+                </ul>
+            </footer>
         </div>
+
+        
     </main>
 
 
@@ -671,7 +693,7 @@
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
-        afterSubmitPageTransition();   
+        afterSubmitPageTransition();
 
         function checkOnlyOne(element) { //체크박스 한 개만 선택되도록 하는 함수
             var formN = element.name;
@@ -695,7 +717,7 @@
                 url: '/before',
                 data: queryString,
                 dataType: 'json',
-                success: function(){
+                success: function () {
                     alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
@@ -716,7 +738,7 @@
                 url: '/after',
                 data: queryString,
                 dataType: 'json',
-                success: function(){
+                success: function () {
                     alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
@@ -734,7 +756,7 @@
         var count;
         var score;
         var socket = io();
-       
+
         //after 테스트를 정상적으로 제출한 경우
         socket.on('completeAfter', function (result) {
             console.log(result);
@@ -832,7 +854,7 @@
             var increaseChart = new Chart(increaseCtx, getChart(Score, Count.count)[1]);
         });
     </script>
-    
+
 </body>
 
 </html>
