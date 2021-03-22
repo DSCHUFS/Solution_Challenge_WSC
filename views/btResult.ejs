@@ -4,8 +4,30 @@
             <h3>Result</h3>
             <span>첫 번째 테스트 결과입니다. 몰랐던 것을 더 알아가보는 시간을 가져보세요.</span>
             <%if(WrongBefore){%>
+                <% var wrongNum = 0; %>
+                <% for(var i=0; i<JSON.parse(WrongBefore).length; i++){ %>
+                    <% if(JSON.parse(WrongBefore)[i] == 1){ %>
+                        <% wrongNum++; %>
+                    <% } %>
+                <% } %>
             <div class="RS">
-                틀린 문제 : <br>
+                사용자님의 등급은
+                <% if(wrongNum >= 6){ %>
+                    BRONZE🤎 입니다.
+                <% } %>
+                <% if(wrongNum >= 4 && wrongNum < 6){ %>
+                    SILVER🤍 입니다.
+                <% } %>
+                <% if(wrongNum >= 2 && wrongNum < 4){ %>
+                    GOLD💛 입니다.
+                <% } %>
+                <% if(wrongNum < 2){ %>
+                    DIAMOND💙 입니다.
+                <% } %>
+                    <br>
+                틀린 문제 : 
+                <%= wrongNum %> 개
+                <br><hr>
                     <% for(var i=0; i<JSON.parse(WrongBefore).length; i++){ %>
                         <% if(JSON.parse(WrongBefore)[i] == 1){ %>
                             <%=i+1%>번<br>

@@ -4,8 +4,30 @@
             <h3>Result</h3>
             <span>두 번째 테스트 결과입니다.</span>
             <%if(WrongAfter){%>
+                <% var wrongNum = 0; %>
+                <% for(var i=0; i<JSON.parse(WrongAfter).length; i++){ %>
+                    <% if(JSON.parse(WrongAfter)[i] == 1){ %>
+                        <% wrongNum++; %>
+                    <% } %>
+                <% } %>
                 <div class="RS">
-                    틀린 문제 : <br>
+                    사용자님의 등급은
+                    <% if(wrongNum >= 6){ %>
+                        BRONZE🤎 입니다.
+                    <% } %>
+                    <% if(wrongNum >= 4 && wrongNum < 6){ %>
+                        SILVER🤍 입니다.
+                    <% } %>
+                    <% if(wrongNum >= 2 && wrongNum < 4){ %>
+                        GOLD💛 입니다.
+                    <% } %>
+                    <% if(wrongNum < 2){ %>
+                        DIAMOND💙 입니다.
+                    <% } %>
+                        <br>
+                    틀린 문제 :
+                    <%= wrongNum %> 개 
+                    <br><hr>
                     <% for(var i=0; i<JSON.parse(WrongAfter).length; i++){ %>
                         <% if(JSON.parse(WrongAfter)[i]==1){ %>
                             <%=i+1%>번<br>
@@ -37,6 +59,7 @@
                     <% } %>
                 </div>
                 <button type="button" class="btn btn-submit btn-lg" id="transTomainBottom">이동하기</button>
+                <button type="button" class="btn btn-again btn-lg" id="testAgain">테스트 다시보기</button>
                 <% } %>
         </div>
     </div>
