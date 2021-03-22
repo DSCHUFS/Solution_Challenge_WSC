@@ -26,7 +26,9 @@
     * CHANGE: Fix debug error.
 * 0.1.0
     * The first proper release
-    * CHANGE: Change btn to modify mistakes.
+    * CHANGE: 
+        * Change test contents
+        * Add testAgain button
 * 0.0.1
     * Create Project
 
