@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class="img_comment"><span id="hide-comment" style="display: none; color: #008B9F">누구에게나
-                </span>평범한 일상입니다.</div>
+                    </span>평범한 일상입니다.</div>
                 <!-- <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div> -->
 
                 <script>
@@ -242,7 +242,7 @@
 
                                         </div>
                                         <div class="label_hover">
-                                            장애를 가진 사람: 5.39%
+                                            장애를 가진 사람: 5.1%
                                         </div>
                                     </div>
                                 </div>
@@ -252,7 +252,7 @@
                                         <div class="color_box_hover">
                                         </div>
                                         <div class="label_hover">
-                                            장애를 가지지 않은 사람: 94.61%
+                                            장애를 가지지 않은 사람: 94.9%
                                         </div>
                                     </div>
                                 </div>
@@ -549,11 +549,15 @@
                     <ul>
                         <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
                             <a target="_blank" href="https://www.freepik.com/photos/health">carousel-2 | </a>
-                            <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3 | </a>
-                            <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a></li>
+                            <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3
+                                | </a>
+                            <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a>
+                        </li>
                         <li>about <a target="_blank" href="https://www.facebook.com/dschufs/">DSC | </a>
-                            <a target="_blank" href="https://github.com/DSCHUFS/Solution_Challenge_WSC"> github </a></li>
-                        <li>Copyright 2021 <a href="https://b-freeproject.df.r.appspot.com/"> B-Free. </a> All rights reserved</li>
+                            <a target="_blank" href="https://github.com/DSCHUFS/Solution_Challenge_WSC"> github </a>
+                        </li>
+                        <li>Copyright 2021 <a href="https://b-freeproject.df.r.appspot.com/"> B-Free. </a> All rights reserved
+                        </li>
                         </li>
                     </ul>
                     <hr>
@@ -613,8 +617,20 @@
         <div class="main main_bottom" id="main_bottom">
             <div class="chart-comment-container" id="score-comment-container">
                 <div class="chart-comment" id="first-score-comment">🙌사용자님은</div>
+                <div class="not-yet-test">
+                    <div class="not-yet-test-comment">
+                        아직 인식개선 테스트를 보지 않으셨습니다.😢
+                    </div>
+                    <div class="not-yet-test-comment">
+                        테스트를 보고 다시 돌아와 주세요.
+                    </div>
+                    <div id="menu-desc-comment">
+                        오른쪽 위의 바로가기 탭을 통해 테스트 페이지로 가실 수 있습니다.
+                    </div>
+                </div>
+
                 <div class="own-score chart-comment" id="before-own-score">
-                    <div class="test-first-score-comment" id="before-first-score-comment">첫 번째 테스트에서</div>
+                    <div class="test-first-score-comment" id="before-first-score-comment">인식개선 전 테스트에서</div>
                     <div class="test-second-score-comment" id="before-second-score-comment">
                         <span class="total-count">7</span>개 중
                         <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
@@ -624,8 +640,9 @@
                         </span>개를
                     </div>
                 </div>
+
                 <div class="own-score chart-comment" id="after-own-score">
-                    <div class="test-first-score-comment" id="after-first-score-comment">두 번째 테스트에서</div>
+                    <div class="test-first-score-comment" id="after-first-score-comment">인식개선 후 테스트에서</div>
                     <div class="test-second-score-comment" id="after-second-score-comment">
                         <span class="total-count">7</span>개 중
                         <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
@@ -637,6 +654,9 @@
                 </div>
                 <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
             </div>
+            <script>
+                checkTestDone()
+            </script>
 
             <div class="chart-comment-container" id="propose-comment">
                 다른 사용자분들의 결과도 확인해보세요!
@@ -656,10 +676,10 @@
                     <div class="chart-desc" id="first-chart-desc">
                         <div class="chart-desc-comment">
                             <div class="chart-desc-div first-chart-desc">
-                                파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 <br> 두번째 테스트에서 더 좋은 결과가 많이 나온 것을 의미해요!
+                                파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 저희 서비스를 통해 사용자들의 인식이 개선되었음을 의미해요!
                             </div>
                             <div class="chart-desc-div first-chart-desc">
-                                점수 분포 그래프를 통해 다른 사용자 분들의 <br> 인식 개선 서비스 이용 전 후, 테스트 결과를 비교해보세요!
+                                점수 분포 그래프를 통해 다른 사용자 분들의 인식개선 서비스 이용 전 후, 인식개선 결과를 비교해보세요!
                             </div>
                         </div>
                     </div>
@@ -667,7 +687,7 @@
                 <div class="score-chart" id="second-chart">
                     <div class="inside-container">
                         <div class="chart-title">
-                            인식 개선 서비스를 이용한 뒤의 점수 변화 비율
+                            인식개선 서비스를 이용한 뒤의 점수 변화 비율
                         </div>
                         <div class="compareChart" id="increaseCompareChart">
                             <canvas id="increaseChart">
@@ -678,10 +698,10 @@
                     <div class="chart-desc" id="second-chart-desc">
                         <div class="chart-desc-comment">
                             <div class="chart-desc-div second-chart-desc">
-                                초록색 부분이 더 클수록 두번째 테스트에서 <br> 점수가 상승한 사람이 많다는 것을 의미해요!
+                                초록색 부분이 더 클수록 두번째 테스트에서 인식개선 점수가 상승한 사람이 많다는 것을 의미해요!
                             </div>
                             <div class="chart-desc-div second-chart-desc">
-                                점수 변화 비율 그래프를 통해 점수가 상승한 <br> 사용자분들을 확인해 보세요!
+                                점수 변화 비율 그래프를 통해 인식개선 점수가 상승한 사용자분들을 확인해 보세요!
                             </div>
                         </div>
                     </div>
@@ -693,11 +713,15 @@
                 <ul>
                     <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
                         <a target="_blank" href="https://www.freepik.com/photos/health">carousel-2 | </a>
-                        <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3 | </a>
-                        <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a></li>
+                        <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3
+                            | </a>
+                        <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a>
+                    </li>
                     <li>about <a target="_blank" href="https://www.facebook.com/dschufs/">DSC | </a>
-                        <a target="_blank" href="https://github.com/DSCHUFS/Solution_Challenge_WSC"> github </a></li>
-                    <li>Copyright 2021 <a href="https://b-freeproject.df.r.appspot.com/"> B-Free. </a> All rights reserved</li>
+                        <a target="_blank" href="https://github.com/DSCHUFS/Solution_Challenge_WSC"> github </a>
+                    </li>
+                    <li>Copyright 2021 <a href="https://b-freeproject.df.r.appspot.com/"> B-Free. </a> All rights reserved
+                    </li>
                     </li>
                 </ul>
                 <hr>
