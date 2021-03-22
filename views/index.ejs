@@ -75,9 +75,19 @@
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
             if (!isMobile) {
                 gsap.timeline()
-                    .from('body', { duration: 0.5 }) // for loading
-                    .from('.large-text', { y: -100, opacity: 0, duration: 1 })
-                    .from('.small-text', { y: -100, opacity: 0, duration: 1 });
+                    .from('body', {
+                        duration: 0.5
+                    }) // for loading
+                    .from('.large-text', {
+                        y: -100,
+                        opacity: 0,
+                        duration: 1
+                    })
+                    .from('.small-text', {
+                        y: -100,
+                        opacity: 0,
+                        duration: 1
+                    });
 
             } else {
                 const menuBtn = document.querySelector('svg');
@@ -126,34 +136,33 @@
         <!-- 메인 중단 -->
         <div class="main main_middle" id="main_middle">
             <div id="main_middle_container">
-                <div class="img_comment"><span id="hide-comment" style="display: none; color: #008B9F">누구에게나
-                    </span>평범한 일상입니다.</div>
+                <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
                 <div class="carousel-container">
                     <div class="swiper-container" id="img-container">
                         <div id="carousel" class="swiper-wrapper">
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg" alt="회의하는 사람들">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg" alt="테니스 하는 사람">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg" alt="함께 모여서 사진찍는 사람들">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg" alt="결혼식을 올리는 커플">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg" alt="회의하는 사람들">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg" alt="테니스 하는 사람">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg" alt="함께 모여서 사진찍는 사람들">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg">
+                                <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg" alt="결혼식을 올리는 커플">
                             </div>
                         </div>
                         <div class="swiper-pagination"></div>
@@ -161,15 +170,16 @@
                         <div class="swiper-button-next"></div>
                     </div>
                 </div>
-                <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
+                <div class="img_comment"><span id="hide-comment" style="display: none; color: #008B9F">누구에게나
+                </span>평범한 일상입니다.</div>
+                <!-- <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div> -->
 
                 <script>
-
                     const imgContainers = gsap.utils.toArray('.swiper-slide.img-slide');
                     imgContainers.forEach((img, i) => {
-                        img.dataset.index = i + 1;
-                    })
-                    // swiper
+                            img.dataset.index = i + 1;
+                        })
+                        // swiper
                     const swiper = new Swiper('#img-container', {
                         // Optional parameters
                         direction: 'horizontal',
@@ -189,9 +199,15 @@
                             slideChangeTransitionEnd: () => {
                                 let active = document.querySelector('.swiper-slide.img-slide.swiper-slide-active').dataset.index <= 4
                                 if (active) {
-                                    gsap.set('#hide-comment', { duration: 0, display: 'none' });
+                                    gsap.set('#hide-comment', {
+                                        duration: 0,
+                                        display: 'none'
+                                    });
                                 } else {
-                                    gsap.set('#hide-comment', { duration: 0, display: 'inline' });
+                                    gsap.set('#hide-comment', {
+                                        duration: 0,
+                                        display: 'inline'
+                                    });
                                 }
                             }
                         }
@@ -401,9 +417,7 @@
                             </span>
                         </div>
                         <div class="comment">
-                            장애인복지법에 의해 장애 유형은 15가지로 분류(지체장애, 뇌병변장애, 시각장애, 청각장애, 언어장애, 안면장애, 신장장애, 심장장애, 호흡기장애, 간장애,
-                            장루/요루장애,
-                            뇌전증장애, 지적장애, 자폐성장애, 정신장애)됩니다. 가장 많은 비율을 차지하는 장애 유형은 ‘지체장애’입니다.
+                            장애인복지법에 의해 장애 유형은 15가지로 분류(지체장애, 뇌병변장애, 시각장애, 청각장애, 언어장애, 안면장애, 신장장애, 심장장애, 호흡기장애, 간장애, 장루/요루장애, 뇌전증장애, 지적장애, 자폐성장애, 정신장애)됩니다. 가장 많은 비율을 차지하는 장애 유형은 ‘지체장애’입니다.
                         </div>
                     </div>
                 </div>
@@ -451,6 +465,9 @@
 
                 <div class="video-comment">
                     영상으로 더 알아보기
+                </div>
+                <div class="video-comment" id="second-video-comment">
+                    영상을 옆으로 드래그 해보세요!👉
                 </div>
 
                 <!-- 회전초밥 div -->
@@ -509,7 +526,7 @@
                     owl.owlCarousel({
                         items: 4,
                         loop: true,
-                        margin: 10,
+                        margin: 20,
                         video: true,
                         autoplay: true,
                         autoplayTimeout: 3000,
@@ -521,12 +538,26 @@
                     .owl-carousel .owl-stage-outer {
                         overflow: visible;
                     }
-
+                    
                     .item .tooltiptext {
                         background-color: rgba(0, 0, 0, 0.7);
                     }
                 </style>
 
+                <footer class="ref-container" style="margin-top:10vh">
+                    <hr>
+                    <ul>
+                        <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
+                            <a target="_blank" href="https://www.freepik.com/photos/health">carousel-2 | </a>
+                            <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3 | </a>
+                            <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a></li>
+                        <li>about <a target="_blank" href="https://www.facebook.com/dschufs/">DSC | </a>
+                            <a target="_blank" href="https://github.com/DSCHUFS/Solution_Challenge_WSC"> github </a></li>
+                        <li>Copyright 2021 <a href="https://b-freeproject.df.r.appspot.com/"> B-Free. </a> All rights reserved</li>
+                        </li>
+                    </ul>
+                    <hr>
+                </footer>
             </div>
             <script>
                 gsap.registerPlugin(ScrollTrigger);
@@ -625,12 +656,10 @@
                     <div class="chart-desc" id="first-chart-desc">
                         <div class="chart-desc-comment">
                             <div class="chart-desc-div first-chart-desc">
-                                파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 <br>
-                                두번째 테스트에서 더 좋은 결과가 많이 나온 것을 의미해요!
+                                파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 <br> 두번째 테스트에서 더 좋은 결과가 많이 나온 것을 의미해요!
                             </div>
                             <div class="chart-desc-div first-chart-desc">
-                                점수 분포 그래프를 통해 다른 사용자 분들의 <br>
-                                인식 개선 서비스 이용 전 후, 테스트 결과를 비교해보세요!
+                                점수 분포 그래프를 통해 다른 사용자 분들의 <br> 인식 개선 서비스 이용 전 후, 테스트 결과를 비교해보세요!
                             </div>
                         </div>
                     </div>
@@ -649,12 +678,10 @@
                     <div class="chart-desc" id="second-chart-desc">
                         <div class="chart-desc-comment">
                             <div class="chart-desc-div second-chart-desc">
-                                초록색 부분이 더 클수록 두번째 테스트에서 <br>
-                                점수가 상승한 사람이 많다는 것을 의미해요!
+                                초록색 부분이 더 클수록 두번째 테스트에서 <br> 점수가 상승한 사람이 많다는 것을 의미해요!
                             </div>
                             <div class="chart-desc-div second-chart-desc">
-                                점수 변화 비율 그래프를 통해 점수가 상승한 <br>
-                                사용자분들을 확인해 보세요!
+                                점수 변화 비율 그래프를 통해 점수가 상승한 <br> 사용자분들을 확인해 보세요!
                             </div>
                         </div>
                     </div>
@@ -665,26 +692,26 @@
                 <hr>
                 <ul>
                     <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
-                    <a target="_blank" href="https://www.freepik.com/photos/health">carousel-2 | </a>
-                    <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3 | </a>
-                    <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a></li>
+                        <a target="_blank" href="https://www.freepik.com/photos/health">carousel-2 | </a>
+                        <a target="_blank" href="https://unsplash.com/@elevatebeer?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">carousel-3 | </a>
+                        <a target="_blank" href="https://www.freepik.com/photos/love">carousel-4 </a></li>
                     <li>about <a target="_blank" href="https://www.facebook.com/dschufs/">DSC | </a>
                         <a target="_blank" href="https://github.com/DSCHUFS/Solution_Challenge_WSC"> github </a></li>
                     <li>Copyright 2021 <a href="https://b-freeproject.df.r.appspot.com/"> B-Free. </a> All rights reserved</li>
-                </li>
-                </ul><hr>
+                    </li>
+                </ul>
+                <hr>
             </footer>
         </div>
 
-        
+
     </main>
 
 
     <script src="./script/chartUtil.js"></script>
     <script src="./script/pageTransition.js"></script>
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         afterSubmitPageTransition();
@@ -711,11 +738,11 @@
                 url: '/before',
                 data: queryString,
                 dataType: 'json',
-                success: function () {
+                success: function() {
                     alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.log(error);
                 }
             });
@@ -732,16 +759,16 @@
                 url: '/after',
                 data: queryString,
                 dataType: 'json',
-                success: function () {
+                success: function() {
                     alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.log(error);
                 }
             });
         }
-       //test 다시보기 버튼 클릭 시, 호출되는 함수
+        //test 다시보기 버튼 클릭 시, 호출되는 함수
         function testAgain() {
             // $('#after-test-container').show();
             // $('#afterResult').hide();
@@ -757,7 +784,7 @@
         var socket = io();
 
         //after 테스트를 정상적으로 제출한 경우
-        socket.on('completeAfter', function (result) {
+        socket.on('completeAfter', function(result) {
             console.log(result);
             count = result.Count.count;
             score = result.Score;
@@ -770,8 +797,7 @@
         });
 
         function getChart(score, count) {
-            return [
-                {
+            return [{
                     type: 'line',
                     data: {
                         labels: [0, 1, 2, 3, 4, 5, 6, 7],
@@ -781,8 +807,7 @@
                             backgroundColor: 'rgba(255, 206, 86, 0.7)',
                             borderColor: 'rgba(255, 206, 86, 1)',
                             borderWidth: 1
-                        },
-                        {
+                        }, {
                             label: '점수 분포 - 서비스 이용 후',
                             data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7],
                             backgroundColor: 'rgba(54, 162, 235, 0.7)',
@@ -800,8 +825,12 @@
                         },
                         legend: {
                             position: 'top',
-                            onHover: () => { document.getElementById("beforeChart").style.cursor = 'pointer' },
-                            onLeave: () => { document.getElementById("beforeChart").style.cursor = 'default' }
+                            onHover: () => {
+                                document.getElementById("beforeChart").style.cursor = 'pointer'
+                            },
+                            onLeave: () => {
+                                document.getElementById("beforeChart").style.cursor = 'default'
+                            }
                         },
                         animation: {
                             duration: 1500
@@ -824,8 +853,12 @@
                     options: {
                         legend: {
                             position: 'left',
-                            onHover: () => { document.getElementById("increaseChart").style.cursor = 'pointer' },
-                            onLeave: () => { document.getElementById("increaseChart").style.cursor = 'default' }
+                            onHover: () => {
+                                document.getElementById("increaseChart").style.cursor = 'pointer'
+                            },
+                            onLeave: () => {
+                                document.getElementById("increaseChart").style.cursor = 'default'
+                            }
                         },
                         ticks: {
                             display: false
@@ -843,7 +876,7 @@
         }
 
         //main bottom에서 새로고침 시, 서버에서 넘겨준 db data로 chart 생성
-        $(function () {
+        $(function() {
             var Count = JSON.parse('<%-JSON.stringify(Count)%>');
             var Score = JSON.parse('<%-JSON.stringify(Score)%>');
             //feedback chart
