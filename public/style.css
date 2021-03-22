@@ -798,15 +798,16 @@ body {
 
 .ref-container {
     max-width: 1200px;
-    margin: 200px auto 0 auto;
+    margin: 200px auto 5px auto;
 }
 
 .ref-container ul li {
     list-style-type: none;
+    font-size: 5px;
+    font-weight: bold;
 }
-
-#use-image {
-    font-weight: 900;
+.ref-container a{
+    color: gray;
 }
 
 .chart-desc {
@@ -1272,4 +1273,6 @@ body {
     opacity: 1;
   }
 
-  
+footer .li{
+      font-weight: bold;
+  }
