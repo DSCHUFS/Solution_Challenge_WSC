@@ -51,20 +51,23 @@ app.get('/', async function(req, res){
     var afterScore = 'no';
     var wrongBefore;
     var wrongAfter;
+    var nick = '사용자';
     if(nickname){
         const userData = await getDataByNickname(nickname);
-        var beforeScore = userData.before;
-        var afterScore = userData.after;
-        var wrongBefore = userData.wrongBefore;
-        var wrongAfter = userData.wrongAfter;
+        beforeScore = userData.before;
+        afterScore = userData.after;
+        wrongBefore = userData.wrongBefore;
+        wrongAfter = userData.wrongAfter;
+        nick = userData.nickname;
     }
     console.log(beforeScore);
     console.log(afterScore);
     console.log(wrongBefore);
     console.log(wrongAfter);
+    console.log(nick);
 
     res.render('index', {
-        Count:count, Score:score, 
+        Count:count, Score:score, Nickname:nick,
         WrongBefore:wrongBefore, WrongAfter:wrongAfter,
         BeforeScore:beforeScore, AfterScore:afterScore
     });

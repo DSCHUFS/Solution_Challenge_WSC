@@ -628,47 +628,45 @@
 
         <div class="main main_bottom" id="main_bottom">
             <div class="chart-comment-container" id="score-comment-container">
-                <div class="chart-comment" id="first-score-comment">🙌사용자님은</div>
-                <div class="not-yet-test">
-                    <div class="not-yet-test-comment">
-                        아직 인식개선 테스트를 보지 않으셨습니다.😢
+                <div class="chart-comment" id="first-score-comment">🙌<%=Nickname%>님은</div>
+                <% if(BeforeScore == 'no' || AfterScore == 'no'){ %>
+                    <div class="not-yet-test">
+                        <div class="not-yet-test-comment">
+                            아직 인식개선 테스트를 모두 보지 않으셨습니다.😢
+                        </div>
+                        <div class="not-yet-test-comment">
+                            테스트를 보고 다시 돌아와 주세요.
+                        </div>
+                        <div id="menu-desc-comment">
+                            오른쪽 위의 바로가기 탭을 통해 테스트 페이지로 가실 수 있습니다.
+                        </div>
                     </div>
-                    <div class="not-yet-test-comment">
-                        테스트를 보고 다시 돌아와 주세요.
-                    </div>
-                    <div id="menu-desc-comment">
-                        오른쪽 위의 바로가기 탭을 통해 테스트 페이지로 가실 수 있습니다.
-                    </div>
-                </div>
-
-                <div class="own-score chart-comment" id="before-own-score">
-                    <div class="test-first-score-comment" id="before-first-score-comment">인식개선 전 테스트에서</div>
-                    <div class="test-second-score-comment" id="before-second-score-comment">
-                        <span class="total-count">7</span>개 중
-                        <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
-                            <% if(BeforeScore) {%>
+                <% } else { %>
+                    <div class="own-score chart-comment" id="before-own-score">
+                        <div class="test-first-score-comment" id="before-first-score-comment">인식개선 첫 번째 테스트에서</div>
+                        <div class="test-second-score-comment" id="before-second-score-comment">
+                            <span class="total-count">7</span>개 중
+                            <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
                                 <%=BeforeScore%>
-                                    <% } %>
-                        </span>개를
+                            </span>개를
+                        </div>
                     </div>
-                </div>
 
-                <div class="own-score chart-comment" id="after-own-score">
-                    <div class="test-first-score-comment" id="after-first-score-comment">인식개선 후 테스트에서</div>
-                    <div class="test-second-score-comment" id="after-second-score-comment">
-                        <span class="total-count">7</span>개 중
-                        <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
-                            <% if(AfterScore) {%>
-                                <%=AfterScore%>
-                                    <% } %>
-                        </span>개를
+                    <div class="own-score chart-comment" id="after-own-score">
+                        <div class="test-first-score-comment" id="after-first-score-comment">인식개선 두 번째 테스트에서</div>
+                        <div class="test-second-score-comment" id="after-second-score-comment">
+                            <span class="total-count">7</span>개 중
+                            <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
+                                    <%=AfterScore%>
+                            </span>개를
+                        </div>
                     </div>
-                </div>
-                <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
+                    <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
+                <% } %>
             </div>
-            <script>
+            <!-- <script>
                 checkTestDone()
-            </script>
+            </script> -->
 
             <div class="chart-comment-container" id="propose-comment">
                 다른 사용자분들의 결과도 확인해보세요!
