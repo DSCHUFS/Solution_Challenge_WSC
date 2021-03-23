@@ -14,6 +14,11 @@ menu.addEventListener("mouseleave", (e) => {
 let tl = gsap.timeline();
 
 const btnOptions = [{
+        btnSelector: "#toBeforeTest",
+        pageSelector: ".before_test",
+        offsetY: 0
+    },
+    {
         btnSelector: "#pathToBeforeTest",
         pageSelector: ".before_test",
         offsetY: 0
