@@ -318,11 +318,23 @@ body {
 }
 
 .Q6 {
-    background-color: #FECE3E;
+    background-color: #E0553F;
 }
 
 .Q7 {
-    background-color: #3BAAD8;
+    background-color: #008B9F;
+}
+
+.Q8 {
+    background-color: #3bAAD8;
+}
+
+.Q9 {
+    background-color: #E07707;
+}
+
+.Q10 {
+    background-color: #1B2B44;
 }
 
 .result {
@@ -336,7 +348,7 @@ body {
 
 .btn-submit {
     float: right;
-    margin-top: 20%;
+    margin-top: 10%;
     background-color: red;
 }
 
