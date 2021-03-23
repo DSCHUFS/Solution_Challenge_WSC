@@ -190,6 +190,7 @@ body {
     height: 44px;
     padding: 10px 16px;
     margin: 2.5px 5px auto auto;
+    z-index: 10;
 }
 
 .btn-container {
@@ -204,6 +205,7 @@ body {
     background: transparent;
     color: white;
     transition: 0.5s;
+    z-index: 10;
 }
 
 .btn-container button:hover {
