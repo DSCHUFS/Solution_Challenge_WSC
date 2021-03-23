@@ -15,7 +15,7 @@
 
 ## 공개 주소✨
 
-배포 URL :
+배포 URL : https://b-free-project-307917.df.r.appspot.com/
 
 데모 영상 :
 
