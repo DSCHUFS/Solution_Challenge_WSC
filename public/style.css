@@ -367,7 +367,7 @@ body {
 }
 
 .result {
-    background-color: #2E2E29;
+    background-color: #37393D;
 }
 
 .result-container {
@@ -381,9 +381,20 @@ body {
     background-color: red;
 }
 
+.btn-after {
+    float: right;
+    margin-top: 10%;
+    background-color: #1B2B44;
+}
+.btn-after:hover {
+    float: right;
+    margin-top: 10%;
+    background-color: white;
+}
+
 .btn-again {
     float: right;
-    margin-top: 20%;
+    margin-top: 10%;
     margin-right: 10px;
     background-color: #008B9F;
 }
