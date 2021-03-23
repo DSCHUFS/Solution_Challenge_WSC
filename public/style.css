@@ -152,6 +152,7 @@ body {
 .main_top {
     height: 100%;
     width: 100%;
+    overflow: auto;
 }
 
 .top {
@@ -162,14 +163,40 @@ body {
 
 .text_container {
     margin-left: 3vw;
-    padding: calc(85vh - (min(15vh, 13vw)*2 + min(5vh, 4vw)) - 9vh) 0 0 1vw;
+    padding: calc(85vh - (min(15vh, 13vw)*2 + min(5vh, 4vw)) - 15vh) 0 0 1vw;
+    position: relative;
+    top: 6vh;
+}
+
+.nickname-form {
+    z-index: 2;
+}
+
+.nickname-container {
+    display: flex;
+    margin: 10px 0 0 auto;
+}
+
+.form-label {
+    display: block;
+    width: 450px;
+    margin: 0 5vw 10px auto;
+    color: white;
+    font-size: 20px;
+}
+
+.form-control {
+    max-width: 300px;
+    height: 44px;
+    padding: 10px 16px;
+    margin: 2.5px 5px auto auto;
 }
 
 .btn-container {
     display: flex;
     justify-content: flex-end;
     margin-right: 5vw;
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
 }
 
 .btn-container button {
@@ -839,6 +866,13 @@ body {
     .video-comment {
         margin: 0 20px;
     }
+    .text_container {
+        position: static;
+        top: 0;
+    }
+    .nickname-container {
+        display: flex;
+    }
 }
 
 @media (max-width: 1000px) and (min-width:910px) {
@@ -1021,6 +1055,15 @@ body {
         width: 4rem;
         height: 4rem;
     }
+    .form-label {
+        width: 405px;
+        font-size: 15px;
+    }
+    .form-control {
+        height: 31.2px;
+        padding: 7px 8px;
+        margin: 0 10px 5px auto;
+    }
     .translation-option {
         font-size: 12px;
     }
@@ -1141,6 +1184,28 @@ body {
     }
     #second-video-comment {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 440px) and (min-width: 350px) {
+    .form-label {
+        font-size: 13px;
+        margin: 0 10px 5px 15px;
+    }
+    .form-control {
+        font-size: 13px;
+        margin: 0 10px 5px 10px;
+    }
+}
+
+@media (max-width: 350px) {
+    .form-label {
+        font-size: 11px;
+        margin: 0 10px 5px 15px;
+    }
+    .form-control {
+        font-size: 11px;
+        margin: 0 10px 5px 10px;
     }
 }
 
