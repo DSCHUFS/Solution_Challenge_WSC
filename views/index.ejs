@@ -111,17 +111,17 @@
                 })
             }
 
-            const btn = document.querySelector("#toBeforeTest");
-            btn.addEventListener("click", e => {
-                var queryString = $("form[name=nickname]").serialize();
-                if (queryString === "nick=") {
-                    alert("닉네임을 입력해주세요!");
-                } else {
-                    submitNickname();
-                    pageTransition(".before_test", 0);
-                    Cookies.set('curPage', ".before_test");
-                }
-            })
+            // const btn = document.querySelector("#toBeforeTest");
+            // btn.addEventListener("click", e => {
+            //     var queryString = $("form[name=nickname]").serialize();
+            //     if (queryString === "nick=") {
+            //         alert("닉네임을 입력해주세요!");
+            //     } else {
+            //         submitNickname();
+            //         pageTransition(".before_test", 0);
+            //         Cookies.set('curPage', ".before_test");
+            //     }
+            // })
         </script>
 
 
@@ -776,26 +776,38 @@
         }
 
         //nickname form 제출 시, 호출되는 함수
+        const btn = document.querySelector('#toBeforeTest');
+        btn.addEventListener("click", e => {
+            submitNickname();
+        });
         function submitNickname() {
             var queryString = $("form[name=nickname]").serialize();
-            $.ajax({
-                type: 'post',
-                url: '/nickname',
-                data: queryString,
-                dataType: 'json',
-                success: function(result) {
-                    console.log(result);
-                    if (result.msg == "overlap")
-                        alert("이미 해당하는 닉네임이 존재합니다. 다시 입력해주세요!");
-                    else if (result.msg == "registered")
-                        alert("이미 닉네임을 등록하셨습니다.");
-                    else
-                        alert("정상적으로 등록되었습니다.");
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            });
+            if (queryString === "nick=") {
+                    alert("닉네임을 입력해주세요!");
+            } else{
+                $.ajax({
+                    type: 'post',
+                    url: '/nickname',
+                    data: queryString,
+                    dataType: 'json',
+                    success: function(result) {
+                        console.log(result);
+                        if (result.msg == "overlap")
+                            alert("이미 해당하는 닉네임이 존재합니다. 다시 입력해주세요!");
+                        else if (result.msg == "registered"){
+                            alert("이미 닉네임을 등록하셨습니다. 테스트를 진행해주세요😊");
+                            pageTransition(".before_test", 0);
+                            Cookies.set('curPage', ".before_test");
+                        } else {
+                            alert("정상적으로 등록되었습니다.");
+                            pageTransition(".before_test", 0);
+                            Cookies.set('curPage', ".before_test");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log(error);
+                    }
+                }); }
         }
 
         //before test form 제출 시, 호출되는 함수
