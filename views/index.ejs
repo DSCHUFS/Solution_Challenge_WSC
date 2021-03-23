@@ -831,10 +831,21 @@
                 }
             });
         }
+
         //test 다시보기 버튼 클릭 시, 호출되는 함수
         function testAgain() {
-            // $('#after-test-container').show();
-            // $('#afterResult').hide();
+            $.ajax({
+                type: 'post',
+                url: '/again',
+                success: function(result){
+                    if(result.msg == "again")
+                        alert("두 번째 테스트를 다시 봅니다.");
+                    location.reload();
+                },
+                error: function(xhr, status, error){
+                    console.log(error);
+                }
+            });
         }
     </script>
 
