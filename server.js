@@ -5,11 +5,13 @@ const io = require('socket.io')(server);
 const { runInNewContext } = require('vm');
 const cookieParser = require('cookie-parser');
 const fs = require('fs');
+const session = require('express-session');
 let port = 8080;
 
 //Cloud Firestore 초기화
 var admin = require("firebase-admin");
 var serviceAccount = require("./wsc-solutionchallenge-firebase-adminsdk-68gi6-f4eb7752e7.json");
+const { firestore } = require('firebase-admin');
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 });
@@ -21,6 +23,11 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
+app.use(session({
+    secret: '@#@$MYSING#@$#$',
+    resave: false,
+    saveUninitialized: true
+}));
 
 //set socket communication
 io.on("connection", function(socket) {
@@ -36,20 +43,25 @@ app.get('/', async function(req, res){
     const scoreDoc = await scoreRef.get();
     var count = userDoc.data();
     var score = scoreDoc.data();
-    console.log(count);
-    console.log(score);
 
-    //before, after test에서 틀린 번호 저장된 쿠키 확인
-    var wrongBefore = req.cookies.wrongBefore;
-    var wrongAfter = req.cookies.wrongAfter;
-    console.log(wrongBefore);
-    console.log(wrongAfter);
-
-    //before, after test 점수 저장된 쿠키 확인
-    var beforeScore = req.cookies.before;
-    var afterScore = req.cookies.after;
+    //user의 data 읽어옴
+    var sess = req.session;
+    var nickname = sess.nick;
+    var beforeScore = 'no';
+    var afterScore = 'no';
+    var wrongBefore;
+    var wrongAfter;
+    if(nickname){
+        const userData = await getDataByNickname(nickname);
+        var beforeScore = userData.before;
+        var afterScore = userData.after;
+        var wrongBefore = userData.wrongBefore;
+        var wrongAfter = userData.wrongAfter;
+    }
     console.log(beforeScore);
     console.log(afterScore);
+    console.log(wrongBefore);
+    console.log(wrongAfter);
 
     res.render('index', {
         Count:count, Score:score, 
@@ -58,81 +70,108 @@ app.get('/', async function(req, res){
     });
 });
 
-//before test 제출 (POST)
-app.post('/before', (req, res) => {
-    //이미 before, after test 모두 제출한 경우
-    if(req.cookies.test === "done")
-        io.emit('alreadyAll',"hello");
-
-    //before test를 제출할 수 있는 경우(처음 제출하는 경우)
-    else if(req.cookies.before === undefined){
-        //답안지 받아옴
-        var ans = [
-            req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
-            req.body.answer5, req.body.answer6, req.body.answer7
-        ];
-        var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
-        var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
-        //채점
-        var result = 0;
-        for(var i=0; i<7; i++){
-            if(ans[i] === solution[i])
-                result++;
-            else
-                wrong[i] = 1;
-        }
-        
-        wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
-        res.cookie('before', result);       //'before' cookie 채첨된 값으로 생성
-        res.cookie('wrongBefore', wrong);   //'wrongBefore' cookie 틀린 번호 저장한 배열로 생성
-        res.json(result);
-        console.log(wrong);
-        io.sockets.emit('completeBefore');
+//nickname form 제출 (POST)
+app.post('/nickname', async function(req, res){
+    var nickname = req.body.nick;
+    var sess = req.session;
+    var check = await checkOverlap(nickname);
+    //닉네임 등록 여부 확인
+    if(sess.check == "registered"){
+        res.json({msg: "registered"});
     }
-    
-    //이미 before test를 제출한 경우
-    else
-        io.sockets.emit('alreadyBefore');
+    else{
+        //입력한 닉네임에 대한 중복 확인
+        if(check == "overlap"){ //중복
+            res.json({msg: "overlap"});
+        }
+        else{   //중복되지 않음
+            sess.nick = nickname;   //user의 닉네임
+            sess.check = "registered";  //닉네임 등록 여부
+            res.json({msg: "fine"});
+        }
+    }
+});
+
+//before test 제출 (POST)
+app.post('/before', async function(req, res){
+    //세션 확인하여 버튼을 누른 사용자의 닉네임 저장 및 데이터 읽어옴
+    var sess = req.session;
+    var nickname = sess.nick;
+    var check = sess.check; //닉네임 등록 여부
+    //닉네임 등록이 안된 경우
+    if(check != "registered"){
+        res.json({msg: "notRegistered"});
+    }
+    else{
+        const userData = await getDataByNickname(nickname);
+        //before test를 제출할 수 있는 경우(처음 제출하는 경우)
+        if(userData.before == 'no'){
+            //답안지 받아옴
+            var ans = [
+                req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
+                req.body.answer5, req.body.answer6, req.body.answer7
+            ];
+            var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
+            var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
+            //채점
+            var result = 0;
+            for(var i=0; i<7; i++){
+                if(ans[i] === solution[i])
+                    result++;
+                else
+                    wrong[i] = 1;
+            }
+
+            //user의 before test 점수 및 틀린 번호 저장한 배열 update
+            updateData(nickname, "before", result, wrong);
+            res.json({msg: "fine"});
+        }
+    }
 });
 
 //after test 제출 (POST)
-app.post('/after', (req, res) => {
-    //이미 before, after test 모두 제출한 경우
-    if(req.cookies.test === "done")
-        io.sockets.emit('alreadyAll');
-
-    //before test를 제출안하고 after test 제출하려고 하는 경우
-    else if(req.cookies.before === undefined)
-        io.sockets.emit('goBefore');
-
-    //after test를 제출할 수 있는 경우
+app.post('/after', async function(req, res){
+    //세션 확인하여 버튼을 누른 사용자의 닉네임 저장 및 데이터 읽어옴
+    var sess = req.session;
+    var nickname = sess.nick;
+    var check = sess.check; //닉네임 등록 여부
+    //닉네임 등록이 안된 경우
+    if(check != "registered"){
+        res.json({msg: "notRegistered"});
+    }
     else{
-        //답안지 받아옴
-        var ans = [
-            req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
-            req.body.answer5, req.body.answer6, req.body.answer7
-        ];
-        var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"];
-        var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
-        //채점
-        var result = 0;
-        for(var i=0; i<7; i++){
-            if(ans[i] === solution[i])
-                result++;
-            else
-                wrong[i] = 1;
+        const userData = await getDataByNickname(nickname);
+        //before test를 보지 않고, after test를 제출한 경우
+        if(userData.before == 'no'){
+            res.json({msg: "yetBefore"});
         }
-        //before, after test 점수 저장
-        var beforeScore = req.cookies.before;
-        var afterScore = result;
+        //after test를 제출할 수 있는 경우
+        else if(userData.after == 'no'){
+            //답안지 받아옴
+            var ans = [
+                req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
+                req.body.answer5, req.body.answer6, req.body.answer7
+            ];
+            var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
+            var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
+            //채점
+            var result = 0;
+            for(var i=0; i<7; i++){
+                if(ans[i] === solution[i])
+                    result++;
+                else
+                    wrong[i] = 1;
+            }
 
-        wrong = JSON.stringify(wrong);      //cookie의 value는 string밖에 되지 않기에, string 형태로 보내주고 client-side에서 parse해야함
-        res.cookie('test', "done");         //before, after test 모두 제출했으므로, test cookie "done"으로 갱신
-        res.cookie('after', afterScore);    //'after' cookie 채첨된 값으로 생성
-        res.cookie('wrongAfter', wrong);    //'wrongAfter' cookie 틀린 번호 저장한 배열로 생성
-        res.json(result);
-
-        getData(beforeScore, afterScore);   //db update후, chart에 반영할 data 읽어오기
+            //user의 before test 점수 및 틀린 번호 저장한 배열 update
+            updateData(nickname, "after", result, wrong);
+            res.json({msg: "fine"});
+            //before, after test 점수 저장
+            var beforeScore = userData.before;
+            var afterScore = result;
+            //db update후, chart에 반영할 data 읽어오기
+            getData(beforeScore, afterScore);   
+        }
     }
 });
 
@@ -195,6 +234,54 @@ async function updateScore(beforeScore, afterScore){
     }
 }
 
+//user nickname 중복확인 및 처리
+async function checkOverlap(nickname){
+    var check = "";
+    const userRef = db.collection("user");
+    const snapshot = await userRef.where('nickname', '==', nickname).get();
+    if(!snapshot.empty){    //중복인 경우
+        check = "overlap";
+    }
+    if(check!="overlap"){   //중복이 아닌 경우 입력된 nickname으로 user data set
+        userRef.doc().set({
+            nickname: nickname,
+            after:"no",
+            before:"no",
+            wrongBefore: [0, 0, 0, 0, 0, 0, 0],
+            wrongAfter: [0, 0, 0, 0, 0, 0, 0]
+        });
+        return "fine";
+    }
+    return check;
+}
+
+//인자로 전달된 nickname에 해당하는 user의 데이터 읽어오기
+async function getDataByNickname(nickname){
+    var data;
+    const userRef = db.collection("user");
+    const snapshot = await userRef.where('nickname', '==', nickname).get();
+    snapshot.forEach((doc) => {
+        data = doc.data();
+    });
+    return data;
+}
+
+//유저의 where(before of after)에 해당하는 테스트의 틀린 번호 update
+async function updateData(nickname, where, score, wrong){
+    var docID;
+    const userRef = db.collection("user");
+    const snapshot = await userRef.where('nickname', '==', nickname).get();
+    snapshot.forEach((doc) => {
+        docID = doc.id;
+    });
+    if(where == "before"){
+        userRef.doc(docID).update({ before: score, wrongBefore: wrong });
+    }
+    else if(where == "after"){
+        userRef.doc(docID).update({ after: score, wrongAfter: wrong });
+    }
+}
+
 //user count data 읽어오기
 async function getUserCount(){
     //test에 참여한 user count update를 await
@@ -217,8 +304,6 @@ async function getScore(beforeScore, afterScore){
 async function getData(beforeScore, afterScore){
     const userCount = await getUserCount();
     const score = await getScore(beforeScore, afterScore);
-    console.log(userCount);
-    console.log(score);
     io.sockets.emit('completeAfter',{Count:userCount, Score:score});
 }
 

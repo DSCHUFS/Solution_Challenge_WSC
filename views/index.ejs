@@ -65,9 +65,15 @@
                         </div>
                     </div>
                 </div>
+                <div class="nickname_form">
+                    <form name="nickname">
+                        <label for="nickname" class="form-label">Nickname</label>
+                        <input type="text" class="form-control" id="nickname" name="nick">
+                        <button type="button" class="btn btn-primary" onclick="submitNickname()">Submit</button>
+                    </form>
+                </div>
                 <div class="btn-container">
-                    <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">테스트
-                        하러가기</button>
+                    <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">테스트하러가기</button>
                 </div>
             </div>
         </div>
@@ -107,12 +113,15 @@
 
         <!-- Before 인식개선 테스트 div -->
         <div class="main before_test test">
-            <%-include('beforeTest')%>
+            <% if(BeforeScore == 'no') { %>
+                <%-include('beforeTest')%>
+            <% } else {%>
                 <%-include('btResult')%>
+            <%}%>
 
         </div>
         <script>
-            checkSubmitTest();
+            //checkSubmitTest();
             // test-swiper
             const beforeTest = new Swiper('#before-test-container', {
                 // Optional parameters
@@ -586,8 +595,11 @@
 
         <!-- After 인식개선 테스트 div -->
         <div class="main after_test test">
-            <%-include('afterTest')%>
+            <% if(AfterScore == 'no') { %>
+                <%-include('afterTest')%>
+            <% } else {%>
                 <%-include('atResult')%>
+            <%}%>
 
         </div>
 
@@ -750,11 +762,31 @@
             // console.log(element.value);
         }
 
+        //nickname form 제출 시, 호출되는 함수
+        function submitNickname(){
+            var queryString = $("form[name=nickname]").serialize();
+            $.ajax({
+                type: 'post',
+                url: '/nickname',
+                data: queryString,
+                dataType: 'json',
+                success: function(result){
+                    console.log(result);
+                    if(result.msg == "overlap")
+                        alert("이미 해당하는 닉네임이 존재합니다. 다시 입력해주세요!");
+                    else if(result.msg == "registered")
+                        alert("이미 닉네임을 등록하셨습니다.");
+                    else
+                        alert("정상적으로 등록되었습니다.");
+                },
+                error: function(xhr, status, error){
+                    console.log(error);
+                }
+            });
+        }
+
         //before test form 제출 시, 호출되는 함수
         function submitBefore() {
-            $('#before-test-container').hide();
-            $('#beforeResult').show();
-
             //serialize: form 태그내의 항목들을 자동으로 읽어와 queryString 형식으로 변환
             var queryString = $("form[name=before]").serialize();
             $.ajax({
@@ -762,8 +794,12 @@
                 url: '/before',
                 data: queryString,
                 dataType: 'json',
-                success: function() {
-                    alert("정상적으로 제출되었습니다!");
+                success: function(result) {
+                    console.log(result);
+                    if(result.msg == "notRegistered")
+                        alert("닉네임을 등록해주세요!");
+                    else if(result.msg == "fine")
+                        alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
                 error: function(xhr, status, error) {
@@ -774,17 +810,20 @@
 
         //after test form 제출 시, 호출되는 함수
         function submitAfter() {
-            $('#after-test-container').hide();
-            $('#afterResult').show();
-
             var queryString = $("form[name=after]").serialize();
             $.ajax({
                 type: 'post',
                 url: '/after',
                 data: queryString,
                 dataType: 'json',
-                success: function() {
-                    alert("정상적으로 제출되었습니다!");
+                success: function(result) {
+                    console.log(result);
+                    if(result.msg == "notRegistered")
+                        alert("닉네임을 등록해주세요!");
+                    else if(result.msg == "yetBefore")
+                        alert("첫 번째 테스트를 먼저 제출해주세요!");
+                    else if(result.msg == "fine")
+                        alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
                 error: function(xhr, status, error) {

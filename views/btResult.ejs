@@ -5,8 +5,9 @@
             <span>첫 번째 테스트 결과입니다. 몰랐던 것을 더 알아가보는 시간을 가져보세요.</span>
             <%if(WrongBefore){%>
                 <% var wrongNum = 0; %>
-                <% for(var i=0; i<JSON.parse(WrongBefore).length; i++){ %>
-                    <% if(JSON.parse(WrongBefore)[i] == 1){ %>
+                <% console.log(WrongBefore) %>
+                <% for(var i=0; i<WrongBefore.length; i++){ %>
+                    <% if(WrongBefore[i] == 1){ %>
                         <% wrongNum++; %>
                     <% } %>
                 <% } %>
@@ -28,8 +29,8 @@
                 틀린 문제 : 
                 <%= wrongNum %> 개
                 <br><hr>
-                    <% for(var i=0; i<JSON.parse(WrongBefore).length; i++){ %>
-                        <% if(JSON.parse(WrongBefore)[i] == 1){ %>
+                    <% for(var i=0; i<WrongBefore.length; i++){ %>
+                        <% if(WrongBefore[i] == 1){ %>
                             <%=i+1%>번<br>
                             <% if(i+1 === 1){ %>
                                 <p> 장애자의 자는 한자 者(놈 자)로서 사람을 낮춰서 부르는 뜻이 되어 부적절한 표현이며, 
