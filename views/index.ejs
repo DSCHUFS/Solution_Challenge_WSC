@@ -69,7 +69,7 @@
                         <div class="nickname-container">
                             <input type="text" class="form-control" id="nickname" name="nick" placeholder="닉네임">
                             <div class="btn-container">
-                                <button type="button" class="btn btn-lg custom-button" id="toBeforeTest" onclick="submitNickname()">
+                                <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">
                                     테스트 하러가기
                                 </button>
                             </div>
@@ -110,12 +110,24 @@
                     menuBtnClick = !menuBtnClick;
                 })
             }
+
+            const btn = document.querySelector("#toBeforeTest");
+            btn.addEventListener("click", e => {
+                var queryString = $("form[name=nickname]").serialize();
+                if (queryString === "nick=") {
+                    alert("닉네임을 입력해주세요!");
+                } else {
+                    submitNickname();
+                    pageTransition(".before_test", 0);
+                    Cookies.set('curPage', ".before_test");
+                }
+            })
         </script>
 
 
         <!-- Before 인식개선 테스트 div -->
         <div class="main before_test test">
-            <% if(BeforeScore == 'no') { %>
+            <% if(BeforeScore=='no' ) { %>
                 <%-include('beforeTest')%>
                     <% } else {%>
                         <%-include('btResult')%>
@@ -596,7 +608,7 @@
 
         <!-- After 인식개선 테스트 div -->
         <div class="main after_test test">
-            <% if(AfterScore == 'no') { %>
+            <% if(AfterScore=='no' ) { %>
                 <%-include('afterTest')%>
                     <% } else {%>
                         <%-include('atResult')%>
@@ -630,8 +642,9 @@
         <div class="main main_bottom" id="main_bottom">
             <div class="chart-comment-container" id="score-comment-container">
                 <div class="chart-comment" id="first-score-comment">🙌
-                    <%=Nickname%>님은</div>
-                <% if(BeforeScore == 'no' || AfterScore == 'no'){ %>
+                    <%=Nickname%>님은
+                </div>
+                <% if(BeforeScore=='no' || AfterScore=='no' ){ %>
                     <div class="not-yet-test">
                         <div class="not-yet-test-comment">
                             아직 인식개선 테스트를 모두 보지 않으셨습니다.😢
@@ -649,8 +662,8 @@
                             <div class="test-second-score-comment" id="before-second-score-comment">
                                 <span class="total-count">10</span>개 중
                                 <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
-                                <%=BeforeScore%>
-                            </span>개를
+                                    <%=BeforeScore%>
+                                </span>개를
                             </div>
                         </div>
 
@@ -660,7 +673,7 @@
                                 <span class="total-count">10</span>개 중
                                 <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
                                     <%=AfterScore%>
-                            </span>개를
+                                </span>개를
                             </div>
                         </div>
                         <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
@@ -765,31 +778,24 @@
         //nickname form 제출 시, 호출되는 함수
         function submitNickname() {
             var queryString = $("form[name=nickname]").serialize();
-            if (queryString === "nick=") {
-                alert("닉네임을 입력해주세요!")
-                $("#toBeforeTest").on("click", () => {
-                    event.preventDefault();
-                })
-            } else {
-                $.ajax({
-                    type: 'post',
-                    url: '/nickname',
-                    data: queryString,
-                    dataType: 'json',
-                    success: function(result) {
-                        console.log(result);
-                        if (result.msg == "overlap")
-                            alert("이미 해당하는 닉네임이 존재합니다. 다시 입력해주세요!");
-                        else if (result.msg == "registered")
-                            alert("이미 닉네임을 등록하셨습니다.");
-                        else
-                            alert("정상적으로 등록되었습니다.");
-                    },
-                    error: function(xhr, status, error) {
-                        console.log(error);
-                    }
-                });
-            }
+            $.ajax({
+                type: 'post',
+                url: '/nickname',
+                data: queryString,
+                dataType: 'json',
+                success: function(result) {
+                    console.log(result);
+                    if (result.msg == "overlap")
+                        alert("이미 해당하는 닉네임이 존재합니다. 다시 입력해주세요!");
+                    else if (result.msg == "registered")
+                        alert("이미 닉네임을 등록하셨습니다.");
+                    else
+                        alert("정상적으로 등록되었습니다.");
+                },
+                error: function(xhr, status, error) {
+                    console.log(error);
+                }
+            });
         }
 
         //before test form 제출 시, 호출되는 함수
