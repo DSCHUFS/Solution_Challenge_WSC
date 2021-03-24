@@ -386,6 +386,7 @@ body {
     margin-top: 10%;
     background-color: #1B2B44;
 }
+
 .btn-after:hover {
     float: right;
     margin-top: 10%;
@@ -425,8 +426,8 @@ body {
 
 .img_comment {
     z-index: 10;
-    font-size: 5rem;
-    font-weight: 800;
+    font-size: 4rem;
+    font-weight: 700;
     margin: 3rem 0 8rem 5%;
 }
 
@@ -1151,7 +1152,7 @@ body {
         margin: 1rem 0;
     }
     #img-container {
-        height: 50vh;
+        height: 100%;
     }
     #carousel {
         margin: 0;
@@ -1189,7 +1190,7 @@ body {
     }
     #propose-passover {
         width: 250px;
-        margin: 0 7% 5rem auto;
+        margin: 15vh 7% 0 auto;
         font-size: 20px;
     }
     #chart3 {
