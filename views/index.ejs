@@ -719,30 +719,15 @@
                     <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
                 </a>
                 <script type="text/javascript">
-                    //<![CDATA[
                     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
                     Kakao.init('0073c546637db7e74322970e75cbcc1f');
-                    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
-                    Kakao.Link.createDefaultButton({
-                        container: '#kakao-link-btn', // 컨테이너는 아까 위에 버튼이 쓰여진 부분 id 
-                        objectType: 'feed',
-                        content: { // 여기부터 실제 내용이 들어갑니다. 
-                            title: '장애인 인식개선을 위한 웹 서비스 B-free', // 본문 제목
-                            description: '장애인 인식개선에 동참해주세요!', // 본문 바로 아래 들어가는 영역?
-                            imageUrl: '../public/pics/favicon/apple-icon-precomposed.png', // 이미지
-                            link: {
-                                webUrl: 'https://developers.kakao.com'
-                            }
-                        },
-                        buttons: [{
-                            title: '웹으로 보기',
-                            link: {
-                                mobileWebUrl: 'https://developers.kakao.com',
-                                webUrl: 'https://developers.kakao.com'
-                            }
-                        }]
+                    $("#kakao-link-btn").click(function(e){
+                        e.preventDefault();
+
+                        Kakao.Link.sendCustom({
+                            templateId: 50286
+                        });
                     });
-                    //]]>
                 </script>
                 <div style="display: inline;"> 👈카카오톡으로 B-Free를 공유해주세요!🥰</div>
                 <hr>
