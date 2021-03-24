@@ -1248,6 +1248,10 @@ body {
         zoom:1.3;
     }
 
+    .question-container h4 {
+        font-size: 150%;
+    }
+
 }
 
 @media (max-width: 350px) {
