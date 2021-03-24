@@ -117,10 +117,9 @@
         <div class="main before_test test">
             <% if(BeforeScore === 'no') { %>
                 <%-include('beforeTest')%>
-                    <% } else {%>
-                        <%-include('btResult')%>
-                            <%}%>
-
+            <% } else {%>
+                <%-include('btResult')%>
+            <%}%>
         </div>
         <script>
             // test-swiper
@@ -154,22 +153,22 @@
                                 <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg" alt="회의하는 사람들">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg" alt="테니스 하는 사람">
-                            </div>
-                            <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg" alt="함께 모여서 사진찍는 사람들">
-                            </div>
-                            <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg" alt="결혼식을 올리는 커플">
-                            </div>
-                            <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg" alt="회의하는 사람들">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg" alt="테니스 하는 사람">
                             </div>
                             <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg" alt="테니스 하는 사람">
                             </div>
                             <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg" alt="함께 모여서 사진찍는 사람들">
+                            </div>
+                            <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg" alt="함께 모여서 사진찍는 사람들">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg" alt="결혼식을 올리는 커플">
                             </div>
                             <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg" alt="결혼식을 올리는 커플">
@@ -594,10 +593,9 @@
         <div class="main after_test test">
             <% if(AfterScore=='no' ) { %>
                 <%-include('afterTest')%>
-                    <% } else {%>
-                        <%-include('atResult')%>
-                            <%}%>
-
+            <% } else {%>
+                <%-include('atResult')%>
+            <%}%>
         </div>
 
         <script>
@@ -884,13 +882,13 @@
                         labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                         datasets: [{
                             label: '점수 분포 - 서비스 이용 전',
-                            data: [score.b0, score.b1, score.b2, score.b3, score.b4, score.b5, score.b6, score.b7],
+                            data: [score.b0, score.b1, score.b2, score.b3, score.b4, score.b5, score.b6, score.b7, score.b8, score.b9, score.b10],
                             backgroundColor: 'rgba(255, 206, 86, 0.7)',
                             borderColor: 'rgba(255, 206, 86, 1)',
                             borderWidth: 1
                         }, {
                             label: '점수 분포 - 서비스 이용 후',
-                            data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7],
+                            data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7, score.a8, score.a9, score.a10],
                             backgroundColor: 'rgba(54, 162, 235, 0.7)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1

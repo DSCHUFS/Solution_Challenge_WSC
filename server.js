@@ -112,13 +112,14 @@ app.post('/before', async function(req, res){
             //답안지 받아옴
             var ans = [
                 req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
-                req.body.answer5, req.body.answer6, req.body.answer7
+                req.body.answer5, req.body.answer6, req.body.answer7, req.body.answer8,
+                req.body.answer9, req.body.answer10
             ];
-            var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
-            var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
+            var solution = ["장애인", "5%", "9", "X", "X", "X", "장애인 차별금지법", "X", "X", "배리어프리 영화"]; //해답
+            var wrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
             //채점
             var result = 0;
-            for(var i=0; i<7; i++){
+            for(var i=0; i<10; i++){
                 if(ans[i] === solution[i])
                     result++;
                 else
@@ -153,13 +154,14 @@ app.post('/after', async function(req, res){
             //답안지 받아옴
             var ans = [
                 req.body.answer1, req.body.answer2, req.body.answer3, req.body.answer4, 
-                req.body.answer5, req.body.answer6, req.body.answer7
+                req.body.answer5, req.body.answer6, req.body.answer7, req.body.answer8,
+                req.body.answer9, req.body.answer10
             ];
-            var solution = ["장애인", "5%", "9", "X", "지체장애", "2007", "X"]; //해답
-            var wrong = [0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
+            var solution = ["장애인", "5%", "9", "X", "X", "X", "장애인 차별금지법", "X", "X", "배리어프리 영화"]; //해답
+            var wrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
             //채점
             var result = 0;
-            for(var i=0; i<7; i++){
+            for(var i=0; i<10; i++){
                 if(ans[i] === solution[i])
                     result++;
                 else
@@ -190,7 +192,7 @@ app.post('/again', async function(req, res){
 
     //user의 after test 점수 및 틀린 번호 저장한 배열 update(초기화)
     var result = 'no';
-    var wrong = [0, 0, 0, 0, 0, 0, 0];
+    var wrong = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]; //틀린 번호 저장하는 배열
     updateData(nickname, "after", result, wrong);
     res.json({msg: "again"});
 });
@@ -208,8 +210,8 @@ async function checkOverlap(nickname){
             nickname: nickname,
             after:"no",
             before:"no",
-            wrongBefore: [0, 0, 0, 0, 0, 0, 0],
-            wrongAfter: [0, 0, 0, 0, 0, 0, 0]
+            wrongBefore: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            wrongAfter: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         });
         return "fine";
     }
@@ -317,6 +319,18 @@ async function updateScore(beforeScore, afterScore, type){
         else if(type == 'minus')
             await scoreIncrease.update({ b8: admin.firestore.FieldValue.increment(-1) });
     }
+    else if(beforeScore == 9){
+        if(type == 'plus')
+            await scoreIncrease.update({ b9: admin.firestore.FieldValue.increment(1) });
+        else if(type == 'minus')
+            await scoreIncrease.update({ b9: admin.firestore.FieldValue.increment(-1) });
+    }
+    else if(beforeScore == 10){
+        if(type == 'plus')
+            await scoreIncrease.update({ b10: admin.firestore.FieldValue.increment(1) });
+        else if(type == 'minus')
+            await scoreIncrease.update({ b10: admin.firestore.FieldValue.increment(-1) });
+    }
 
     if(afterScore == 0){
         if(type == 'plus')
@@ -371,6 +385,18 @@ async function updateScore(beforeScore, afterScore, type){
             await scoreIncrease.update({ a8: admin.firestore.FieldValue.increment(1) });
         else if(type == 'minus')
             await scoreIncrease.update({ a8: admin.firestore.FieldValue.increment(-1) });
+    }
+    else if(afterScore == 9){
+        if(type == 'plus')
+            await scoreIncrease.update({ a9: admin.firestore.FieldValue.increment(1) });
+        else if(type == 'minus')
+            await scoreIncrease.update({ a9: admin.firestore.FieldValue.increment(-1) });
+    }
+    else if(afterScore == 10){
+        if(type == 'plus')
+            await scoreIncrease.update({ a10: admin.firestore.FieldValue.increment(1) });
+        else if(type == 'minus')
+            await scoreIncrease.update({ a10: admin.firestore.FieldValue.increment(-1) });
     }
 
     //점수의 상승이 있었을 때만 1씩 증가
