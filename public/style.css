@@ -456,9 +456,17 @@ body {
 }
 
 #propose-passover {
-    max-width: 1000px;
-    margin: 8rem 0 0 70%;
+    margin: 8rem 10% 0 auto;
+    width: 375px;
     font-size: 3rem;
+    font-weight: 700;
+}
+
+#ask-change {
+    width: 375px;
+    text-align: end;
+    margin: 0 13% 0 auto;
+    font-size: 2rem;
     font-weight: 700;
 }
 
@@ -923,9 +931,6 @@ body {
     .comment {
         font-size: 15px;
     }
-    #propose-passover {
-        margin-left: 60%;
-    }
 }
 
 @media (max-width: 910px) and (min-width:750px) {
@@ -959,9 +964,6 @@ body {
     }
     .comment {
         font-size: 15px;
-    }
-    #propose-passover {
-        margin-left: 55%;
     }
 }
 
@@ -1012,7 +1014,12 @@ body {
         font-size: 15px;
     }
     #propose-passover {
+        text-align: end;
         font-size: 25px;
+    }
+    #ask-change {
+        font-size: 20px;
+        margin-right: 15%;
     }
 }
 
@@ -1191,8 +1198,13 @@ body {
     }
     #propose-passover {
         width: 250px;
-        margin: 15vh 7% 0 auto;
+        margin: 15vh 5% 0 auto;
         font-size: 20px;
+    }
+    #ask-change {
+        width: 250px;
+        font-size: 15px;
+        margin-right: 13%;
     }
     #chart3 {
         margin: 0 0.5rem;
