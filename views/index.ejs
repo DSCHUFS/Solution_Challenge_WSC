@@ -110,32 +110,18 @@
                     menuBtnClick = !menuBtnClick;
                 })
             }
-
-            // const btn = document.querySelector("#toBeforeTest");
-            // btn.addEventListener("click", e => {
-            //     var queryString = $("form[name=nickname]").serialize();
-            //     if (queryString === "nick=") {
-            //         alert("닉네임을 입력해주세요!");
-            //     } else {
-            //         submitNickname();
-            //         pageTransition(".before_test", 0);
-            //         Cookies.set('curPage', ".before_test");
-            //     }
-            // })
         </script>
 
 
         <!-- Before 인식개선 테스트 div -->
         <div class="main before_test test">
-            <% if(BeforeScore=='no' ) { %>
+            <% if(BeforeScore === 'no') { %>
                 <%-include('beforeTest')%>
                     <% } else {%>
                         <%-include('btResult')%>
                             <%}%>
-
         </div>
         <script>
-            //checkSubmitTest();
             // test-swiper
             const beforeTest = new Swiper('#before-test-container', {
                 // Optional parameters
@@ -159,7 +145,8 @@
         <!-- 메인 중단 -->
         <div class="main main_middle" id="main_middle">
             <div id="main_middle_container">
-                <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
+                <div class="above-comment" id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
+                <div class="above-comment" id="ask-change"> 무엇이 변화 했을까요?</div>
                 <div class="carousel-container">
                     <div class="swiper-container" id="img-container">
                         <div id="carousel" class="swiper-wrapper">
@@ -167,22 +154,22 @@
                                 <img class="carousel_img" src="pics/carousel/carousel-1-1.jpg" alt="회의하는 사람들">
                             </div>
                             <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg" alt="테니스 하는 사람">
-                            </div>
-                            <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg" alt="함께 모여서 사진찍는 사람들">
-                            </div>
-                            <div class="swiper-slide img-slide">
-                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg" alt="결혼식을 올리는 커플">
-                            </div>
-                            <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-1-2.jpg" alt="회의하는 사람들">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-2-1.jpg" alt="테니스 하는 사람">
                             </div>
                             <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-2-2.jpg" alt="테니스 하는 사람">
                             </div>
                             <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-3-1.jpg" alt="함께 모여서 사진찍는 사람들">
+                            </div>
+                            <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-3-2.jpg" alt="함께 모여서 사진찍는 사람들">
+                            </div>
+                            <div class="swiper-slide img-slide">
+                                <img class="carousel_img" src="pics/carousel/carousel-4-1.jpg" alt="결혼식을 올리는 커플">
                             </div>
                             <div class="swiper-slide img-slide">
                                 <img class="carousel_img" src="pics/carousel/carousel-4-2.jpg" alt="결혼식을 올리는 커플">
@@ -193,7 +180,7 @@
                         <div class="swiper-button-next"></div>
                     </div>
                 </div>
-                <div class="img_comment"><span id="hide-comment" style="display: none; color: #008B9F">누구에게나
+                <div class="img_comment"><span id="hide-comment" style="color: #008B9F; font-weight: 800;">누구에게나
                     </span>평범한 일상입니다.</div>
 
                 <script>
@@ -217,22 +204,22 @@
                             delay: 5000,
                         },
                         threshold: 10,
-                        on: {
-                            slideChangeTransitionEnd: () => {
-                                let active = document.querySelector('.swiper-slide.img-slide.swiper-slide-active').dataset.index <= 4
-                                if (active) {
-                                    gsap.set('#hide-comment', {
-                                        duration: 0,
-                                        display: 'none'
-                                    });
-                                } else {
-                                    gsap.set('#hide-comment', {
-                                        duration: 0,
-                                        display: 'inline'
-                                    });
-                                }
-                            }
-                        }
+                        // on: {
+                        //     slideChangeTransitionEnd: () => {
+                        //         let active = document.querySelector('.swiper-slide.img-slide.swiper-slide-active').dataset.index <= 4
+                        //         if (active) {
+                        //             gsap.set('#hide-comment', {
+                        //                 duration: 0,
+                        //                 display: 'none'
+                        //             });
+                        //         } else {
+                        //             gsap.set('#hide-comment', {
+                        //                 duration: 0,
+                        //                 display: 'inline'
+                        //             });
+                        //         }
+                        //     }
+                        // }
                     })
                 </script>
 
@@ -384,7 +371,6 @@
                                     '모른다'라고 답한 비율, 60.7%
                                 </div>
                                 <div class="text2">
-                                    <!-- '모른다'라고 답한 비율, 60.7% -->
                                 </div>
                             </div>
                         </div>
@@ -421,7 +407,6 @@
                                     15개 장애유형 중 지체장애의 비율 46.7%
                                 </div>
                                 <div class="text2">
-                                    <!-- 장애 유형별 중 지체 장애의 구성비, 48.9% -->
                                 </div>
                             </div>
                         </div>
@@ -458,7 +443,6 @@
                                     정신 장애인의 범죄율, 0.08%
                                 </div>
                                 <div class="text2">
-                                    <!-- 정신 장애인의 범죄율, 0.08% -->
                                 </div>
                             </div>
                         </div>
@@ -613,11 +597,9 @@
                     <% } else {%>
                         <%-include('atResult')%>
                             <%}%>
-
         </div>
 
         <script>
-            checkSubmitTest();
             // test-swiper
             const afterTest = new Swiper('#after-test-container', {
                 // Optional parameters
@@ -679,9 +661,6 @@
                         <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
                         <% } %>
             </div>
-            <!-- <script>
-                checkTestDone()
-            </script> -->
 
             <div class="chart-comment-container" id="propose-comment">
                 다른 사용자분들의 결과도 확인해보세요!
@@ -734,6 +713,36 @@
             </div>
             <!-- footer -->
             <footer class="ref-container">
+                <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                <a href="javascript:;" id="kakao-link-btn">
+                    <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+                </a>
+                <script type="text/javascript">
+                    //<![CDATA[
+                    // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+                    Kakao.init('0073c546637db7e74322970e75cbcc1f');
+                    // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+                    Kakao.Link.createDefaultButton({
+                        container: '#kakao-link-btn', // 컨테이너는 아까 위에 버튼이 쓰여진 부분 id 
+                        objectType: 'feed',
+                        content: { // 여기부터 실제 내용이 들어갑니다. 
+                            title: '장애인 인식개선을 위한 웹 서비스 B-free', // 본문 제목
+                            description: '장애인 인식개선에 동참해주세요!', // 본문 바로 아래 들어가는 영역?
+                            imageUrl: '../public/pics/favicon/apple-icon-precomposed.png', // 이미지
+                            link: {
+                                webUrl: 'https://developers.kakao.com'
+                            }
+                        },
+                        buttons: [{
+                            title: '웹으로 보기',
+                            link: {
+                                mobileWebUrl: 'https://developers.kakao.com',
+                                webUrl: 'https://developers.kakao.com'
+                            }
+                        }]
+                    });
+                    //]]>
+                </script>
                 <hr>
                 <ul>
                     <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
@@ -780,11 +789,12 @@
         btn.addEventListener("click", e => {
             submitNickname();
         });
+
         function submitNickname() {
             var queryString = $("form[name=nickname]").serialize();
             if (queryString === "nick=") {
-                    alert("닉네임을 입력해주세요!");
-            } else{
+                alert("닉네임을 입력해주세요!");
+            } else {
                 $.ajax({
                     type: 'post',
                     url: '/nickname',
@@ -794,7 +804,7 @@
                         console.log(result);
                         if (result.msg == "overlap")
                             alert("이미 해당하는 닉네임이 존재합니다. 다시 입력해주세요!");
-                        else if (result.msg == "registered"){
+                        else if (result.msg == "registered") {
                             alert("이미 닉네임을 등록하셨습니다. 테스트를 진행해주세요😊");
                             pageTransition(".before_test", 0);
                             Cookies.set('curPage', ".before_test");
@@ -807,7 +817,8 @@
                     error: function(xhr, status, error) {
                         console.log(error);
                     }
-                }); }
+                });
+            }
         }
 
         //before test form 제출 시, 호출되는 함수
@@ -902,13 +913,13 @@
                         labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
                         datasets: [{
                             label: '점수 분포 - 서비스 이용 전',
-                            data: [score.b0, score.b1, score.b2, score.b3, score.b4, score.b5, score.b6, score.b7],
+                            data: [score.b0, score.b1, score.b2, score.b3, score.b4, score.b5, score.b6, score.b7, score.b8, score.b9, score.b10],
                             backgroundColor: 'rgba(255, 206, 86, 0.7)',
                             borderColor: 'rgba(255, 206, 86, 1)',
                             borderWidth: 1
                         }, {
                             label: '점수 분포 - 서비스 이용 후',
-                            data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7],
+                            data: [score.a0, score.a1, score.a2, score.a3, score.a4, score.a5, score.a6, score.a7, score.a8, score.a9, score.a10],
                             backgroundColor: 'rgba(54, 162, 235, 0.7)',
                             borderColor: 'rgba(54, 162, 235, 1)',
                             borderWidth: 1
