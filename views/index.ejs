@@ -145,7 +145,8 @@
         <!-- 메인 중단 -->
         <div class="main main_middle" id="main_middle">
             <div id="main_middle_container">
-                <div id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
+                <div class="above-comment" id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
+                <div class="above-comment" id="ask-change"> 무엇이 변화 했을까요?</div>
                 <div class="carousel-container">
                     <div class="swiper-container" id="img-container">
                         <div id="carousel" class="swiper-wrapper">
@@ -712,38 +713,36 @@
             </div>
             <!-- footer -->
             <footer class="ref-container">
-              <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-              <a href="javascript:;" id="kakao-link-btn">
-                  <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" /> 
-              </a>
-              <script type="text/javascript">
-                  //<![CDATA[
+                <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+                <a href="javascript:;" id="kakao-link-btn">
+                    <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+                </a>
+                <script type="text/javascript">
+                    //<![CDATA[
                     // // 사용할 앱의 JavaScript 키를 설정해 주세요.
                     Kakao.init('0073c546637db7e74322970e75cbcc1f');
                     // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
                     Kakao.Link.createDefaultButton({
-                      container: '#kakao-link-btn',  // 컨테이너는 아까 위에 버튼이 쓰여진 부분 id 
-                      objectType: 'feed',
-                      content: {  // 여기부터 실제 내용이 들어갑니다. 
-                        title: '장애인 인식개선을 위한 웹 서비스 B-free', // 본문 제목
-                        description: '장애인 인식개선에 동참해주세요!',  // 본문 바로 아래 들어가는 영역?
-                        imageUrl: '../public/pics/favicon/apple-icon-precomposed.png', // 이미지
-                        link: {
-                          webUrl: 'https://developers.kakao.com'
-                        }
-                      },
-                      buttons: [
-                        {
-                          title: '웹으로 보기',
-                          link: {
-                            mobileWebUrl: 'https://developers.kakao.com',
-                            webUrl: 'https://developers.kakao.com'
-                          }
-                        }
-                      ]
+                        container: '#kakao-link-btn', // 컨테이너는 아까 위에 버튼이 쓰여진 부분 id 
+                        objectType: 'feed',
+                        content: { // 여기부터 실제 내용이 들어갑니다. 
+                            title: '장애인 인식개선을 위한 웹 서비스 B-free', // 본문 제목
+                            description: '장애인 인식개선에 동참해주세요!', // 본문 바로 아래 들어가는 영역?
+                            imageUrl: '../public/pics/favicon/apple-icon-precomposed.png', // 이미지
+                            link: {
+                                webUrl: 'https://developers.kakao.com'
+                            }
+                        },
+                        buttons: [{
+                            title: '웹으로 보기',
+                            link: {
+                                mobileWebUrl: 'https://developers.kakao.com',
+                                webUrl: 'https://developers.kakao.com'
+                            }
+                        }]
                     });
-                  //]]>
-                </script> 
+                    //]]>
+                </script>
                 <hr>
                 <ul>
                     <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
