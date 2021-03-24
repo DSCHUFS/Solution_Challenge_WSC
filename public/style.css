@@ -152,7 +152,8 @@ body {
 .main_top {
     height: 100%;
     width: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: none;
 }
 
 .top {
@@ -377,7 +378,7 @@ body {
 
 .btn-submit {
     float: right;
-    margin-top: 10%;
+    margin-top: 7%;
     background-color: red;
 }
 
@@ -888,7 +889,7 @@ body {
     margin: 0 0 5% 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
     .video-comment {
         margin: 0 20px;
     }
