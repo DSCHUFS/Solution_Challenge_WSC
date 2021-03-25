@@ -386,6 +386,21 @@ body {
     background-color: red;
 }
 
+.moreph {
+    float:left;
+    font-size: 20px;
+    font-weight: bold;
+    color: #3BAAD8;
+    margin-top: -7%;
+}
+.moreph2 {
+    /* float:left; */
+    font-size: 30px;
+    font-weight: bold;
+    color: #3BAAD8;
+    margin-bottom: -7%;
+}
+
 .btn-after {
     float: right;
     margin-top: 10%;
@@ -1250,6 +1265,21 @@ body {
 
     .question-container h4 {
         font-size: 150%;
+    }
+    
+    .moreph {
+        float:left;
+        font-size: 13px;
+        font-weight: bold;
+        color: #3BAAD8;
+        margin-top: -7%;    }
+
+    .moreph2 {
+        /* float:left; */
+        font-size: 18px;
+        font-weight: bold;
+        color: #3BAAD8;
+        margin-bottom: -7%;
     }
 
 }
