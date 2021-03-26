@@ -81,6 +81,9 @@
         </div>
         <script>
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const menu = document.querySelector("#menu");
+            let menuBtnClick = false
+
             if (!isMobile) {
                 gsap.timeline()
                     .from('body', {
@@ -126,7 +129,7 @@
 
         <!-- Before 인식개선 테스트 div -->
         <div class="main before_test test">
-            <% if(BeforeScore === 'no') { %>
+            <% if(BeforeScore==='no' ) { %>
                 <%-include('beforeTest')%>
                     <% } else {%>
                         <%-include('btResult')%>
