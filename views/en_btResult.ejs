@@ -1,0 +1,105 @@
+<div class="result-container" id="beforeResult">
+    <div class="swiper-slide question-slide result">
+        <div class="question-container">
+            <h3>Score</h3>
+            <span>
+                Here is your Before Quiz Score. 
+                Take time to learn more about what you didn't know before.</span>
+            <%if(WrongBefore){%>
+                <% var wrongNum = 0; %>
+                <% console.log(WrongBefore) %>
+                <% for(var i=0; i<WrongBefore.length; i++){ %>
+                    <% if(WrongBefore[i] == 1){ %>
+                        <% wrongNum++; %>
+                    <% } %>
+                <% } %>
+            <div class="RS">
+                <h4><%=Nickname %> 's level is
+                <% if(wrongNum >= 8){ %>
+                    BRONZE🤎
+                <% } %>
+                <% if(wrongNum >= 5 && wrongNum < 8){ %>
+                    SILVER🤍
+                <% } %>
+                <% if(wrongNum >= 2 && wrongNum < 4){ %>
+                    GOLD💛 
+                <% } %>
+                <% if(wrongNum < 2){ %>
+                    DIAMOND💙 
+                <% } %>
+                </h4>
+                You got 
+                <%= wrongNum %> wrong.
+                <br><hr>
+                    <% for(var i=0; i<WrongBefore.length; i++){ %>
+                        <% if(WrongBefore[i] == 1){ %>
+                            <%=i+1%>.<br>
+                            <% if(i+1 === 1){ %>
+                                <p> 'Handicapped' and 'cripple' is an inappropriate and offensive way of saying it. <br>
+                                    It is correct to use it as 'persons with disabilities'.</p><br>
+                                <% } %>
+                            <% if(i+1 === 2){ %>
+                                <p>As of the end of 2019, the number of registered persons with disabilities is 268,000.
+                                    This is []% of the total population.
+                                    Check out 'the Status of Registered Persons with Disabilities' on the 'Learn more' page!
+                                </p><br>
+                                <% } %>
+                            <% if(i+1 === 3){ %>
+                                <p>Acquired disabilities due to accident or disease account for a very high proportion of 9 out of 10 people. 
+                                    Disability can happen to "anyone" at "any time".</p><br>
+                                <% } %>
+                            <% if(i+1 === 4){ %>
+                                <p>Disability includes impairments of internal function as well. Therefore, some can be invisible. 
+                                    There are 15 types of disability in Korea: 
+                                    Physical disability(external: physical disability, brain lesion, visual impairment, hearing impairment, speech disorder, facial disorder; 
+                                    internal: renal disorder, cardiac lesion, respiratory disorder, hepatosis, ostomy, epilepsy);
+                                    Mental disability(developmental: intellectual disability, autism; mental illness)
+                                    According to 'the Status of Registered Persons with Disabilities (2019)', 
+                                    'physical disability' is the most common type, 46.7% of all.</p> <br>
+                                <% } %>
+                            <% if(i+1 === 5){ %>
+                                <p>Special-education schools are for those who need special educational considerations due to physical and mental disabilities. 
+                                    Not all persons with disabilities must attend special-education schools.</p><br>
+                                <% } %>
+                            <% if(i+1 === 6){ %>
+                                <p>You should help when people with disabilities ask for help, 
+                                    or you should ask if they need help first before you help them.</p><br>
+                                <% } %>
+                            <% if(i+1 === 7){ %>
+                                <p>The Disability Discrimination Act was first enacted in 2007 and enforced in 2008. 
+                                    However, still many people do not know it.
+                                    Hope you take time to think about the meaning of it :) </p><br>
+                                <% } %>
+                            <% if(i+1 === 8){ %>
+                                <p>According to 'Supreme Prosecutors’ Office Crime Analysis Report (2017)', 
+                                    the crime rate of non-disabled people is 15 times higher 
+                                    than that of people with mental illness.
+                                    Despite the extremely low crime rate of people with mental illness, 
+                                    people tend to react sensitively toward them.
+                                    This is because people are not aware of 'mental illness'. </p><br>
+                                <% } %>
+                            <% if(i+1 === 9){ %>
+                                <p>Korea used to adopt the disability grading system 
+                                    ranging from 1 to 6 (6 is the least serious), based on medical standards.
+                                    But this has been abolished and now adopt 
+                                    two-tier system as a measure of disability security:
+                                    severe disability(between 1 and 3), mild disability(between 4 and 6).
+                                    </p><br>
+                                <% } %>
+                            <% if(i+1 === 10){ %>
+                                <p>
+                                    'Barrier-free' means to remove physical and institutional barriers 
+                                    to make a society where the elderly and the disabled can be fully inclusive.
+                                </p><br>
+                                <% } %>
+                        <% } %>
+                    <% } %>
+            </div>
+            <button type="button" class="btn btn-submit btn-lg" id="transTomainMiddle">더 알아보기</button>
+            <script>
+                addPageTransition("#transTomainMiddle", "#main_middle", 0);
+            </script>
+            <%}%>
+        </div>
+    </div>
+</div>

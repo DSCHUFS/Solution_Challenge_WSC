@@ -30,15 +30,16 @@
                             <rect class="svg_comp" x="17" y="30" width="40" height="10" rx="5" fill="#C4C4C4" />
                         </svg>
                         <ul id="path-menu">
-                            <li class="path" id="pathToTop">메인</li>
-                            <li class="path" id="pathToBeforeTest">첫 번째 테스트</li>
-                            <li class="path" id="pathToMiddle">더 알아보기</li>
-                            <li class="path" id="pathToAfterTest">두 번째 테스트</li>
-                            <li class="path" id="pathToBottom">결과</li>
+                            <li class="path" id="pathToTop">Main</li>
+                            <li class="path" id="pathToBeforeTest">Before Quiz</li>
+                            <li class="path" id="pathToMiddle">Learn More</li>
+                            <li class="path" id="pathToAfterTest">After Quiz</li>
+                            <li class="path" id="pathToBottom">Scores</li>
                         </ul>
                     </li>
-                    <li class="translation-option" id="kr">한국어</li>
-                    <li class="translation-option" id="en"><a href="en_index.ejs">EN</a></li>
+                    <li class="translation-option" id="kr">KR</li>
+                    <li class="translation-option" id="en" 
+                    onMouseOver="this.innerHTML='준비중'" onMouseOut="this.innerHTML='En'">EN</li>
                 </ul>
             </div>
         </div>
@@ -60,7 +61,7 @@
                     </div>
                     <div class="small-text">
                         <div class="sub_text">
-                            <span>편견과 차별 없는 동등한 세상을 꿈꿉니다.</span>
+                            <span>We envision a world free from barriers and discrimination.</span>
                         </div>
                     </div>
                 </div>
@@ -70,11 +71,11 @@
                             <input type="text" class="form-control" id="nickname" name="nick" placeholder="닉네임">
                             <div class="btn-container">
                                 <button type="button" class="btn btn-lg custom-button" id="toBeforeTest">
-                                    테스트 하러가기
+                                    Start the quiz!
                                 </button>
                             </div>
                         </div>
-                        <label for="nickname" class="form-label">닉네임 입력 후 테스트를 진행하세요!</label>
+                        <label for="nickname" class="form-label">Enter your nickname to start the quiz!</label>
                     </form>
                 </div>
             </div>
@@ -145,8 +146,8 @@
         <!-- 메인 중단 -->
         <div class="main main_middle" id="main_middle">
             <div id="main_middle_container">
-                <div class="above-comment" id="propose-passover">사진을 옆으로 넘겨보세요!👉</div>
-                <div class="above-comment" id="ask-change"> 무엇이 변화 했을까요?</div>
+                <div class="above-comment" id="propose-passover">Swipe to see more photos👉</div>
+                <div class="above-comment" id="ask-change">Did you notice the differences?</div>
                 <div class="carousel-container">
                     <div class="swiper-container" id="img-container">
                         <div id="carousel" class="swiper-wrapper">
@@ -181,7 +182,7 @@
                     </div>
                 </div>
                 <div class="img_comment"><span id="hide-comment" style="color: #008B9F; font-weight: 800;">누구에게나
-                    </span>평범한 일상입니다.</div>
+                    </span>Everyone is living an everyday normal life.</div>
 
                 <script>
                     const imgContainers = gsap.utils.toArray('.swiper-slide.img-slide');
@@ -235,10 +236,10 @@
                             </div>
                             <div class="headline">
                                 <div class="text1">
-                                    20명 중 1명
+                                    1 out of 20 people 
                                 </div>
                                 <div class="text2">
-                                    2019년 말 기준 등록장애인 261만 8000명, 전체 인구 대비 5.1%
+                                    As of the end of 2019, 2,618,000 registered persons with disabilities, 5.1% of the total population
                                 </div>
                             </div>
                         </div>
@@ -251,7 +252,7 @@
 
                                         </div>
                                         <div class="label_hover">
-                                            장애를 가진 사람: 5.1%
+                                            Disabled: 5.1%
                                         </div>
                                     </div>
                                 </div>
@@ -261,7 +262,7 @@
                                         <div class="color_box_hover">
                                         </div>
                                         <div class="label_hover">
-                                            장애를 가지지 않은 사람: 94.9%
+                                            Non-disabled: 94.9%
                                         </div>
                                     </div>
                                 </div>
@@ -271,7 +272,7 @@
 
                                         </div>
                                         <div class="label">
-                                            장애를 가진 사람
+                                            Disabled
                                         </div>
                                     </div>
                                     <div class="control" data-index="2">
@@ -279,7 +280,7 @@
 
                                         </div>
                                         <div class="label">
-                                            장애를 가지지 않은 사람
+                                            Non-disabled
                                         </div>
                                     </div>
                                 </div>
@@ -311,11 +312,11 @@
                         </div>
                         <div class="source">
                             <span>
-                                자료 출처 : 2019년 장애인 실태조사
+                                Source: Status of Registered Persons with Disabilities (2019)
                             </span>
                         </div>
                         <div class="comment">
-                            우리 모두 함께 살아가고 있습니다. 보이지 않는다고 해서 없다고 생각하는 것은 편견이 될 수 있습니다.
+                            We are all living together. To assume that none have disabilities just because you don’t see it could be discrimination as well.
                         </div>
                     </div>
                 </div>
@@ -326,15 +327,15 @@
                         <div class="title">
                             <div class="number_container">
                                 <div class="numbers">
-                                    <span class="number">9</span><span class="percentage">명</span>
+                                    <span class="number">9</span><span class="percentage">people</span>
                                 </div>
                             </div>
                             <div class="headline">
                                 <div class="text1">
-                                    10명 중 9명
+                                    9 out of 10 people
                                 </div>
                                 <div class="text2">
-                                    장애 원인 중, 88.1%는 후천적 원인
+                                    88.1% are "acquired" disabilities
                                 </div>
                             </div>
                         </div>
@@ -348,11 +349,11 @@
                         </div>
                         <div class="source">
                             <span>
-                                자료 출처 : 2017년 장애인 실태조사
+                                Source: Status of Registered Persons with Disabilities (2017)
                             </span>
                         </div>
                         <div class="comment">
-                            사고나 질환으로 인한 후천적 장애가 훨씬 많습니다. 누구나 언제든 장애를 갖게 될 수 있습니다.
+                            There are much more acquired disabilities due to accident or disease. Disability can happen to anyone, at any time.
                         </div>
                     </div>
                 </div>
@@ -368,7 +369,7 @@
                             </div>
                             <div class="headline">
                                 <div class="text1">
-                                    '모른다'라고 답한 비율, 60.7%
+                                    60.7% responded ‘I don’t know’
                                 </div>
                                 <div class="text2">
                                 </div>
@@ -384,11 +385,11 @@
                         </div>
                         <div class="source">
                             <span>
-                                자료 출처 : 2017년 장애인 실태조사
+                                Source: Status of Registered Persons with Disabilities (2017)
                             </span>
                         </div>
                         <div class="comment">
-                            장애인차별금지법은 2007년 4월 10일에 제정되었고, 2008년 4월 11일부터 시행되었습니다. 그러나 아직도 이 법을 잘 모르는 사람들 많습니다.
+                            The Disability Discrimination Act was first enacted on April 10th, 2007 and enforced on April 11th, 2008. However, still many people do not know it.
                         </div>
                     </div>
                 </div>
@@ -404,7 +405,7 @@
                             </div>
                             <div class="headline">
                                 <div class="text1">
-                                    15개 장애유형 중 지체장애의 비율 46.7%
+                                    The proportion of physical disability among 15 types of disabilities, 46.7%
                                 </div>
                                 <div class="text2">
                                 </div>
@@ -420,11 +421,11 @@
                         </div>
                         <div class="source">
                             <span>
-                                자료 출처 : 2019년 등록장애인 현황
+                                Source: Status of Registered Persons with Disabilities (2019)
                             </span>
                         </div>
                         <div class="comment">
-                            장애인복지법에 의해 장애 유형은 15가지로 분류(지체장애, 뇌병변장애, 시각장애, 청각장애, 언어장애, 안면장애, 신장장애, 심장장애, 호흡기장애, 간장애, 장루/요루장애, 뇌전증장애, 지적장애, 자폐성장애, 정신장애)됩니다. 가장 많은 비율을 차지하는 장애 유형은 ‘지체장애’입니다.
+                            According to the welfare law for the disabled, there are 15 types of disabilities (physical disability, brain lesion, visual impairment, hearing impairment, speech disorder, facial disorder; renal disorder, cardiac lesion, respiratory disorder, hepatosis, ostomy, epilepsy; intellectual disability, autism, mental disorder,). The most common type of disability is ‘physical disability’.
                         </div>
                     </div>
                 </div>
@@ -435,12 +436,12 @@
                         <div class="title">
                             <div class="number_container">
                                 <div class="numbers">
-                                    <span class="number">15</span><span class="percentage">배</span>
+                                    <span class="number">15</span><span class="percentage">times</span>
                                 </div>
                             </div>
                             <div class="headline">
                                 <div class="text1">
-                                    정신 장애인의 범죄율, 0.08%
+                                    Crime rate of the people with mental illness, 0.08%
                                 </div>
                                 <div class="text2">
                                 </div>
@@ -456,24 +457,24 @@
                         </div>
                         <div class="source">
                             <span>
-                                자료 출처 : 2017년 대검찰청 범죄분석 보고서
+                                Source: Supreme Prosecutors’ Office Crime Analysis Report (2017)
                             </span>
                         </div>
                         <div class="comment">
-                            통계적으로 비장애인의 범죄율이 정신장애인의 범죄율보다 15배 높다고 조사되었습니다. 장애가 범죄의 원인이 될 수 없습니다.
+                            Statistically the crime rate of non-disabled people is 15 times higher than that of people with mental illness. Disability could never be the cause of a crime.
                         </div>
                     </div>
                 </div>
 
                 <div class="btn-container" id="btn-after-test">
-                    <button type="button" class="btn btn-lg" id="toAfterTest">테스트 보러가기</button>
+                    <button type="button" class="btn btn-lg" id="toAfterTest">Let's</button>
                 </div>
 
                 <div class="video-comment">
-                    영상으로 더 알아보기
+                    Learn more about disability!
                 </div>
                 <div class="video-comment" id="second-video-comment">
-                    영상을 옆으로 드래그 해보세요!👉
+                    Drag for more videos!👉
                 </div>
 
                 <!-- 회전초밥 div -->
@@ -481,47 +482,47 @@
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=CdFqM5fekqI" target="_blank">
                             <img src="https://img.youtube.com/vi/CdFqM5fekqI/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">제1회 한국수어의 날</span>
+                        <span class="tooltiptext">The 1st Korean Sign Language Day</span>
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=XN2OC9UVVuA" target="_blank">
                             <img src="https://img.youtube.com/vi/XN2OC9UVVuA/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">장애 대학생이 동기&교수님 한테 진심으로 서운할 때</span>
+                        <span class="tooltiptext">Life as a college student with a disability</span>
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=LS4WS7V0Y_A" target="_blank">
                             <img src="https://img.youtube.com/vi/LS4WS7V0Y_A/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">들리지 않아도 랩, 댄스, 노래<br> 다 할 수 있어요. <br>청각장애 핸디래퍼 김지연</span>
+                        <span class="tooltiptext">Being a handy rapper with hearing impairment</span>
 
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=MCZqR2VCP28" target="_blank">
                             <img src="https://img.youtube.com/vi/MCZqR2VCP28/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">침묵 속에 춤을 추는 <br> 청각 장애 발레리나 고아라</span>
+                        <span class="tooltiptext">Being a ballerina with hearing impairment</span>
 
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=REpjJyKifms" target="_blank">
                             <img src="https://img.youtube.com/vi/REpjJyKifms/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">천만 조회수 기록한 <br> '조용한 택시'...비머도 타봤습니다</span>
+                        <span class="tooltiptext">We tried 'The Quiet Taxi'</span>
 
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=5gc4y9ExmHw" target="_blank">
                             <img src="https://img.youtube.com/vi/5gc4y9ExmHw/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">제40회 장애인의 날 기념 동영상</span>
+                        <span class="tooltiptext">The 40th day of the disabled/span>
 
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=kJrRzI0Tm80" target="_blank">
                             <img src="https://img.youtube.com/vi/kJrRzI0Tm80/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">시청각장애인식개선 <br> 캠페인 홍보영상</span>
+                        <span class="tooltiptext">Campaign for visual/hearing impairment awareness improvement</span>
 
                     </div>
                     <div class="item">
                         <a href="https://www.youtube.com/watch?v=6KER4bgyozg" target="_blank">
                             <img src="https://img.youtube.com/vi/6KER4bgyozg/maxresdefault.jpg"></a>
-                        <span class="tooltiptext">😧 뇌성마비 장애인과 <br> 친구가 될 수 있을까?</span>
+                        <span class="tooltiptext">😧 Can we be friends with a person with cerebral palsy</span>
 
                     </div>
                 </div>
@@ -629,47 +630,48 @@
                 <% if(BeforeScore=='no' || AfterScore=='no' ){ %>
                     <div class="not-yet-test">
                         <div class="not-yet-test-comment">
-                            아직 인식개선 테스트를 모두 보지 않으셨습니다.😢
+                            You haven't took all the quizzes yet 😢
                         </div>
                         <div class="not-yet-test-comment">
-                            테스트를 보고 다시 돌아와 주세요.
+                            Please come back after you're done with the quiz.
                         </div>
                         <div id="menu-desc-comment">
-                            오른쪽 위의 바로가기 탭을 통해 테스트 페이지로 가실 수 있습니다.
+                            Use the shortcut for the quiz in the menu!
                         </div>
                     </div>
                     <% } else { %>
                         <div class="own-score chart-comment" id="before-own-score">
-                            <div class="test-first-score-comment" id="before-first-score-comment">인식개선 첫 번째 테스트에서</div>
+                            <div class="test-first-score-comment" id="before-first-score-comment">Your Before Quiz score is</div>
                             <div class="test-second-score-comment" id="before-second-score-comment">
-                                <span class="total-count">10</span>개 중
                                 <span class="correct-count" style="color: rgba(255, 206, 86, 1)">
                                     <%=BeforeScore%>
-                                </span>개를
+                                </span>out of
+                                <span class="total-count">10</span>
                             </div>
                         </div>
 
                         <div class="own-score chart-comment" id="after-own-score">
-                            <div class="test-first-score-comment" id="after-first-score-comment">인식개선 두 번째 테스트에서</div>
+                            <div class="test-first-score-comment" id="after-first-score-comment">Your After Quiz score is</div>
                             <div class="test-second-score-comment" id="after-second-score-comment">
-                                <span class="total-count">10</span>개 중
                                 <span class="correct-count" style="color: rgba(54, 162, 235, 1)">
                                     <%=AfterScore%>
-                                </span>개를
+                                </span>out of 
+                                <span class="total-count">10</span>
+                                
                             </div>
                         </div>
-                        <div class="chart-comment" id="last-score-comment">맞히셨습니다!</div>
+                        <div class="chart-comment" id="last-score-comment"></div>
                         <% } %>
             </div>
 
             <div class="chart-comment-container" id="propose-comment">
-                다른 사용자분들의 결과도 확인해보세요!
+                Check out others' scores!
             </div>
             <div class="score-chart-container">
                 <div class="score-chart" id="first-chart">
                     <div class="inside-container">
                         <div class="chart-title">
-                            인식개선 테스트 점수 분포
+                            Disability awareness quiz score distribution
                         </div>
                         <div class="compareChart" id="beforeCompareChart">
                             <canvas id="beforeChart">
@@ -680,10 +682,10 @@
                     <div class="chart-desc" id="first-chart-desc">
                         <div class="chart-desc-comment">
                             <div class="chart-desc-div first-chart-desc">
-                                파란 색 선이 오른쪽으로 더 치우쳐져 있을 수록 저희 서비스를 통해 사용자들의 인식이 개선되었음을 의미해요!
+                                The more the blue line is skewed to the right, the better the awareness has been improved through our service!
                             </div>
                             <div class="chart-desc-div first-chart-desc">
-                                점수 분포 그래프를 통해 다른 사용자 분들의 인식개선 서비스 이용 전 후, 인식개선 결과를 비교해보세요!
+                                Compare users' Before and After Quiz scores!
                             </div>
                         </div>
                     </div>
@@ -691,7 +693,7 @@
                 <div class="score-chart" id="second-chart">
                     <div class="inside-container">
                         <div class="chart-title">
-                            인식개선 서비스를 이용한 뒤의 점수 변화 비율
+                            Rate of change in score after using B-Free
                         </div>
                         <div class="compareChart" id="increaseCompareChart">
                             <canvas id="increaseChart">
@@ -702,10 +704,10 @@
                     <div class="chart-desc" id="second-chart-desc">
                         <div class="chart-desc-comment">
                             <div class="chart-desc-div second-chart-desc">
-                                초록색 부분이 더 클수록 두번째 테스트에서 인식개선 점수가 상승한 사람이 많다는 것을 의미해요!
+                                The larger the green part, the more people have received a better score in the After Quiz.
                             </div>
                             <div class="chart-desc-div second-chart-desc">
-                                점수 변화 비율 그래프를 통해 인식개선 점수가 상승한 사용자분들을 확인해 보세요!
+                                Check out whose scores have risen!
                             </div>
                         </div>
                     </div>
@@ -728,7 +730,7 @@
                         });
                     });
                 </script>
-                <div style="display: inline;"> 👈카카오톡으로 B-Free를 공유해주세요!🥰</div>
+                <div style="display: inline;"> 👈Share B-Free via Kakao talk!🥰</div>
                 <hr>
                 <ul>
                     <li>photos <a target="_blank" href="https://www.freepik.com/photos/business">carousel-1 | </a>
