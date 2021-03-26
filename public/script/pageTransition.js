@@ -1,16 +1,5 @@
 gsap.registerPlugin(ScrollToPlugin);
 
-const menu = document.querySelector("#menu");
-let curPage = "#main_top";
-menu.addEventListener("mouseover", (e) => {
-    $('#path-menu').show();
-})
-
-menu.addEventListener("mouseleave", (e) => {
-    $('#path-menu').hide();
-})
-
-
 let tl = gsap.timeline();
 
 const btnOptions = [{

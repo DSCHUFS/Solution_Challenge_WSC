@@ -1,13 +1,12 @@
-Cookies.set('lang', 'kr');
-let krChange = document.querySelector('#kr');
-let enChange = document.querySelector('#en');
+let krChange = document.querySelector('#kr>a');
+let enChange = document.querySelector('#en>a');
 
 function chooseLang() {
     let cookie = Cookies.get();
-    if(cookie.lang === "kr") {
+    if (cookie.lang === "kr") {
         krChange.style.color = "#008B9F";
         enChange.style.color = "#B3B5B9";
-    } else if(cookie.lang === "en") {
+    } else if (cookie.lang === "en") {
         enChange.style.color = "#008B9F";
         krChange.style.color = "#B3B5B9";
     }
@@ -16,7 +15,7 @@ function chooseLang() {
 chooseLang();
 
 krChange.addEventListener("click", (e) => {
-    Cookies.set('lang', 'kr');
+    // Cookies.set('lang', 'kr');
     chooseLang();
 })
 
@@ -26,11 +25,11 @@ krChange.addEventListener("mouseover", (e) => {
 
 krChange.addEventListener("mouseleave", (e) => {
     let cookie = Cookies.get();
-    if(cookie.lang !== "kr") krChange.style.color = "#B3B5B9";
+    if (cookie.lang !== "kr") krChange.style.color = "#B3B5B9";
 })
 
 enChange.addEventListener("click", (e) => {
-    Cookies.set('lang', 'en');
+    // Cookies.set('lang', 'en');
     chooseLang();
 })
 
@@ -40,5 +39,5 @@ enChange.addEventListener("mouseover", (e) => {
 
 enChange.addEventListener("mouseleave", (e) => {
     let cookie = Cookies.get();
-    if(cookie.lang !== "en") enChange.style.color = "#B3B5B9";
+    if (cookie.lang !== "en") enChange.style.color = "#B3B5B9";
 })

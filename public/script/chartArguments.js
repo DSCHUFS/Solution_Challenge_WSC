@@ -1,6 +1,5 @@
 function getChartArguments() {
-    return [
-        {
+    return [{
             chartConfig: {
                 type: 'pie',
                 data: {
@@ -168,4 +167,174 @@ function getChartArguments() {
         }
     ]
 }
+
+function getChartArgumentsEN() {
+    return [{
+            chartConfig: {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        data: [88.1, 11.9],
+                        backgroundColor: [
+                            "#FECE3E", "#8E8E8E"
+                        ],
+                        borderColor: "#FFFFFF00"
+                    }],
+                    labels: [
+                        'Acquired disability', 'Congenital disability'
+                    ]
+                },
+                options: {
+                    animation: {
+                        duration: 1500
+                    },
+                    legend: {
+                        position: 'left',
+                        onHover: () => { document.getElementById("chart1").style.cursor = 'pointer' },
+                        onLeave: () => { document.getElementById("chart1").style.cursor = 'default' }
+                    },
+                    aspectRatio: 2.5
+                }
+            }
+        },
+
+        {
+            chartConfig: {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        data: [13.9, 25.3, 60.7],
+                        backgroundColor: [
+                            "#C1C1C1", "#C1C1C1", "#3BAAD8"
+                        ],
+                        label: "Do you know about the Disability Discrimination Act?"
+                    }],
+                    labels: [
+                        'Yes', 'I’ve heard of it, but I don’t know', 'No'
+                    ]
+                },
+                options: {
+                    animation: {
+                        duration: 2000
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                display: false
+                            }
+                        }]
+                    },
+                    aspectRatio: 1.5,
+                    legend: {
+                        onHover: () => { document.getElementById("chart2").style.cursor = 'pointer' },
+                        onLeave: () => { document.getElementById("chart2").style.cursor = 'default' }
+                    }
+                }
+            }
+        },
+
+        {
+            chartConfig: {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: [
+                            48.9, 11.1, 10.2, 10.9, 7.6, 11.3
+                        ],
+                        backgroundColor: [
+                            "#E07707", "#C1C1C1", "#C1C1C1", "#C1C1C1"
+                        ]
+                    }],
+                    labels: [
+                        'Physical disability', 'Brain lesion', 'Visual impairment', 'Hearing impairment',
+                        'Intellectual disability', 'Others'
+                    ]
+                },
+                options: {
+                    circumference: Math.PI,
+                    rotation: -Math.PI,
+                    title: {
+                        display: true
+                    },
+                    gridLines: {
+                        display: true,
+                        drawTicks: false
+                    },
+                    animation: {
+                        duration: 2000
+                    },
+                    ticks: {
+                        display: false
+                    },
+                    aspectRatio: 2,
+                    legend: {
+                        position: 'top',
+                        onHover: () => { document.getElementById("chart3").style.cursor = 'pointer' },
+                        onLeave: () => { document.getElementById("chart3").style.cursor = 'default' }
+                    }
+                }
+            }
+        },
+
+
+        {
+            chartConfig: {
+                type: 'bar',
+                data: {
+                    datasets: [{
+                        data: [
+                            1.2, 0.08
+                        ],
+                        backgroundColor: [
+                            "#1B2B44", "#C1C1C1"
+                        ],
+                        label: 'Crime rate of the Disabled and the Non-disabled'
+                    }],
+                    labels: [
+                        'non-disabled', 'people with mental illness'
+                    ]
+                },
+                options: {
+                    gridLines: {
+                        display: true,
+                        drawTicks: false
+                    },
+                    animation: {
+                        duration: 2000
+                    },
+                    scales: {
+                        xAxes: [{
+                            gridLines: {
+                                display: false
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines: {
+                                display: false
+                            },
+                            ticks: {
+                                display: false
+                            }
+                        }]
+                    },
+                    aspectRatio: 2,
+                    legend: {
+                        position: 'top',
+                        onHover: () => { document.getElementById("chart4").style.cursor = 'pointer' },
+                        onLeave: () => { document.getElementById("chart4").style.cursor = 'default' }
+                    }
+                }
+            }
+        }
+    ]
+}
 let chartArguments = getChartArguments();
+let chartArgumentsEN = getChartArgumentsEN();
