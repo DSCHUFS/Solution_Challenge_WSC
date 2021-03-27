@@ -429,7 +429,8 @@ a:-webkit-any-link {
 .btn-after {
     float: right;
     margin-top: 10%;
-    background-color: #1B2B44;
+    background-color: #008B9F;
+
 }
 
 .btn-after:hover {
@@ -442,7 +443,8 @@ a:-webkit-any-link {
     float: right;
     margin-top: 10%;
     margin-right: 10px;
-    background-color: #008B9F;
+    background-color: #1B2B44;
+
 }
 
 .main_middle {

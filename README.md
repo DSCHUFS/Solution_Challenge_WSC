@@ -4,7 +4,7 @@
 ![Firebase](https://img.shields.io/badge/with-Firebase-yellow?logo=Firebase)
 ![Socket.io](https://img.shields.io/badge/socket.io-v3.1.2-white?logo=Socket.io)
 ![MIT](https://img.shields.io/github/license/rlagksruf16/Daily-mistakes?label=license)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fb-freeproject.df.r.appspot.com&count_bg=%23EB3A4F&title_bg=%23555555&icon=&icon_color=%23E33E3E&title=Participants&edge_flat=false)](https://hits.seeyoufarm.com)
+<!-- [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fb-freeproject.df.r.appspot.com&count_bg=%23EB3A4F&title_bg=%23555555&icon=&icon_color=%23E33E3E&title=Participants&edge_flat=false)](https://hits.seeyoufarm.com) -->
 
 <img src="https://github.com/DSCHUFS/Solution_Challenge_WSC/blob/Yeeun/public/img/main.PNG?raw=true" width="90%">
 
@@ -14,11 +14,11 @@
 
 ---
 
-## 공개 주소✨
+## URL and Video✨
 
-배포 URL : https://b-freeproject.df.r.appspot.com/
+URL : https://b-freeproject.df.r.appspot.com/
 
-데모 영상 :
+Demo video :
 
 
 
