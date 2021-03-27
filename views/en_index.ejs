@@ -776,6 +776,13 @@
             submitNickname();
         });
 
+        const input = document.querySelector('#nickname');
+        input.addEventListener('keyup',function(e){
+            if (e.keyCode === 13) {
+                submitNickname();
+            }  
+        });
+
         function submitNickname() {
             var queryString = $("form[name=nickname]").serialize();
             if (queryString === "nick=") {

@@ -427,7 +427,7 @@ async function updateScore(beforeScore, afterScore, type) {
     }
 
     //점수의 상승이 있었을 때만 1씩 증가
-    if (afterScore - beforeScore > 0) {
+    if (afterScore - beforeScore >= 0) {
         if (type == 'plus') {
             await scoreIncrease.update({
                 increase: admin.firestore.FieldValue.increment(1)
