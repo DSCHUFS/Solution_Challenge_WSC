@@ -23,7 +23,7 @@
 
 
 ## About the Project
-B-Free is a Firebase-based website that aims to raise social awareness towards persons with disabilities. Determine your disability literacy with our quiz and learn more about disability from the images, statistics, and videos.  
+B-Free is a Firebase-based website that aims to raise social awareness towards persons with disabilities. Determine your disability literacy with the quiz and learn more about disability from the images, statistics, and videos.  
 
 
 
