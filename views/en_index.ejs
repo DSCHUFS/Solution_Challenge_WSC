@@ -193,7 +193,7 @@
                     </div>
                 </div>
                 <div class="img_comment"><span id="hide-comment" style="color: #008B9F; font-weight: 800;">Everybody
-                    </span> is living an 
+                    </span> is living an
                     <span id="hide-comment" style="color: #008B9F; font-weight: 800;">everyday 
                     </span> normal life.</div>
 
@@ -792,10 +792,10 @@
         });
 
         const input = document.querySelector('#nickname');
-        input.addEventListener('keyup',function(e){
+        input.addEventListener('keyup', function(e) {
             if (e.keyCode === 13) {
                 submitNickname();
-            }  
+            }
         });
 
         function submitNickname() {
@@ -841,7 +841,7 @@
                 success: function(result) {
                     console.log(result);
                     if (result.msg == "notRegistered") {
-                        alert("Please register your nickname!");
+                        Cookies.set('curPage', "#main_top");
                         pageTransition("#main_top", 0);
                     } else if (result.msg == "fine") {
                         alert("Submit successfully!");
@@ -866,10 +866,10 @@
                     console.log(result);
                     if (result.msg == "notRegistered") {
                         alert("Please register your nickname!");
-                        pageTransition("#main_top", 0);
+                        Cookies.set('curPage', "#main_top");
                     } else if (result.msg == "yetBefore") {
                         alert("Please submit the first test!");
-                        pageTransition(".before_test", 0);
+                        Cookies.set('curPage', ".before_test");
                     } else if (result.msg == "fine") {
                         alert("Submit successfully!");
                     }

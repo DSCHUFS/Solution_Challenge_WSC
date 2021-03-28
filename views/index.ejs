@@ -792,10 +792,10 @@
         });
 
         const input = document.querySelector('#nickname');
-        input.addEventListener('keyup',function(e){
+        input.addEventListener('keyup', function(e) {
             if (e.keyCode === 13) {
                 submitNickname();
-            }  
+            }
         });
 
         function submitNickname() {
@@ -840,10 +840,12 @@
                 dataType: 'json',
                 success: function(result) {
                     console.log(result);
-                    if (result.msg == "notRegistered")
+                    if (result.msg == "notRegistered") {
                         alert("닉네임을 등록해주세요!");
-                    else if (result.msg == "fine")
+                        Cookies.set('curPage', "#main_top");
+                    } else if (result.msg == "fine") {
                         alert("정상적으로 제출되었습니다!");
+                    }
                     location.reload();
                 },
                 error: function(xhr, status, error) {
@@ -862,11 +864,13 @@
                 dataType: 'json',
                 success: function(result) {
                     console.log(result);
-                    if (result.msg == "notRegistered")
+                    if (result.msg == "notRegistered") {
                         alert("닉네임을 등록해주세요!");
-                    else if (result.msg == "yetBefore")
+                        Cookies.set('curPage', "#main_top");
+                    } else if (result.msg == "yetBefore") {
                         alert("첫 번째 테스트를 먼저 제출해주세요!");
-                    else if (result.msg == "fine")
+                        Cookies.set('curPage', ".before_test");
+                    } else if (result.msg == "fine")
                         alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },
