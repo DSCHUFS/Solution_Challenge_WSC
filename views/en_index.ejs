@@ -815,11 +815,9 @@
                         else if (result.msg == "registered") {
                             alert("You registered your nickname. Please run the test😊");
                             pageTransition(".before_test", 0);
-                            Cookies.set('curPage', ".before_test");
                         } else {
                             alert("Reigster successfully.");
                             pageTransition(".before_test", 0);
-                            Cookies.set('curPage', ".before_test");
                         }
                     },
                     error: function(xhr, status, error) {
@@ -842,7 +840,6 @@
                     console.log(result);
                     if (result.msg == "notRegistered") {
                         Cookies.set('curPage', "#main_top");
-                        pageTransition("#main_top", 0);
                     } else if (result.msg == "fine") {
                         alert("Submit successfully!");
                     }
