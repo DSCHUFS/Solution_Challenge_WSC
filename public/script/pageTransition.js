@@ -47,6 +47,8 @@ btnOptions.forEach(({ btnSelector, pageSelector, offsetY }) => {
 const page = [".top", "#main_middle", "#main_bottom", ".before_test", ".after_test"];
 
 page.forEach(p => {
-    if (p === ".top") document.querySelector(p).style.height = "auto";
-    else document.querySelector(p).style.height = window.innerHeight + 'px';
+    if (p === ".top") {
+        if (document.querySelector(".top").clientHeight > window.height)
+            document.querySelector(p).style.height = "auto";
+    } else document.querySelector(p).style.height = window.innerHeight + 'px';
 })
