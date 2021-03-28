@@ -44,9 +44,9 @@ btnOptions.forEach(({ btnSelector, pageSelector, offsetY }) => {
 })
 
 
-const page = ["#main_top", "#main_middle", "#main_bottom", ".before_test", ".after_test"];
+const page = [".top", "#main_middle", "#main_bottom", ".before_test", ".after_test"];
 
 page.forEach(p => {
-    if (p === "#main_top") document.querySelector(p).style.height = "none";
+    if (p === "#main_top") document.querySelector(p).style.height = "auto";
     else document.querySelector(p).style.height = window.innerHeight + 'px';
 })

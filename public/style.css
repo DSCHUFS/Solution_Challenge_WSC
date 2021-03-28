@@ -177,7 +177,7 @@ a:-webkit-any-link {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: none;
+    overflow-y: auto;
 }
 
 .top {
@@ -430,7 +430,6 @@ a:-webkit-any-link {
     float: right;
     margin-top: 10%;
     background-color: #008B9F;
-
 }
 
 .btn-after:hover {
@@ -444,7 +443,6 @@ a:-webkit-any-link {
     margin-top: 10%;
     margin-right: 10px;
     background-color: #1B2B44;
-
 }
 
 .main_middle {
