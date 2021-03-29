@@ -41,16 +41,13 @@ function checkTestDone() {
     }
 }
 
-
-
-
 function pageTransition(pageSelector, offsetY) {
     gsap.timeline().set('#page-transition', { zIndex: 999 })
         .to('#page-transition', { opacity: 1, duration: 0.5 })
         .to('#root', { duration: 0, scrollTo: { y: pageSelector, offsetY: offsetY } })
         .to('#page-transition', { opacity: 0, duration: 0.5 })
         .set('#page-transition', { zIndex: -1 });
-    curPage = pageSelector;
+    Cookies.set('curPage', pageSelector);
 }
 
 function addPageTransition(btnSelector, pageSelector, offsetY) {
