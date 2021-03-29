@@ -38,7 +38,7 @@
                         </ul>
                     </li>
                     <li class="translation-option" id="kr"><a href="/">한국어</a></li>
-                    <li class="translation-option" id="en"><a href="/en">En</a></li>
+                    <li class="translation-option" id="en"><a href="/en">EN</a></li>
                 </ul>
             </div>
         </div>
@@ -47,6 +47,7 @@
         <div class="main main_top" id="main_top">
             <div class="top">
                 <div class="img_container">
+                    <div class="img_overlay"></div>
                     <img class="main_image" id="firstImage" src="pics/Main1.jpg" alt="두 사람이 나란히 가는 사진">
                 </div>
                 <div class="text_container">
@@ -792,10 +793,10 @@
         });
 
         const input = document.querySelector('#nickname');
-        input.addEventListener('keyup',function(e){
+        input.addEventListener('keyup', function(e) {
             if (e.keyCode === 13) {
                 submitNickname();
-            }  
+            }
         });
 
         function submitNickname() {
@@ -815,11 +816,9 @@
                         else if (result.msg == "registered") {
                             alert("이미 닉네임을 등록하셨습니다. 테스트를 진행해주세요😊");
                             pageTransition(".before_test", 0);
-                            Cookies.set('curPage', ".before_test");
                         } else {
                             alert("정상적으로 등록되었습니다.");
                             pageTransition(".before_test", 0);
-                            Cookies.set('curPage', ".before_test");
                         }
                     },
                     error: function(xhr, status, error) {
@@ -840,10 +839,12 @@
                 dataType: 'json',
                 success: function(result) {
                     console.log(result);
-                    if (result.msg == "notRegistered")
+                    if (result.msg == "notRegistered") {
                         alert("닉네임을 등록해주세요!");
-                    else if (result.msg == "fine")
+                        Cookies.set('curPage', "#main_top");
+                    } else if (result.msg == "fine") {
                         alert("정상적으로 제출되었습니다!");
+                    }
                     location.reload();
                 },
                 error: function(xhr, status, error) {
@@ -862,11 +863,13 @@
                 dataType: 'json',
                 success: function(result) {
                     console.log(result);
-                    if (result.msg == "notRegistered")
+                    if (result.msg == "notRegistered") {
                         alert("닉네임을 등록해주세요!");
-                    else if (result.msg == "yetBefore")
+                        Cookies.set('curPage', "#main_top");
+                    } else if (result.msg == "yetBefore") {
                         alert("첫 번째 테스트를 먼저 제출해주세요!");
-                    else if (result.msg == "fine")
+                        Cookies.set('curPage', ".before_test");
+                    } else if (result.msg == "fine")
                         alert("정상적으로 제출되었습니다!");
                     location.reload();
                 },

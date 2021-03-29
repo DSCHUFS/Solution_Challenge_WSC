@@ -115,11 +115,6 @@ a:-webkit-any-link {
     transition: all 0.5s;
 }
 
-
-/* #menu:hover .svg_comp {
-    fill: #008B9F;
-} */
-
 #path-menu {
     display: none;
     position: absolute;
@@ -163,7 +158,14 @@ a:-webkit-any-link {
     z-index: -1;
     height: 100%;
     width: 100%;
-    background: transparent;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.img_overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .main_image {
@@ -177,20 +179,18 @@ a:-webkit-any-link {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
-    overflow-y: none;
+    overflow-y: auto;
 }
 
 .top {
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.4);
 }
 
 .text_container {
     margin-left: 3vw;
     padding: calc(85vh - (min(15vh, 13vw)*2 + min(5vh, 4vw)) - 15vh) 0 0 1vw;
     position: relative;
-    /* top: 6vh; */
 }
 
 .nickname-form {
@@ -430,7 +430,6 @@ a:-webkit-any-link {
     float: right;
     margin-top: 10%;
     background-color: #008B9F;
-
 }
 
 .btn-after:hover {
@@ -444,7 +443,6 @@ a:-webkit-any-link {
     margin-top: 10%;
     margin-right: 10px;
     background-color: #1B2B44;
-
 }
 
 .main_middle {
@@ -463,13 +461,6 @@ a:-webkit-any-link {
     align-items: center;
     margin: 0 0 2rem 0;
 }
-
-
-/* #img-comment-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .img_comment {
     z-index: 10;
@@ -531,8 +522,6 @@ a:-webkit-any-link {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* error */
-    /* width: 100vw;  */
     margin: 0 1rem;
 }
 
@@ -554,7 +543,6 @@ a:-webkit-any-link {
 
 .pictogram {
     max-width: 500px;
-    /* min-width: 320px; */
     margin: 0 auto;
     display: flex;
     flex-flow: column;
