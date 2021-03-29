@@ -474,6 +474,18 @@ async function revertData(beforeScore, afterScore) {
     await updateScore(beforeScore, afterScore, 'minus');
 }
 
+//feedback chart에 반영되는 data 소멸 시, user collection 읽으며 data 추출하는 함수
+async function getD(){
+    var data;
+    const dbRef = db.collection("user");
+    const snapshot = await dbRef.where('after', '!=', 'no').get();
+    snapshot.forEach(async function(doc){
+        data = doc.data();
+        await updateScore(data.before, data.after, 'plus');
+        await updateCount('plus');
+    });
+}
+
 server.listen(port, () => {
     console.log("app is running on port " + port);
 });
