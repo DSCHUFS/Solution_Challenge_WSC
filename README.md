@@ -16,7 +16,7 @@
 
 ## URL and Video✨
 
-URL : https://b-freeproject.df.r.appspot.com/
+URL : https://b-free.herokuapp.com/
 
 Demo video : https://youtu.be/L1LftkhAhr0
 
