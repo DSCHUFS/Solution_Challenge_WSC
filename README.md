@@ -16,7 +16,7 @@
 
 ## URL and Video✨
 
-URL : https://b-free.herokuapp.com/
+URL : https://solution-challenge-b-free.herokuapp.com/
 
 Demo video : https://youtu.be/L1LftkhAhr0
 
